@@ -1,0 +1,182 @@
+.infoProgressbar {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #777777;    
+}
+.progressbar {
+    width: 60%;
+    height: 18px;
+    background-color: #dddddd;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: solid 1px rgb(0,97,167);
+  }
+  
+  .progressbar div {
+    width: 20%;
+    height: 100%;
+    background-color: rgb(0,97,167);
+    border-radius: 6px;
+  }
+
+  .form-body {
+    border-radius: 5px;
+    width: 80%;
+    margin: auto;
+    padding: 20px 0px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 2px 3px rgba(0,0,0,.1);
+  }
+
+  h3 {
+    color: #00216d;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+
+  .form-group-1 {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 10px;
+    min-height: 50px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  label {
+    color: #002a7c;
+  }
+
+  input, select {
+    width: 100%;
+    height: 40px;
+    border: solid 1px #e3e3e3;
+    background-color: #fdfdfd;
+    outline: none;
+    padding-left: 5px;
+    text-align: left;
+    border-radius: 6px;
+  }
+
+  textarea {
+    width: 100%;
+    border: solid 1px #e3e3e3;
+    background-color: #fdfdfd;
+    outline: none;
+    padding-left: 5px;
+    text-align: left;
+    border-radius: 6px;
+  }
+
+  .form-DataTime .group-datatime {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+  }
+
+  td {
+    border: solid 1px #e3e3e3;
+    padding: 7px;
+    font-size: 14px;
+  }
+
+  #selectPolicy {
+    width: 15%;
+    height: 10%;
+  }
+
+  .form-footer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0,97,167);
+    width: 80px;
+    height: 30px;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+  }
+
+  .btn-validation {
+    width: 110px;
+    margin-top: 10px;
+  }
+
+  .form-InformationParticular {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .select-yes-no {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    height: 16px;
+  }
+
+  .msg-error {
+    color: red;
+    font-size: 11px;
+  }
+
+  .msg-ok {
+    color: #002a7c;
+  }
+
+  .formQuestions1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /*********************************************Desktop***************************************************/
+
+  @media (min-width: 769px) {
+
+    .form-DataTime, .form-Raison, .info-location {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .formQuestions1 {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .formQuestions1 h3 {
+      width: 100%;
+    }
+
+    .form-group-2 {
+      width: 48%;
+    }
+
+    .form-group-3 {
+      width: 33%;
+    }
+
+    .form-group-4 {
+      width: 22%;
+    }
+  }
