@@ -4,7 +4,22 @@ import './Home.css'
 function Home() {
     return (
         <div className='main'>
-            Home
+            <div className='probar-button'>
+                
+            </div>
+                <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            
         </div>
     )
 }

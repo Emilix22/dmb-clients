@@ -233,11 +233,14 @@ function BodyDateTime({
                   <strong>N° Póliza</strong>
                 </td>
                 <td>
-                  <strong>Tipo Póliza</strong>
+                  <strong>Marca</strong>
                 </td>
-                {/* <td>etc..</td>
-                              <td>etc..</td>
-                              <td>etc..</td> */}
+                <td>
+                  <strong>Modelo</strong>
+                </td>
+                <td>
+                  <strong>Patente</strong>
+                </td>
               </tr>
             </thead>
             <tbody>
@@ -247,7 +250,9 @@ function BodyDateTime({
                     setFormData={setFormData}
                     formData={formData}
                     numero_poliza={policy.numero_poliza}
-                    tipo_poliza={policy.tipo_poliza}
+                    marca_auto={policy.autos.marca}
+                    modelo_auto={policy.autos.modelo}
+                    patente_auto={policy.autos.patente}
                     key={policy + index}
                   />
                 );
