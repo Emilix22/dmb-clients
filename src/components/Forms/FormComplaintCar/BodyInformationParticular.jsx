@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import FormQuestion1 from './FormQuestion1'
 import FormQuestion2 from './FormQuestion2'
 
 function InformationParticular({ formData, setFormData, errors, setErrors, expressions }) {
+
+    const [multi, setMulti] = useState([])
+
+    useEffect(() => {
+        
+        formData.injured_in_car.iic_quantity === "1" 
+        ? setMulti([1]) 
+        : formData.injured_in_car.iic_quantity === "2" 
+        ? setMulti([1, 2]) 
+        : formData.injured_in_car.iic_quantity === "3" 
+        ? setMulti([1, 2, 3]) 
+        : formData.injured_in_car.iic_quantity === "4" 
+        ? setMulti([1, 2, 3, 4])
+        : formData.injured_in_car.iic_quantity === "5" 
+        ? setMulti([1, 2, 3, 4, 5])
+        : setMulti([])  
+    }, [formData.injured_in_car.iic_quantity])
 
 
     return (
@@ -71,7 +88,6 @@ function InformationParticular({ formData, setFormData, errors, setErrors, expre
                             ...formData.injured_in_car,
                             iic_quantity: e.target.value
                         }})
-                        quantityFormQuestion2(Number(e.target.value))
                     }}
                     // onKeyUp={validations.iic_quantity}
                     // onBlur={validations.iic_quantity}
@@ -80,12 +96,13 @@ function InformationParticular({ formData, setFormData, errors, setErrors, expre
             </div> : ""
             }
 
-            {
-                formData.injured_in_car.iic_quantity != "" 
-                ? <FormQuestion2 formData={formData} setFormData={setFormData} errors={errors} setErrors={setErrors} expressions={expressions} />
-                : ""
+            {     
+                multi.map((num, index) => {
+                    return <FormQuestion2 title={index +1} formData={formData} setFormData={setFormData} errors={errors} setErrors={setErrors} expressions={expressions} key={num +index} />
+                })
+                
             }
-{/*  */}
+
             <div className="form-group-1 form-group-2">
                 <span htmlFor="question3">¿Hubo lesionados fuera del vehículo?</span>
                 <div className='select-yes-no'>
