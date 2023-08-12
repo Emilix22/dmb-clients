@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) {
+function FormQuestion2({formData, setFormData, errors, setErrors, expressions}) {
 
     const [states, setStates] = useState([]);
     const [cities, setCities] = useState([]);
@@ -31,44 +31,45 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
     }, [formData.driver_not_client.dnc_state]); // hacer lo del máximo **!!!!**************************************************
 
     return (
-        <div className='formQuestions1'>
-            <h3>Datos del Conductor</h3>
+        <div className='formQuestions2'>
+
+            <h4>Datos del Lesionado Dentro del Vehículo </h4>
 
             <div className="form-group-1 form-group-2">
-                <label htmlFor="dnc_name">Nombre</label>
+                <label htmlFor="iic_name">Nombre</label>
                 <input
                     type="text"
-                    name="dnc_name"
-                    id="dnc_name"
-                    value={formData.driver_not_client.dnc_name}
-                    onChange={(e) => setFormData({ ...formData, driver_not_client : {
-                        ...formData.driver_not_client,
-                        dnc_name: e.target.value
+                    name="iic_name"
+                    id="iic_name"
+                    value={formData.injured_in_car.iic_name}
+                    onChange={(e) => setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_name: e.target.value
                         } })}
-                    // onKeyUp={validations.dnc_name}
-                    // onBlur={validations.dnc_name}
+                    // onKeyUp={validations.iic_name}
+                    // onBlur={validations.iic_name}
                 />
-                {errors.dnc_name ? <span className="msg-error">{errors.dnc_name}</span> : ""}
+                {errors.iic_name ? <span className="msg-error">{errors.iic_name}</span> : ""}
             </div>
 
             <div className="form-group-1 form-group-2">
-                <label htmlFor="dnc_surname">Apellido</label>
+                <label htmlFor="iic_surname">Apellido</label>
                 <input
                     type="text"
-                    name="dnc_surname"
-                    id="dnc_surname"
-                    value={formData.driver_not_client.dnc_surname}
-                    onChange={(e) => setFormData({ ...formData, driver_not_client : {
-                        ...formData.driver_not_client,
-                        dnc_surname: e.target.value
+                    name="iic_surname"
+                    id="iic_surname"
+                    value={formData.injured_in_car.iic_surname}
+                    onChange={(e) => setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_surname: e.target.value
                         } })}
-                    // onKeyUp={validations.dnc_surname}
-                    // onBlur={validations.dnc_surname}
+                    // onKeyUp={validations.iic_surname}
+                    // onBlur={validations.iic_surname}
                 />
-                {errors.dnc_surname ? <span className="msg-error">{errors.dnc_surname}</span> : ""}
+                {errors.iic_surname ? <span className="msg-error">{errors.iic_surname}</span> : ""}
             </div>
-
-            <div className="form-group-1 form-group-2">
+        {/*
+        <div className="form-group-1 form-group-2">
                 <label htmlFor="dnc_DNI">DNI</label>
                 <input
                     type="text"
@@ -166,9 +167,9 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
                         })
                     : ""}
                 </select>
-                {/* {
+                {
                     errors.state ? <span className='msg-error'>{errors.state}</span> : ""
-                } */}
+                }
             </div>
 
             <div className="form-group-1 form-group-2">
@@ -250,9 +251,32 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
                     // onBlur={validations.dnc_postalCode}
                 />
                 {errors.dnc_postalCode ? <span className="msg-error">{errors.dnc_postalCode}</span> : ""}
-            </div>        
+            </div>
+
+            <div className="form-group-1 form-group-2">
+                <label htmlFor="dnc_relationship">Relación con el Asegurado</label>
+                <select
+                    name="dnc_relationshipn"
+                    id="dnc_relationship"
+                    value={formData.driver_not_client.dnc_relationship}
+                    onChange={(e) => setFormData({ ...formData, driver_not_client : {
+                        ...formData.driver_not_client,
+                        dnc_relationship: e.target.value
+                        } })}
+                > 
+                    <option value=""></option>
+                    <option value="Hijo">HIJO</option>
+                    <option value="Conyugue">CONYUGUE</option>
+                    <option value="Amigo">AMIGO</option>
+                </select>
+                {errors.dnc_relationship ? <span className="msg-error">{errors.dnc_relationship}</span> : ""}
+            </div>
+        
+        
+        */}                
+                     
         </div>
     )
 }
 
-export default FormQuestion1
+export default FormQuestion2

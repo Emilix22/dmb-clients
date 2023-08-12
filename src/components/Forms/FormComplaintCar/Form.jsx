@@ -32,6 +32,8 @@ function Form() {
             name: 'Ciudad Autónoma de Buenos Aires'
         },
         characteristics: "",
+        license_front: "",
+        license_back: "",
         //***************************paso4*********** */
         question1: "",
         question2: "",
@@ -40,9 +42,7 @@ function Form() {
         driver_not_client: {
             dnc_name: "",
             dnc_surname: "",
-            // dnc_DNI_type: "",
             dnc_DNI: "",
-            dnc_sex: "",
             dnc_phone: "",
             dnc_birthday: "",
             dnc_nacionality: "",
@@ -53,11 +53,17 @@ function Form() {
             dnc_state: {
                 id: 2,
                 name: 'Ciudad Autónoma de Buenos Aires'
-            },
-            dnc_occupation: "",
-            dnc_relationship: ""
+            }
         },
-        
+        injured_in_car: {
+            iic_quantity: "",
+            iic_name: "",
+            iic_surname: "",
+            iic_dni: "",
+            iic_phone: "",
+            iic_transfer: ""
+        }
+
     })
 
     const expressions = {

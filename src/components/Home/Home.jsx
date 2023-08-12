@@ -4,10 +4,8 @@ import './Home.css'
 function Home() {
     return (
         <div className='main'>
-            <div className='probar-button'>
-                
-            </div>
-                <ul class="circles">
+            
+                {/* <ul class="circles">
                     <li></li>
                     <li></li>
                     <li></li>
@@ -18,7 +16,7 @@ function Home() {
                     <li></li>
                     <li></li>
                     <li></li>
-                </ul>
+                </ul> */}
             
         </div>
     )

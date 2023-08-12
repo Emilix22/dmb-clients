@@ -216,12 +216,13 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
                     }
         </div>
         <div className="form-group-1 form-group-2" id="form-group-description">
-          <label htmlFor="description">Descripción</label>
+          <label htmlFor="description">Descripción de los hechos</label>
           <textarea
             name="description"
             id="description"
             cols="30"
             rows="10"
+            placeholder="Ej: circulaba por la calle rivera y al llegar a la esquina me chocó un auto por el costado izquierdo"
             value={formData.description}
             onChange={(e) => setFormData({ ...formData, description: e.target.value })}
             onKeyUp={validations.description}
@@ -250,6 +251,24 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
             <option value="Otra">OTRO</option>
           </select>
           {errors.characteristics ? <span className="msg-error">{errors.characteristics}</span> : ""}
+        </div>
+        <div className="form-group-1 form-group-2" id="form-group-img-license-front">
+          <label htmlFor="img-license-front"><span>📷</span> Foto del Registro de Conducir <strong>FRENTE</strong>:</label>          
+          <input 
+          type="file" 
+          name="img-license-front" 
+          // value={formData.license}
+          onChange={(e) => setFormData({ ...formData, license_front: e.target.files[0]})}
+          />
+        </div>
+        <div className="form-group-1 form-group-2" id="form-group-img-license-back">
+          <label htmlFor="img-license-back"><span>📷</span> Foto del Registro de Conducir <strong>DORSO</strong>:</label>          
+          <input 
+          type="file" 
+          name="img-license-back" 
+          // value={formData.license}
+          onChange={(e) => setFormData({ ...formData, license_back: e.target.files[0]})}
+          />
         </div>
       </div>
     </div>

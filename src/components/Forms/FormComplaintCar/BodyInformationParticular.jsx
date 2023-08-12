@@ -1,7 +1,10 @@
 import React from 'react'
 import FormQuestion1 from './FormQuestion1'
+import FormQuestion2 from './FormQuestion2'
 
 function InformationParticular({ formData, setFormData, errors, setErrors, expressions }) {
+
+
     return (
         <div className='form-InformationParticular'>
             <div className="form-group-1 form-group-2">
@@ -54,7 +57,35 @@ function InformationParticular({ formData, setFormData, errors, setErrors, expre
                 </div>
                 {errors.question2 ? <span className="msg-error">{errors.question2}</span> : ""}
             </div>
+            {
+                formData.question2 === "si" 
+                ? <div className="form-group-1 form-group-3">
+                <label htmlFor="iic_quantity">Cantidad de Lesionados Dentro del Vehículo</label>
+                <input
+                    type="text"
+                    name="iic_quantity"
+                    id="iic_quantity"
+                    value={formData.injured_in_car.iic_quantity}
+                    onChange={(e) => {
+                        setFormData({ ...formData, injured_in_car : {
+                            ...formData.injured_in_car,
+                            iic_quantity: e.target.value
+                        }})
+                        quantityFormQuestion2(Number(e.target.value))
+                    }}
+                    // onKeyUp={validations.iic_quantity}
+                    // onBlur={validations.iic_quantity}
+                />
+                {errors.iic_quantity ? <span className="msg-error">{errors.iic_quantity}</span> : ""}
+            </div> : ""
+            }
 
+            {
+                formData.injured_in_car.iic_quantity != "" 
+                ? <FormQuestion2 formData={formData} setFormData={setFormData} errors={errors} setErrors={setErrors} expressions={expressions} />
+                : ""
+            }
+{/*  */}
             <div className="form-group-1 form-group-2">
                 <span htmlFor="question3">¿Hubo lesionados fuera del vehículo?</span>
                 <div className='select-yes-no'>
