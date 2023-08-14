@@ -32,7 +32,7 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
 
     return (
         <div className='formQuestions1'>
-            <h3>Datos del Conductor</h3>
+            <h4>Datos del Conductor</h4>
 
             <div className="form-group-1 form-group-2">
                 <label htmlFor="dnc_name">Nombre</label>

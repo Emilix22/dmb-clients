@@ -31,6 +31,7 @@ function Form() {
             id: 2,
             name: 'Ciudad Autónoma de Buenos Aires'
         },
+        description: "",
         characteristics: "",
         license_front: "",
         license_back: "",
@@ -62,6 +63,18 @@ function Form() {
             iic_dni: "",
             iic_phone: "",
             iic_transfer: ""
+        },
+        injured_out_car: {
+            ioc_quantity: "",
+            ioc_name: "",
+            ioc_surname: "",
+            ioc_dni: "",
+            ioc_phone: "",
+            ioc_transfer: ""
+        },
+        other_car: {
+            oc_patent: "",
+            oc_insurance: "",
         }
 
     })
@@ -93,7 +106,7 @@ function Form() {
             return setPage((prevState) => prevState + 1)
         } if (!errors.length > 0 && formData.raison && formData.consequence && page === 1) {
            return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && formData.state && formData.city && formData.street && formData.door && formData.postalCode && page === 2) {
+        } if (!errors.length > 0 && formData.state && formData.city && formData.street && formData.door && formData.postalCode && formData.description && formData.characteristics && formData.license_front && formData.license_back && page === 2) {
            return setPage((prevState) => prevState + 1)
         } if (!errors.length > 0 && page === 3) {
             return setPage((prevState) => prevState + 1)
