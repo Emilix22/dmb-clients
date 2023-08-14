@@ -100,6 +100,9 @@ function BodyDateTime({
           client.data.apellido +
           " por favor ingrese fecha y hora del siniestro"
       );
+      
+      setFormData({ ...formData, client_name: client.data.nombre + " " + client.data.apellido });
+
       setErrors({ ...errors, client: "" });
       // console.log(client.data.nombre);
       setClientId(client.data.id);

@@ -4,16 +4,19 @@ import Location from './BodyLocation';
 import DateTime from './BodyDateTime';
 import Raison from './BodyRaison';
 import InformationParticular from './BodyInformationParticular';
+import ConfirmSend from './ConfirmSend';
+import { Toaster, toast } from 'sonner'
 
 function Form() {
 
     const [page, setPage] = useState(0);
 
-    const formTitles = ['Ingrese el DNI del Asegurado y la Fecha y Hora del Siniestro', 'Seleccione Motivo y Consecuencia', 'Indique Lugar del Siniestro', 'Información Particular', 'Confirmación de Datos de Contacto'];
+    const formTitles = ['Ingrese el DNI del Asegurado y la Fecha y Hora del Siniestro', 'Seleccione Motivo y Consecuencia', 'Indique Lugar del Siniestro', 'Información Particular', 'Resumen del Siniestro a Denunciar'];
 
     const [formData, setFormData] = useState({
         //***************************paso1*********** */
         dni: "",
+        client_name: "",
         date: "",
         hour: "",
         minutes: "",
@@ -121,6 +124,13 @@ function Form() {
         setPage((prevState) => prevState - 1)
     }
 
+    const handleSend = (event) => {
+        event.preventDefault();
+        toast.success('Formulario Enviado!')
+        console.log(formData)
+
+    }
+
     const formDisplay = () => {
         if (page === 0) {
             return <DateTime 
@@ -163,14 +173,19 @@ function Form() {
             />
         };
         if (page === 4) {
-            return "pagina 4"
+            return <ConfirmSend 
+            formData={formData} 
+            />
         };
 
     }
-    console.log(formData)
-    console.log(page)
+    // console.log(formData)
+    // console.log(page)
     return (
         <form className='form'>
+            
+            <Toaster richColors />
+
             <div className='infoProgressbar'>
                 {page === 0 ? <span>Paso 1 de 5</span>
                 : page === 1 ? <span>Paso 2 de 5</span>
@@ -270,7 +285,9 @@ function Form() {
                         : ""                
                     }
 
-                    {page === formTitles.length - 1 ? <button>Enviar</button>: ""}
+                    {page === formTitles.length - 1 
+                    ? <button onClick={handleSend}>Enviar</button> 
+                    : ""}
                 </div>
             </div>
         </form>

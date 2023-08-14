@@ -143,11 +143,12 @@
     color: #002a7c;
   }
 
-  .formQuestions1, .formQuestions2, .formQuestions3, .formQuestions4 {
+  .formQuestions1, .formQuestions2, .formQuestions3, .formQuestions4, .formConfirmSend {
     display: flex;
     flex-direction: column;
   }
 
+  
   /*********************************************Desktop***************************************************/
 
   @media (min-width: 769px) {
@@ -160,7 +161,7 @@
       gap: 15px;
     }
 
-    .formQuestions1, .formQuestions2, .formQuestions3, .formQuestions4 {
+    .formQuestions1, .formQuestions2, .formQuestions3, .formQuestions4, .formConfirmSend {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;

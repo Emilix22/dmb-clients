@@ -7,7 +7,7 @@ function Raison({ formData, setFormData, errors, setErrors, expressions }) {
     if (formData.raison === "colisión") {
       setOptions([
         {value:"", text: "Seleccione una Consecuencia"},
-        {value:"colisión con cosas", text: "COLISIÓN CON COSAS (NO VEHÍCULOS)"},
+        {value:"colisión con cosas (no vehículos)", text: "COLISIÓN CON COSAS (NO VEHÍCULOS)"},
         {value:"siniestro con bicicletas", text: "SINIESTRO CON BICICLETAS"},
         {value:"siniestro con motos", text: "SINIESTRO CON MOTOS"},
         {value:"siniestro con peatones", text: "SINIESTRO CON PEATONES"},
