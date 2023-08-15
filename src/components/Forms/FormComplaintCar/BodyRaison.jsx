@@ -51,10 +51,11 @@ function Raison({ formData, setFormData, errors, setErrors, expressions }) {
           value={formData.raison}
           onChange={(e) => setFormData({ ...formData, raison: e.target.value })}
         >
-          <option value=""></option>,<option value="colisión">COLISIÓN</option>,
-          <option value="cristales y cerraduras">CRISTALES Y CERRADURAS</option>,
-          <option value="granizo">GRANIZO</option>,
-          <option value="robo">ROBO</option>,
+          <option value="seleccione">Seleccione...</option>
+          <option value="colisión">COLISIÓN</option>
+          <option value="cristales y cerraduras">CRISTALES Y CERRADURAS</option>
+          <option value="granizo">GRANIZO</option>
+          <option value="robo">ROBO</option>
           <option value="destrucción total">DESTRUCCIÓN TOTAL</option>
         </select>
       </div>

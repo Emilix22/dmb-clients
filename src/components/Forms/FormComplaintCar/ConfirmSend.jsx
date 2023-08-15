@@ -91,6 +91,50 @@ function ConfirmSend({formData}) {
                     disabled
                 />
             </div>
+
+            <div className="form-group-1 form-group-4">
+                <label htmlFor="complaint_question1">Conducia el Asegurado</label>
+                <input
+                    type="text"
+                    name="complaint_question1"
+                    id="complaint_question1"
+                    value={formData.question1}
+                    disabled
+                />
+            </div>
+
+            <div className="form-group-1 form-group-4">
+                <label htmlFor="complaint_question2">Lesionados Dentro del Vehículo</label>
+                <input
+                    type="text"
+                    name="complaint_question2"
+                    id="complaint_question2"
+                    value={formData.question2}
+                    disabled
+                />
+            </div>
+
+            <div className="form-group-1 form-group-4">
+                <label htmlFor="complaint_question3">Lesionados Fuera del Vehículo</label>
+                <input
+                    type="text"
+                    name="complaint_question3"
+                    id="complaint_question3"
+                    value={formData.question3}
+                    disabled
+                />
+            </div>
+
+            <div className="form-group-1 form-group-4">
+                <label htmlFor="complaint_question4">Vehículos de Terceros Involucrados</label>
+                <input
+                    type="text"
+                    name="complaint_question4"
+                    id="complaint_question4"
+                    value={formData.question4}
+                    disabled
+                />
+            </div>
                          
         </div>
     )

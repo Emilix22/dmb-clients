@@ -31,8 +31,8 @@ function Form() {
         postalCode: "",
         city: "",
         state: {
-            id: 2,
-            name: 'Ciudad Autónoma de Buenos Aires'
+            id: 0,
+            name: ''
         },
         description: "",
         characteristics: "",
@@ -55,8 +55,8 @@ function Form() {
             dnc_postalCode: "",
             dnc_city: "",
             dnc_state: {
-                id: 2,
-                name: 'Ciudad Autónoma de Buenos Aires'
+                id: 0,
+                name: ''
             }
         },
         injured_in_car: {
@@ -87,9 +87,10 @@ function Form() {
         dni: /^\d{8,8}$/,
         hour: /^\d{2}/,
         minutes: /^\d{2}/,
-        street: /^[a-zA-ZÀ-ÿ\s]{3,40}$/, // ver si agrego el punto a parte de letras y numeros
+        street: /^[a-zA-ZÀ-ÿ0-9\s]{3,40}$/, // ver si agrego el punto a parte de letras y numeros
         door: /^\d{1,5}/,
         postalCode: /^[a-zA-Z0-9\s]{4,8}$/,
+        description: /^[a-zA-ZÀ-ÿ0-9\s]{20,100}$/,
         // name: /^[a-zA-ZÀ-ÿ\s]{3,40}$/,
         // surname: /^[a-zA-ZÀ-ÿ\s]{2,40}$/,
         // password: /^.{4,12}$/,
@@ -111,7 +112,7 @@ function Form() {
            return setPage((prevState) => prevState + 1)
         } if (!errors.length > 0 && formData.state && formData.city && formData.street && formData.door && formData.postalCode && formData.description && formData.characteristics && formData.license_front && formData.license_back && page === 2) {
            return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && page === 3) {
+        } if (!errors.length > 0 && formData.question1 && formData.question2 && formData.question3 && formData.question4 && page === 3) {
             return setPage((prevState) => prevState + 1)
         } if (!errors.length > 0 && page === 4) {
             return setPage((prevState) => prevState + 1)
@@ -255,11 +256,21 @@ function Form() {
                            ? "#777777" 
                            : errors.postalCode 
                            ? "#777777"
+                           : errors.description 
+                           ? "#777777"
                            : !formData.street 
                            ? "#777777" 
                            : !formData.door 
                            ? "#777777" 
                            : !formData.postalCode 
+                           ? "#777777"
+                           : !formData.description 
+                           ? "#777777"
+                           : !formData.characteristics 
+                           ? "#777777"
+                           : !formData.license_front 
+                           ? "#777777"
+                           : !formData.license_back 
                            ? "#777777" 
                            : ""}} 
                         onClick={handleNext}>Siguiente</button>
@@ -268,18 +279,14 @@ function Form() {
                         disabled={page === formTitles.length - 1} 
                         style= {{backgroundColor: page === formTitles.length - 1 
                            ? "#777777"  
-                        //    : errors.street 
-                        //    ? "#777777" 
-                        //    : errors.door 
-                        //    ? "#777777" 
-                        //    : errors.postalCode 
-                        //    ? "#777777"
-                        //    : !formData.street 
-                        //    ? "#777777" 
-                        //    : !formData.door 
-                        //    ? "#777777" 
-                        //    : !formData.postalCode 
-                        //    ? "#777777" 
+                           : !formData.question1 
+                           ? "#777777"
+                           : !formData.question2 
+                           ? "#777777"
+                           : !formData.question3 
+                           ? "#777777"
+                           : !formData.question4 
+                           ? "#777777"  
                            : ""}} 
                         onClick={handleNext}>Siguiente</button> 
                         : ""                

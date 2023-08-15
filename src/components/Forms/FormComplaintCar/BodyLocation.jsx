@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 
 function Location({ formData, setFormData, errors, setErrors, expressions }) {
   const validations = {
+    
     street: () => {
       if (expressions.street.test(formData.street)) {
         setErrors({ ...errors, street: "" });
       } else {
-        setErrors({ ...errors, street: "Requerido - sólo números y letras" });
+        setErrors({ ...errors, street: "Requerido - sólo números y letras - Mínimo 3 cracteres" });
       }
     },
     door: () => {
@@ -22,6 +23,13 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
         setErrors({ ...errors, postalCode: "" });
       } else {
         setErrors({ ...errors, postalCode: "Requerido - sólo números y letras" });
+      }
+    },
+    description: () => {
+      if (expressions.description.test(formData.description)) {
+        setErrors({ ...errors, description: "" });
+      } else {
+        setErrors({ ...errors, description: "Requerido - entre 20 y 100 caracteres" });
       }
     }
   };
@@ -95,15 +103,15 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
             name="state"
             id="state"
             value={formData.state[1]}
-            onChange={(e) =>
+            onChange={(e) => 
               setFormData({
-                ...formData,
-                state: {
-                  id: e.target.value.slice(0, 2),
-                  name: e.target.value.slice(3),
-                },
-              })
-            }
+                  ...formData,
+                  state: {
+                    id: e.target.value.slice(0, 2),
+                    name: e.target.value.slice(3),
+                  },
+              })  
+            }                   
           >
             <option value="">Seleccione una Provincia...</option>
             {states
@@ -116,9 +124,9 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
                 })
               : ""}
           </select>
-          {/* {
+          {
             errors.state ? <span className='msg-error'>{errors.state}</span> : ""
-          } */}
+          }
         </div>
 
         <div className="form-group-1 form-group-2">
@@ -238,7 +246,7 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
             value={formData.characteristics}
             onChange={(e) => setFormData({ ...formData, characteristics: e.target.value })}
           > 
-            <option value=""></option>
+            <option value="">Seleccione...</option>
             <option value="Autopista">AUTOPISTA</option>
             <option value="Avenida">AVENIDA</option>
             <option value="Bocacalle">BOCACALLE</option>
