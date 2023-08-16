@@ -14,14 +14,40 @@ function FormQuestion2({formData, setFormData, errors, title, setErrors, express
                     name="iic_name"
                     id="iic_name"
                     value={formData.injured_in_car.iic_name}
-                    onChange={(e) => setFormData({ ...formData, injured_in_car : {
+                    onChange={(e) => {
+
+                        title === 1 
+                        ? setFormData({ ...formData, injured_in_car : {
                         ...formData.injured_in_car,
-                        iic_name: e.target.value
-                        } })}
-                    // onKeyUp={validations.iic_name}
-                    // onBlur={validations.iic_name}
+                        iic_name1: e.target.value
+                        } })
+
+                        : title === 2 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_name2: e.target.value
+                        } })
+
+                        : title === 3 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_name3: e.target.value
+                        } })
+
+                        : title === 4 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_name4: e.target.value
+                        } })
+
+                        : title === 5 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_name5: e.target.value
+                        } }) 
+                        : ""}
+                    }
                 />
-                {errors.iic_name ? <span className="msg-error">{errors.iic_name}</span> : ""}
             </div>
 
             <div className="form-group-1 form-group-2">
@@ -31,31 +57,83 @@ function FormQuestion2({formData, setFormData, errors, title, setErrors, express
                     name="iic_surname"
                     id="iic_surname"
                     value={formData.injured_in_car.iic_surname}
-                    onChange={(e) => setFormData({ ...formData, injured_in_car : {
+                    onChange={(e) => {
+
+                       title === 1 
+                        ? setFormData({ ...formData, injured_in_car : {
                         ...formData.injured_in_car,
-                        iic_surname: e.target.value
-                        } })}
-                    // onKeyUp={validations.iic_surname}
-                    // onBlur={validations.iic_surname}
+                        iic_surname1: e.target.value
+                        } })
+
+                        : title === 2 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_surname2: e.target.value
+                        } })
+
+                        : title === 3 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_surname3: e.target.value
+                        } })
+
+                        : title === 4 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_surname4: e.target.value
+                        } })
+
+                        : title === 5 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_surname5: e.target.value
+                        } }) 
+                        : ""}
+                    }
                 />
-                {errors.iic_surname ? <span className="msg-error">{errors.iic_surname}</span> : ""}
             </div>
         
         <div className="form-group-1 form-group-2">
-                <label htmlFor="iic_DNI">DNI</label>
+                <label htmlFor="iic_dni">DNI</label>
                 <input
                     type="text"
-                    name="iic_DNI"
-                    id="iic_DNI"
-                    value={formData.injured_in_car.iic_DNI}
-                    onChange={(e) => setFormData({ ...formData, injured_in_car : {
+                    name="iic_dni"
+                    id="iic_dni"
+                    value={formData.injured_in_car.iic_dni}
+                    onChange={(e) => {
+
+                        title === 1 
+                        ? setFormData({ ...formData, injured_in_car : {
                         ...formData.injured_in_car,
-                        iic_DNI: e.target.value
-                        } })}
-                    // onKeyUp={validations.iic_DNI}
-                    // onBlur={validations.iic_DNI}
+                        iic_dni1: e.target.value
+                        } })
+
+                        : title === 2 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_dni2: e.target.value
+                        } })
+
+                        : title === 3 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_dni3: e.target.value
+                        } })
+
+                        : title === 4 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_dni4: e.target.value
+                        } })
+
+                        : title === 5 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_dni5: e.target.value
+                        } }) 
+                        : ""} 
+                    }
                 />
-                {errors.iic_DNI ? <span className="msg-error">{errors.iic_DNI}</span> : ""}
             </div>
 
             <div className="form-group-1 form-group-2">
@@ -65,14 +143,40 @@ function FormQuestion2({formData, setFormData, errors, title, setErrors, express
                     name="iic_phone"
                     id="iic_phone"
                     value={formData.injured_in_car.iic_phone}
-                    onChange={(e) => setFormData({ ...formData, injured_in_car : {
+                    onChange={(e) => {
+
+                        title === 1 
+                        ? setFormData({ ...formData, injured_in_car : {
                         ...formData.injured_in_car,
-                        iic_phone: e.target.value
-                        } })}
-                    // onKeyUp={validations.iic_phone}
-                    // onBlur={validations.iic_phone}
+                        iic_phone1: e.target.value
+                        } })
+
+                        : title === 2 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_phone2: e.target.value
+                        } })
+
+                        : title === 3 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_phone3: e.target.value
+                        } })
+
+                        : title === 4 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_phone4: e.target.value
+                        } })
+
+                        : title === 5 ?
+                        setFormData({ ...formData, injured_in_car : {
+                        ...formData.injured_in_car,
+                        iic_phone5: e.target.value
+                        } }) 
+                        : ""}
+                    }
                 />
-                {errors.iic_phone ? <span className="msg-error">{errors.iic_phone}</span> : ""}
             </div>
 
             

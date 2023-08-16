@@ -126,7 +126,7 @@ function ConfirmSend({formData}) {
             </div>
 
             <div className="form-group-1 form-group-4">
-                <label htmlFor="complaint_question4">Vehículos de Terceros Involucrados</label>
+                <label htmlFor="complaint_question4">Vehículos Terceros Involucrados</label>
                 <input
                     type="text"
                     name="complaint_question4"
