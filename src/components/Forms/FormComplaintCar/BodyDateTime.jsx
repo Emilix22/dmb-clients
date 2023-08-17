@@ -105,7 +105,7 @@ function BodyDateTime({
 
       setErrors({ ...errors, client: "" });
       // console.log(client.data.nombre);
-      setClientId(client.data.id);
+      setClientId(client.data.id_cliente_persona);
     } else {
       setErrors({ ...errors, client: client.error });
       //console.log(client.error);

@@ -13,7 +13,19 @@ function FormQuestion2({formData, setFormData, errors, title, setErrors, express
                     type="text"
                     name="iic_name"
                     id="iic_name"
-                    value={formData.injured_in_car.iic_name}
+                    value={
+                        title === 1 
+                        ? formData.injured_in_car.iic_name1 
+                        : title === 2  
+                        ? formData.injured_in_car.iic_name2
+                        : title === 3  
+                        ? formData.injured_in_car.iic_name3
+                        : title === 4  
+                        ? formData.injured_in_car.iic_name4
+                        : title === 5  
+                        ? formData.injured_in_car.iic_name5
+                        : ""
+                    }
                     onChange={(e) => {
 
                         title === 1 
@@ -56,7 +68,19 @@ function FormQuestion2({formData, setFormData, errors, title, setErrors, express
                     type="text"
                     name="iic_surname"
                     id="iic_surname"
-                    value={formData.injured_in_car.iic_surname}
+                    value={
+                        title === 1 
+                        ? formData.injured_in_car.iic_surname1 
+                        : title === 2  
+                        ? formData.injured_in_car.iic_surname2
+                        : title === 3  
+                        ? formData.injured_in_car.iic_surname3
+                        : title === 4  
+                        ? formData.injured_in_car.iic_surname4
+                        : title === 5  
+                        ? formData.injured_in_car.iic_surname5
+                        : ""
+                    }
                     onChange={(e) => {
 
                        title === 1 
@@ -93,13 +117,25 @@ function FormQuestion2({formData, setFormData, errors, title, setErrors, express
                 />
             </div>
         
-        <div className="form-group-1 form-group-2">
+            <div className="form-group-1 form-group-2">
                 <label htmlFor="iic_dni">DNI</label>
                 <input
                     type="text"
                     name="iic_dni"
                     id="iic_dni"
-                    value={formData.injured_in_car.iic_dni}
+                    value={
+                        title === 1 
+                        ? formData.injured_in_car.iic_dni1 
+                        : title === 2  
+                        ? formData.injured_in_car.iic_dni2
+                        : title === 3  
+                        ? formData.injured_in_car.iic_dni3
+                        : title === 4  
+                        ? formData.injured_in_car.iic_dni4
+                        : title === 5  
+                        ? formData.injured_in_car.iic_dni5
+                        : ""
+                    }
                     onChange={(e) => {
 
                         title === 1 
@@ -142,7 +178,19 @@ function FormQuestion2({formData, setFormData, errors, title, setErrors, express
                     type="text"
                     name="iic_phone"
                     id="iic_phone"
-                    value={formData.injured_in_car.iic_phone}
+                    value={
+                        title === 1 
+                        ? formData.injured_in_car.iic_phone1 
+                        : title === 2  
+                        ? formData.injured_in_car.iic_phone2
+                        : title === 3  
+                        ? formData.injured_in_car.iic_phone3
+                        : title === 4  
+                        ? formData.injured_in_car.iic_phone4
+                        : title === 5  
+                        ? formData.injured_in_car.iic_phone5
+                        : ""
+                    }
                     onChange={(e) => {
 
                         title === 1 

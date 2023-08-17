@@ -13,15 +13,53 @@ function FormQuestion3({formData, setFormData, errors, title, setErrors, express
                     type="text"
                     name="ioc_name"
                     id="ioc_name"
-                    value={formData.injured_out_car.ioc_name}
-                    onChange={(e) => setFormData({ ...formData, injured_out_car : {
+                    value={
+                        title === 1 
+                        ? formData.injured_out_car.ioc_name1 
+                        : title === 2  
+                        ? formData.injured_out_car.ioc_name2
+                        : title === 3  
+                        ? formData.injured_out_car.ioc_name3
+                        : title === 4  
+                        ? formData.injured_out_car.ioc_name4
+                        : title === 5  
+                        ? formData.injured_out_car.ioc_name5
+                        : ""
+                    }
+                    onChange={(e) => {
+
+                        title === 1 
+                        ? setFormData({ ...formData, injured_out_car : {
                         ...formData.injured_out_car,
-                        ioc_name: e.target.value
-                        } })}
-                    // onKeyUp={validations.ioc_name}
-                    // onBlur={validations.ioc_name}
+                        ioc_name1: e.target.value
+                        } })
+
+                        : title === 2 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_name2: e.target.value
+                        } })
+
+                        : title === 3 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_name3: e.target.value
+                        } })
+
+                        : title === 4 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_name4: e.target.value
+                        } })
+
+                        : title === 5 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_name5: e.target.value
+                        } }) 
+                        : ""}
+                    }
                 />
-                {errors.ioc_name ? <span className="msg-error">{errors.ioc_name}</span> : ""}
             </div>
 
             <div className="form-group-1 form-group-2">
@@ -30,32 +68,108 @@ function FormQuestion3({formData, setFormData, errors, title, setErrors, express
                     type="text"
                     name="ioc_surname"
                     id="ioc_surname"
-                    value={formData.injured_out_car.ioc_surname}
-                    onChange={(e) => setFormData({ ...formData, injured_out_car : {
+                    value={
+                        title === 1 
+                        ? formData.injured_out_car.ioc_surname1 
+                        : title === 2  
+                        ? formData.injured_out_car.ioc_surname2
+                        : title === 3  
+                        ? formData.injured_out_car.ioc_surname3
+                        : title === 4  
+                        ? formData.injured_out_car.ioc_surname4
+                        : title === 5  
+                        ? formData.injured_out_car.ioc_surname5
+                        : ""
+                    }
+                    onChange={(e) => {
+
+                       title === 1 
+                        ? setFormData({ ...formData, injured_out_car : {
                         ...formData.injured_out_car,
-                        ioc_surname: e.target.value
-                        } })}
-                    // onKeyUp={validations.ioc_surname}
-                    // onBlur={validations.ioc_surname}
+                        ioc_surname1: e.target.value
+                        } })
+
+                        : title === 2 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_surname2: e.target.value
+                        } })
+
+                        : title === 3 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_surname3: e.target.value
+                        } })
+
+                        : title === 4 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_surname4: e.target.value
+                        } })
+
+                        : title === 5 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_surname5: e.target.value
+                        } }) 
+                        : ""}
+                    }
                 />
-                {errors.ioc_surname ? <span className="msg-error">{errors.ioc_surname}</span> : ""}
             </div>
         
-        <div className="form-group-1 form-group-2">
-                <label htmlFor="ioc_DNI">DNI</label>
+            <div className="form-group-1 form-group-2">
+                <label htmlFor="ioc_dni">DNI</label>
                 <input
                     type="text"
-                    name="ioc_DNI"
-                    id="ioc_DNI"
-                    value={formData.injured_out_car.ioc_DNI}
-                    onChange={(e) => setFormData({ ...formData, injured_out_car : {
+                    name="ioc_dni"
+                    id="ioc_dni"
+                    value={
+                        title === 1 
+                        ? formData.injured_out_car.ioc_dni1 
+                        : title === 2  
+                        ? formData.injured_out_car.ioc_dni2
+                        : title === 3  
+                        ? formData.injured_out_car.ioc_dni3
+                        : title === 4  
+                        ? formData.injured_out_car.ioc_dni4
+                        : title === 5  
+                        ? formData.injured_out_car.ioc_dni5
+                        : ""
+                    }
+                    onChange={(e) => {
+
+                        title === 1 
+                        ? setFormData({ ...formData, injured_out_car : {
                         ...formData.injured_out_car,
-                        ioc_DNI: e.target.value
-                        } })}
-                    // onKeyUp={validations.ioc_DNI}
-                    // onBlur={validations.ioc_DNI}
+                        ioc_dni1: e.target.value
+                        } })
+
+                        : title === 2 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_dni2: e.target.value
+                        } })
+
+                        : title === 3 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_dni3: e.target.value
+                        } })
+
+                        : title === 4 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_dni4: e.target.value
+                        } })
+
+                        : title === 5 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_dni5: e.target.value
+                        } }) 
+                        : ""} 
+                    }
                 />
-                {errors.ioc_DNI ? <span className="msg-error">{errors.ioc_DNI}</span> : ""}
             </div>
 
             <div className="form-group-1 form-group-2">
@@ -64,15 +178,53 @@ function FormQuestion3({formData, setFormData, errors, title, setErrors, express
                     type="text"
                     name="ioc_phone"
                     id="ioc_phone"
-                    value={formData.injured_out_car.ioc_phone}
-                    onChange={(e) => setFormData({ ...formData, injured_out_car : {
+                    value={
+                        title === 1 
+                        ? formData.injured_out_car.ioc_phone1 
+                        : title === 2  
+                        ? formData.injured_out_car.ioc_phone2
+                        : title === 3  
+                        ? formData.injured_out_car.ioc_phone3
+                        : title === 4  
+                        ? formData.injured_out_car.ioc_phone4
+                        : title === 5  
+                        ? formData.injured_out_car.ioc_phone5
+                        : ""
+                    }
+                    onChange={(e) => {
+
+                        title === 1 
+                        ? setFormData({ ...formData, injured_out_car : {
                         ...formData.injured_out_car,
-                        ioc_phone: e.target.value
-                        } })}
-                    // onKeyUp={validations.ioc_phone}
-                    // onBlur={validations.ioc_phone}
+                        ioc_phone1: e.target.value
+                        } })
+
+                        : title === 2 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_phone2: e.target.value
+                        } })
+
+                        : title === 3 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_phone3: e.target.value
+                        } })
+
+                        : title === 4 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_phone4: e.target.value
+                        } })
+
+                        : title === 5 ?
+                        setFormData({ ...formData, injured_out_car : {
+                        ...formData.injured_out_car,
+                        ioc_phone5: e.target.value
+                        } }) 
+                        : ""}
+                    }
                 />
-                {errors.ioc_phone ? <span className="msg-error">{errors.ioc_phone}</span> : ""}
             </div>
 
             
