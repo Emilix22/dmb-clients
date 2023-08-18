@@ -13,6 +13,7 @@ function Form() {
 
     const formTitles = ['Ingrese el DNI del Asegurado y la Fecha y Hora del Siniestro', 'Seleccione Motivo y Consecuencia', 'Indique Lugar del Siniestro', 'Información Particular', 'Resumen del Siniestro a Denunciar'];
 
+
     const [formData, setFormData] = useState({
         //***************************paso1*********** */
         dni: "",
@@ -36,8 +37,8 @@ function Form() {
         },
         description: "",
         characteristics: "",
-        license_front: "",
-        license_back: "",
+        license_front: null,
+        license_back: null,
         //***************************paso4*********** */
         question1: "",
         question2: "",
@@ -159,6 +160,24 @@ function Form() {
         event.preventDefault();
         toast.success('Formulario Enviado!')
         console.log(formData)
+
+        const createComplaintCar = async () => {
+            const response = await fetch(
+              "http://localhost:3000/api/siniestros_auto/crear",
+              {
+                method: "POST",
+                body: JSON.stringify({
+                  formData
+                }),
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+            const info = await response.json();
+            console.log(info.data);
+        };
+        createComplaintCar();
 
     }
 

@@ -265,9 +265,9 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
           <input 
           type="file" 
           name="img-license-front" 
-          // value={formData.license}
+          // value={formData.license_front}
           onChange={(e) => setFormData({ ...formData, license_front: e.target.files[0]})}
-          />
+          /> 
         </div>
         <div className="form-group-1 form-group-2" id="form-group-img-license-back">
           <label htmlFor="img-license-back"><span>📷</span> Foto del Registro de Conducir <strong>DORSO</strong>:</label>          

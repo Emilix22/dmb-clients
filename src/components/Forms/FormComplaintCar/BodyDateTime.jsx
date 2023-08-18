@@ -74,7 +74,7 @@ function BodyDateTime({
   useEffect(() => {
     const loadPolicy = async () => {
       const response = await fetch(
-        "http://localhost:3000/api/polizas/porClientes",
+        "http://localhost:3000/api/polizas/auto/porCliente",
         {
           method: "POST",
           body: JSON.stringify({
@@ -101,7 +101,7 @@ function BodyDateTime({
           " por favor ingrese fecha y hora del siniestro"
       );
       
-      setFormData({ ...formData, client_name: client.data.nombre + " " + client.data.apellido, id_client: client.data.id });
+      setFormData({ ...formData, client_name: client.data.nombre + " " + client.data.apellido, id_client: client.data.id_cliente_persona });
 
       setErrors({ ...errors, client: "" });
       // console.log(client.data.nombre);
