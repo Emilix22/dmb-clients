@@ -3,8 +3,8 @@ import "./Form.css"; //verrrrrr
 import RowTable from "./RowTable";
 
 function BodyDateTime({
-  formData,
-  setFormData,
+  datosFormu,
+  setDatosFormu,
   errors,
   setErrors,
   expressions,
@@ -13,7 +13,7 @@ function BodyDateTime({
 }) {
   const validations = {
     dni: () => {
-      if (expressions.dni.test(formData.dni)) {
+      if (expressions.dni.test(datosFormu.dni)) {
         setErrors({ ...errors, dni: "" });
       } else {
         setErrors({ ...errors, dni: "Requerido - sólo números - 8 cracteres" });
@@ -21,7 +21,7 @@ function BodyDateTime({
     },
 
     date: () => {
-      if (expressions.date.test(formData.date)) {
+      if (expressions.date.test(datosFormu.date)) {
         setErrors({ ...errors, date: "" });
       } else {
         setErrors({ ...errors, date: "Requerido" });
@@ -29,7 +29,7 @@ function BodyDateTime({
     },
 
     hour: () => {
-      if (expressions.hour.test(formData.hour)) {
+      if (expressions.hour.test(datosFormu.hour)) {
         setErrors({ ...errors, hour: "" });
       } else {
         setErrors({ ...errors, hour: "Requerido" });
@@ -37,7 +37,7 @@ function BodyDateTime({
     },
 
     minutes: () => {
-      if (expressions.minutes.test(formData.minutes)) {
+      if (expressions.minutes.test(datosFormu.minutes)) {
         setErrors({ ...errors, minutes: "" });
       } else {
         setErrors({ ...errors, minutes: "Requerido" });
@@ -56,7 +56,7 @@ function BodyDateTime({
       const response = await fetch("http://localhost:3000/api/clientes/dni", {
         method: "POST",
         body: JSON.stringify({
-          dni: formData.dni,
+          dni: datosFormu.dni,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -66,10 +66,10 @@ function BodyDateTime({
       setClient(info);
     };
     {
-      formData.dni.length === 8 ? loadClient() : ""
+      datosFormu.dni.length === 8 ? loadClient() : ""
     }
     
-  }, [formData.dni]);
+  }, [datosFormu.dni]);
 
   useEffect(() => {
     const loadPolicy = async () => {
@@ -101,7 +101,7 @@ function BodyDateTime({
           " por favor ingrese fecha y hora del siniestro"
       );
       
-      setFormData({ ...formData, client_name: client.data.nombre + " " + client.data.apellido, id_client: client.data.id_cliente_persona });
+      setDatosFormu({ ...datosFormu, client_name: client.data.nombre + " " + client.data.apellido, id_client: client.data.id_cliente_persona });
 
       setErrors({ ...errors, client: "" });
       // console.log(client.data.nombre);
@@ -121,8 +121,8 @@ function BodyDateTime({
           name="dni"
           id="dni"
           placeholder="Ej: 26365256"
-          value={formData.dni}
-          onChange={(e) => setFormData({ ...formData, dni: e.target.value })}
+          value={datosFormu.dni}
+          onChange={(e) => setDatosFormu({ ...datosFormu, dni: e.target.value })}
           onKeyUp={validations.dni}
           onBlur={validations.dni}
         />
@@ -143,8 +143,8 @@ function BodyDateTime({
             type="date"
             name="date"
             id="date"
-            value={formData.date}
-            onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+            value={datosFormu.date}
+            onChange={(e) => setDatosFormu({ ...datosFormu, date: e.target.value })}
             onBlur={validations.date}
           />
           {errors.date ? <span className="msg-error">{errors.date}</span> : ""}
@@ -154,8 +154,8 @@ function BodyDateTime({
           <select
             name="hour"
             id="hour"
-            value={formData.hour}
-            onChange={(e) => setFormData({ ...formData, hour: e.target.value })}
+            value={datosFormu.hour}
+            onChange={(e) => setDatosFormu({ ...datosFormu, hour: e.target.value })}
             onBlur={validations.hour}
           >
             <option value=""></option>
@@ -191,9 +191,9 @@ function BodyDateTime({
           <select
             name="minutes"
             id="minutes"
-            value={formData.minutes}
+            value={datosFormu.minutes}
             onChange={(e) =>
-              setFormData({ ...formData, minutes: e.target.value })
+              setDatosFormu({ ...datosFormu, minutes: e.target.value })
             }
             onBlur={validations.minutes}
           >
@@ -250,8 +250,8 @@ function BodyDateTime({
               {policysClient.map((policy, index) => {
                 return (
                   <RowTable
-                    setFormData={setFormData}
-                    formData={formData}
+                    setDatosFormu={setDatosFormu}
+                    datosFormu={datosFormu}
                     numero_poliza={policy.numero_poliza}
                     marca_auto={policy.autos.marca}
                     modelo_auto={policy.autos.modelo}

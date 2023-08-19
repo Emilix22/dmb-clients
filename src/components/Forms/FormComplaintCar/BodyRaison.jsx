@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-function Raison({ formData, setFormData, errors, setErrors, expressions }) {
+function Raison({ datosFormu, setDatosFormu, errors, setErrors, expressions }) {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    if (formData.raison === "colisión") {
+    if (datosFormu.raison === "colisión") {
       setOptions([
         {value:"", text: "Seleccione una Consecuencia"},
         {value:"colisión con cosas (no vehículos)", text: "COLISIÓN CON COSAS (NO VEHÍCULOS)"},
@@ -14,24 +14,24 @@ function Raison({ formData, setFormData, errors, setErrors, expressions }) {
         {value:"siniestro con vehículos de 4 o más ruedas", text: "SINIESTRO CON VEHÍCULOS DE 4 O MÁS RUEDAS"},
         {value:"vuelco", text: "VUELCO"},
       ]);
-    } else if (formData.raison === "cristales y cerraduras") {
+    } else if (datosFormu.raison === "cristales y cerraduras") {
       setOptions([
         {value:"", text: "Seleccione una Consecuencia"},
         {value:"daños a cristales y cerraduras", text: "DAÑOS A CRISTALES Y/O CERRADURAS"},
       ]);
-    } else if (formData.raison === "granizo") {
+    } else if (datosFormu.raison === "granizo") {
       setOptions([
         {value:"", text: "Seleccione una Consecuencia"},
         {value:"daño por granizo a parabrisas, luneta y/o cristales laterales", text: "DAÑO POR GRANIZO A PARABRISAS, LUNETA Y/O CRISTALES LATERALES"},
       ]);
-    } else if (formData.raison === "robo") {
+    } else if (datosFormu.raison === "robo") {
       setOptions([
         {value:"", text: "Seleccione una Consecuencia"},
         {value:"robo del vehículo", text: "ROBO DEL VEHÍCULO"},
         {value:"robo del vehículo a mano armada", text: "ROBO DEL VEHÍCULO A MANO ARMADA"},
         {value:"robo parcial - robo rueda - cristales y/o cerradura", text: "ROBO PARCIAL - ROBO RUEDA - CRISTALES Y/O CERRADURAS"},
       ]);
-    } else if (formData.raison === "destrucción total") {
+    } else if (datosFormu.raison === "destrucción total") {
       setOptions([
         {value:"", text: "Seleccione una Consecuencia"},
         {value:"destrucción total", text: "DESTRUCCIÓN TOTAL"},
@@ -39,7 +39,7 @@ function Raison({ formData, setFormData, errors, setErrors, expressions }) {
     } else {
       setOptions([{value:"", text: "Seleccione un Motivo primero..."}]);
     }
-  }, [formData.raison]);
+  }, [datosFormu.raison]);
 
   return (
     <div className="form-Raison">
@@ -48,8 +48,8 @@ function Raison({ formData, setFormData, errors, setErrors, expressions }) {
         <select
           name="raison"
           id="raison"
-          value={formData.raison}
-          onChange={(e) => setFormData({ ...formData, raison: e.target.value })}
+          value={datosFormu.raison}
+          onChange={(e) => setDatosFormu({ ...datosFormu, raison: e.target.value })}
         >
           <option value="seleccione">Seleccione...</option>
           <option value="colisión">COLISIÓN</option>
@@ -64,9 +64,9 @@ function Raison({ formData, setFormData, errors, setErrors, expressions }) {
         <select
           name="consequence"
           id="consequence"
-          value={formData.consequence}
+          value={datosFormu.consequence}
           onChange={(e) =>
-            setFormData({ ...formData, consequence: e.target.value })
+            setDatosFormu({ ...datosFormu, consequence: e.target.value })
           }
         >
           { 

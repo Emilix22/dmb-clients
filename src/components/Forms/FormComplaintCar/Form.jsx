@@ -14,7 +14,7 @@ function Form() {
     const formTitles = ['Ingrese el DNI del Asegurado y la Fecha y Hora del Siniestro', 'Seleccione Motivo y Consecuencia', 'Indique Lugar del Siniestro', 'Información Particular', 'Resumen del Siniestro a Denunciar'];
 
 
-    const [formData, setFormData] = useState({
+    const [datosFormu, setDatosFormu] = useState({
         //***************************paso1*********** */
         dni: "",
         client_name: "",
@@ -37,8 +37,8 @@ function Form() {
         },
         description: "",
         characteristics: "",
-        license_front: null,
-        license_back: null,
+        // license_front: undefined,
+        // license_back: undefined,
         //***************************paso4*********** */
         question1: "",
         question2: "",
@@ -113,6 +113,95 @@ function Form() {
 
     })
 
+    const [imgRegisterFront, setImgRegisterFront] = useState()
+
+    const formData = new FormData();
+
+    formData.append('dni', datosFormu.dni)
+    formData.append('client_name', datosFormu.client_name)
+    formData.append('date', datosFormu.date)
+    formData.append('hour', datosFormu.hour)
+    formData.append('minutes', datosFormu.minutes)
+    formData.append('id_client', datosFormu.id_client)
+    formData.append('policy', datosFormu.policy)
+    //****************************paso2************/
+    formData.append('raison', datosFormu.raison)
+    formData.append('consequence', datosFormu.consequence)
+    //****************************paso3************/
+    formData.append('street', datosFormu.street)
+    formData.append('door', datosFormu.door)
+    formData.append('postalCode', datosFormu.postalCode)
+    formData.append('city', datosFormu.city)
+    formData.append('state', datosFormu.state.name)
+    formData.append('description', datosFormu.description)
+    formData.append('characteristics', datosFormu.characteristics)
+    formData.append('license_front', datosFormu.license_front)
+    formData.append('license_back', datosFormu.license_back)
+    //***************************paso4*********** */
+    formData.append('question1', datosFormu.question1)
+    formData.append('question2', datosFormu.question2)
+    formData.append('question3', datosFormu.question3)
+    formData.append('question4', datosFormu.question4)
+    formData.append('dnc_name', datosFormu.driver_not_client.dnc_name)
+    formData.append('dnc_surname', datosFormu.driver_not_client.dnc_surname)
+    formData.append('dnc_DNI', datosFormu.driver_not_client.dnc_DNI)
+    formData.append('dnc_phone', datosFormu.driver_not_client.dnc_phone)
+    formData.append('dnc_birthday', datosFormu.driver_not_client.dnc_birthday)
+    formData.append('dnc_nacionality', datosFormu.driver_not_client.dnc_nacionality)
+    formData.append('dnc_street', datosFormu.driver_not_client.dnc_street)
+    formData.append('dnc_door', datosFormu.driver_not_client.dnc_door)
+    formData.append('dnc_postalCode', datosFormu.driver_not_client.dnc_postalCode)
+    formData.append('dnc_city', datosFormu.driver_not_client.dnc_city)
+    formData.append('dnc_state', datosFormu.driver_not_client.dnc_state.name)
+
+    formData.append('iic_quantity', datosFormu.injured_in_car.iic_quantity)
+    formData.append('iic_name1', datosFormu.injured_in_car.iic_name1)
+    formData.append('iic_name2', datosFormu.injured_in_car.iic_name2)
+    formData.append('iic_name3', datosFormu.injured_in_car.iic_name3)
+    formData.append('iic_name4', datosFormu.injured_in_car.iic_name4)
+    formData.append('iic_name5', datosFormu.injured_in_car.iic_name5)
+    formData.append('iic_surname1', datosFormu.injured_in_car.iic_surname1)
+    formData.append('iic_surname2', datosFormu.injured_in_car.iic_surname2)
+    formData.append('iic_surname3', datosFormu.injured_in_car.iic_surname3)
+    formData.append('iic_surname4', datosFormu.injured_in_car.iic_surname4)
+    formData.append('iic_surname5', datosFormu.injured_in_car.iic_surname5)
+    formData.append('iic_dni1', datosFormu.injured_in_car.iic_dni1)
+    formData.append('iic_dni2', datosFormu.injured_in_car.iic_dni2)
+    formData.append('iic_dni3', datosFormu.injured_in_car.iic_dni3)
+    formData.append('iic_dni4', datosFormu.injured_in_car.iic_dni4)
+    formData.append('iic_dni5', datosFormu.injured_in_car.iic_dni5)
+    formData.append('iic_phone1', datosFormu.injured_in_car.iic_phone1)
+    formData.append('iic_phone2', datosFormu.injured_in_car.iic_phone2)
+    formData.append('iic_phone3', datosFormu.injured_in_car.iic_phone3)
+    formData.append('iic_phone4', datosFormu.injured_in_car.iic_phone4)
+    formData.append('iic_phone5', datosFormu.injured_in_car.iic_phone5)
+
+    formData.append('ioc_quantity', datosFormu.injured_out_car.ioc_quantity)
+    formData.append('ioc_name1', datosFormu.injured_out_car.ioc_name1)
+    formData.append('ioc_name2', datosFormu.injured_out_car.ioc_name2)
+    formData.append('ioc_name3', datosFormu.injured_out_car.ioc_name3)
+    formData.append('ioc_name4', datosFormu.injured_out_car.ioc_name4)
+    formData.append('ioc_name5', datosFormu.injured_out_car.ioc_name5)
+    formData.append('ioc_surname1', datosFormu.injured_out_car.ioc_surname1)
+    formData.append('ioc_surname2', datosFormu.injured_out_car.ioc_surname2)
+    formData.append('ioc_surname3', datosFormu.injured_out_car.ioc_surname3)
+    formData.append('ioc_surname4', datosFormu.injured_out_car.ioc_surname4)
+    formData.append('ioc_surname5', datosFormu.injured_out_car.ioc_surname5)
+    formData.append('ioc_dni1', datosFormu.injured_out_car.ioc_dni1)
+    formData.append('ioc_dni2', datosFormu.injured_out_car.ioc_dni2)
+    formData.append('ioc_dni3', datosFormu.injured_out_car.ioc_dni3)
+    formData.append('ioc_dni4', datosFormu.injured_out_car.ioc_dni4)
+    formData.append('ioc_dni5', datosFormu.injured_out_car.ioc_dni5)
+    formData.append('ioc_phone1', datosFormu.injured_out_car.ioc_phone1)
+    formData.append('ioc_phone2', datosFormu.injured_out_car.ioc_phone2)
+    formData.append('ioc_phone3', datosFormu.injured_out_car.ioc_phone3)
+    formData.append('ioc_phone4', datosFormu.injured_out_car.ioc_phone4)
+    formData.append('ioc_phone5', datosFormu.injured_out_car.ioc_phone5)
+
+    formData.append('oc_patent', datosFormu.other_car.oc_patent)
+    formData.append('oc_insurance', datosFormu.other_car.oc_insurance)
+
+
     const expressions = {
         date: /^\d{4}-\d{2}-\d{2}$/,
         dni: /^\d{8,8}$/,
@@ -137,13 +226,13 @@ function Form() {
     const handleNext = (event) => {
         event.preventDefault();
 
-        if((!errors.length > 0 && formData.dni && formData.date && formData.hour && formData.minutes && validClient && formData.policy) && page === 0) {
+        if((!errors.length > 0 && datosFormu.dni && datosFormu.date && datosFormu.hour && datosFormu.minutes && validClient && datosFormu.policy) && page === 0) {
             return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && formData.raison && formData.consequence && page === 1) {
+        } if (!errors.length > 0 && datosFormu.raison && datosFormu.consequence && page === 1) {
            return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && formData.state && formData.city && formData.street && formData.door && formData.postalCode && formData.description && formData.characteristics && formData.license_front && formData.license_back && page === 2) {
+        } if (!errors.length > 0 && datosFormu.state && datosFormu.city && datosFormu.street && datosFormu.door && datosFormu.postalCode && datosFormu.description && datosFormu.characteristics && datosFormu.license_front && datosFormu.license_back && page === 2) {
            return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && formData.question1 && formData.question2 && formData.question3 && formData.question4 && page === 3) {
+        } if (!errors.length > 0 && datosFormu.question1 && datosFormu.question2 && datosFormu.question3 && datosFormu.question4 && page === 3) {
             return setPage((prevState) => prevState + 1)
         } if (!errors.length > 0 && page === 4) {
             return setPage((prevState) => prevState + 1)
@@ -159,33 +248,23 @@ function Form() {
     const handleSend = (event) => {
         event.preventDefault();
         toast.success('Formulario Enviado!')
-        console.log(formData)
+        console.log(datosFormu)
 
-        const createComplaintCar = async () => {
-            const response = await fetch(
-              "http://localhost:3000/api/siniestros_auto/crear",
-              {
-                method: "POST",
-                body: JSON.stringify({
-                  formData
-                }),
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              }
-            );
-            const info = await response.json();
-            console.log(info.data);
-        };
-        createComplaintCar();
-
+        fetch("http://localhost:3000/api/siniestros_auto/crear", {
+            method: "POST",
+            body: formData
+        })
+        .then(res => res.json())
+        .then(info => {
+           console.log(info)
+        })
     }
 
     const formDisplay = () => {
         if (page === 0) {
             return <DateTime 
-                    formData={formData} 
-                    setFormData={setFormData} 
+                    datosFormu={datosFormu} 
+                    setDatosFormu={setDatosFormu} 
                     errors={errors} 
                     setErrors={setErrors}
                     expressions={expressions}
@@ -197,8 +276,8 @@ function Form() {
         };
         if (page === 1) {
             return <Raison 
-            formData={formData} 
-            setFormData={setFormData} 
+            datosFormu={datosFormu} 
+            setDatosFormu={setDatosFormu} 
             errors={errors} 
             setErrors={setErrors}
             expressions={expressions}   
@@ -206,8 +285,8 @@ function Form() {
         };
         if (page === 2) {
             return <Location 
-            formData={formData} 
-            setFormData={setFormData} 
+            datosFormu={datosFormu} 
+            setDatosFormu={setDatosFormu} 
             errors={errors} 
             setErrors={setErrors}
             expressions={expressions}
@@ -215,8 +294,8 @@ function Form() {
         };
         if (page === 3) {
             return <InformationParticular 
-            formData={formData} 
-            setFormData={setFormData} 
+            datosFormu={datosFormu} 
+            setDatosFormu={setDatosFormu} 
             errors={errors} 
             setErrors={setErrors}
             expressions={expressions}
@@ -224,12 +303,12 @@ function Form() {
         };
         if (page === 4) {
             return <ConfirmSend 
-            formData={formData} 
+            datosFormu={datosFormu} 
             />
         };
 
     }
-    // console.log(formData)
+    // console.log(datosFormu)
     // console.log(page)
     return (
         <form className='form'>
@@ -269,17 +348,17 @@ function Form() {
                            ? "#777777" 
                            : errors.minutes 
                            ? "#777777" 
-                           : !formData.dni 
+                           : !datosFormu.dni 
                            ? "#777777" 
-                           : !formData.date 
+                           : !datosFormu.date 
                            ? "#777777" 
-                           : !formData.hour 
+                           : !datosFormu.hour 
                            ? "#777777" 
-                           : !formData.minutes 
+                           : !datosFormu.minutes 
                            ? "#777777" 
                            : !validClient 
                            ? "#777777" 
-                           : !formData.policy 
+                           : !datosFormu.policy 
                            ? "#777777" 
                            : ""}} 
                         onClick={handleNext}>Siguiente</button> 
@@ -288,9 +367,9 @@ function Form() {
                         disabled={page === formTitles.length - 1} 
                         style= {{backgroundColor: page === formTitles.length - 1 
                            ? "#777777"  
-                           : !formData.raison 
+                           : !datosFormu.raison 
                            ? "#777777" 
-                           : !formData.consequence 
+                           : !datosFormu.consequence 
                            ? "#777777"
                            : ""}} 
                         onClick={handleNext}>Siguiente</button>
@@ -307,19 +386,19 @@ function Form() {
                            ? "#777777"
                            : errors.description 
                            ? "#777777"
-                           : !formData.street 
+                           : !datosFormu.street 
                            ? "#777777" 
-                           : !formData.door 
+                           : !datosFormu.door 
                            ? "#777777" 
-                           : !formData.postalCode 
+                           : !datosFormu.postalCode 
                            ? "#777777"
-                           : !formData.description 
+                           : !datosFormu.description 
                            ? "#777777"
-                           : !formData.characteristics 
+                           : !datosFormu.characteristics 
                            ? "#777777"
-                           : !formData.license_front 
+                           : !datosFormu.license_front 
                            ? "#777777"
-                           : !formData.license_back 
+                           : !datosFormu.license_back 
                            ? "#777777" 
                            : ""}} 
                         onClick={handleNext}>Siguiente</button>
@@ -328,13 +407,13 @@ function Form() {
                         disabled={page === formTitles.length - 1} 
                         style= {{backgroundColor: page === formTitles.length - 1 
                            ? "#777777"  
-                           : !formData.question1 
+                           : !datosFormu.question1 
                            ? "#777777"
-                           : !formData.question2 
+                           : !datosFormu.question2 
                            ? "#777777"
-                           : !formData.question3 
+                           : !datosFormu.question3 
                            ? "#777777"
-                           : !formData.question4 
+                           : !datosFormu.question4 
                            ? "#777777"  
                            : ""}} 
                         onClick={handleNext}>Siguiente</button> 

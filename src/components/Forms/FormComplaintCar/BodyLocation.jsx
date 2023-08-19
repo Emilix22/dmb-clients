@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from "react";
 
 
-function Location({ formData, setFormData, errors, setErrors, expressions }) {
+function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions }) {
   const validations = {
     
     street: () => {
-      if (expressions.street.test(formData.street)) {
+      if (expressions.street.test(datosFormu.street)) {
         setErrors({ ...errors, street: "" });
       } else {
         setErrors({ ...errors, street: "Requerido - sólo números y letras - Mínimo 3 cracteres" });
       }
     },
     door: () => {
-      if (expressions.door.test(formData.door)) {
+      if (expressions.door.test(datosFormu.door)) {
         setErrors({ ...errors, door: "" });
       } else {
         setErrors({ ...errors, door: "Requerido - sólo números" });
       }
     },
     postalCode: () => {
-      if (expressions.postalCode.test(formData.postalCode)) {
+      if (expressions.postalCode.test(datosFormu.postalCode)) {
         setErrors({ ...errors, postalCode: "" });
       } else {
         setErrors({ ...errors, postalCode: "Requerido - sólo números y letras" });
       }
     },
     description: () => {
-      if (expressions.description.test(formData.description)) {
+      if (expressions.description.test(datosFormu.description)) {
         setErrors({ ...errors, description: "" });
       } else {
         setErrors({ ...errors, description: "Requerido - entre 20 y 100 caracteres" });
@@ -49,7 +49,7 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
       setStates(info.provincias);
     };
     loadStates();
-  }, [formData.state.name]);
+  }, [datosFormu.state.name]);
 
   /*************************************MUNICIPIOS */
 
@@ -57,42 +57,42 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
     const loadCities = async () => {
       const response = await fetch(
         `https://apis.datos.gob.ar/georef/api/municipios?provincia=${Number(
-          formData.state.id
+          datosFormu.state.id
         )}&campos=id,nombre&max=1000`
       );
       const info = await response.json();
       setCities(info.municipios);
     };
     loadCities();
-  }, [formData.state]); // hacer lo del máximo **!!!!**************************************************
+  }, [datosFormu.state]); // hacer lo del máximo **!!!!**************************************************
 
   // useEffect(() => {
   //     const loadCities = async () => {
-  //         const response = await fetch(`https://apis.datos.gob.ar/georef/api/localidades-censales?provincia=${formData.state.name}&aplanar=true&campos=estandar&max=1000&exacto=true`)
+  //         const response = await fetch(`https://apis.datos.gob.ar/georef/api/localidades-censales?provincia=${datosFormu.state.name}&aplanar=true&campos=estandar&max=1000&exacto=true`)
   //         const info = await response.json()
   //         setCities(info.localidades_censales)
   //     }
   //     loadCities()
-  // }, [formData.state]); // localidades-censales para el maximo hacer lo mismo que con calles
+  // }, [datosFormu.state]); // localidades-censales para el maximo hacer lo mismo que con calles
 
   // useEffect(() => {
   //     const loadTotalStreets = async () => {
 
-  //         const response = await fetch(`https://apis.datos.gob.ar/georef/api/calles?provincia=${formData.state.name}&localidad_censal=${formData.city}&aplanar=true&campos=estandar&exacto=true&formato=json`)
+  //         const response = await fetch(`https://apis.datos.gob.ar/georef/api/calles?provincia=${datosFormu.state.name}&localidad_censal=${datosFormu.city}&aplanar=true&campos=estandar&exacto=true&formato=json`)
   //         const info = await response.json()
   //         setTotalStreets(info.total)
   //     }
   //     loadTotalStreets()
-  // }, [formData.city, formData.state]);
+  // }, [datosFormu.city, datosFormu.state]);
 
   // useEffect(() => {
   //     const loadStreets = async () => {
-  //         const response = await fetch(`https://apis.datos.gob.ar/georef/api/calles?provincia=${formData.state.name}&localidad_censal=${formData.city}&aplanar=true&campos=estandar&max=${totalStreet}&exacto=true&formato=json`)
+  //         const response = await fetch(`https://apis.datos.gob.ar/georef/api/calles?provincia=${datosFormu.state.name}&localidad_censal=${datosFormu.city}&aplanar=true&campos=estandar&max=${totalStreet}&exacto=true&formato=json`)
   //         const info = await response.json()
   //         setStreets(info.calles)
   //     }
   //     loadStreets()
-  // }, [formData.state, formData.city, totalStreet]);
+  // }, [datosFormu.state, datosFormu.city, totalStreet]);
 
   return (
     <div className="form-Location">
@@ -102,10 +102,10 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
           <select
             name="state"
             id="state"
-            value={formData.state[1]}
+            value={datosFormu.state[1]}
             onChange={(e) => 
-              setFormData({
-                  ...formData,
+              setDatosFormu({
+                  ...datosFormu,
                   state: {
                     id: e.target.value.slice(0, 2),
                     name: e.target.value.slice(3),
@@ -134,16 +134,16 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
           <select
             name="city"
             id="city"
-            value={formData.city}
-            onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+            value={datosFormu.city}
+            onChange={(e) => setDatosFormu({ ...datosFormu, city: e.target.value })}
           >
-            {formData.state.id === "02" ? (
+            {datosFormu.state.id === "02" ? (
               <option value="CABA">CABA</option>
             ) : (
               ""
             )}
             {
-              formData.state.name ? <option value="">Seleccione una Localidad...</option> : <option value=""></option>
+              datosFormu.state.name ? <option value="">Seleccione una Localidad...</option> : <option value=""></option>
             }
             
             {cities
@@ -162,8 +162,8 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
                     <select
                      name="street" 
                      id="street" 
-                     value={formData.street} 
-                     onChange={(e) => setFormData({...formData, street: e.target.value})}
+                     value={datosFormu.street} 
+                     onChange={(e) => setDatosFormu({...datosFormu, street: e.target.value})}
                      >
                         <option value=""></option>
                         {
@@ -184,8 +184,8 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
             type="text"
             name="street"
             id="street"
-            value={formData.street}
-            onChange={(e) => setFormData({ ...formData, street: e.target.value })}
+            value={datosFormu.street}
+            onChange={(e) => setDatosFormu({ ...datosFormu, street: e.target.value })}
             onKeyUp={validations.street}
             onBlur={validations.street}
           />
@@ -198,8 +198,8 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
             type="text"
             name="door"
             id="door"
-            value={formData.door}
-            onChange={(e) => setFormData({ ...formData, door: e.target.value })}
+            value={datosFormu.door}
+            onChange={(e) => setDatosFormu({ ...datosFormu, door: e.target.value })}
             onKeyUp={validations.door}
             onBlur={validations.door}
           />
@@ -212,9 +212,9 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
             type="text"
             name="postalCode"
             id="postalCode"
-            value={formData.postalCode}
+            value={datosFormu.postalCode}
             onChange={(e) =>
-              setFormData({ ...formData, postalCode: e.target.value })
+              setDatosFormu({ ...datosFormu, postalCode: e.target.value })
             }
             onKeyUp={validations.postalCode}
             onBlur={validations.postalCode}
@@ -231,8 +231,8 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
             cols="30"
             rows="10"
             placeholder="Ej: circulaba por la calle rivera y al llegar a la esquina me chocó un auto por el costado izquierdo"
-            value={formData.description}
-            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+            value={datosFormu.description}
+            onChange={(e) => setDatosFormu({ ...datosFormu, description: e.target.value })}
             onKeyUp={validations.description}
             onBlur={validations.description}
           />
@@ -243,8 +243,8 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
           <select
             name="characteristics"
             id="characteristics"
-            value={formData.characteristics}
-            onChange={(e) => setFormData({ ...formData, characteristics: e.target.value })}
+            value={datosFormu.characteristics}
+            onChange={(e) => setDatosFormu({ ...datosFormu, characteristics: e.target.value })}
           > 
             <option value="">Seleccione...</option>
             <option value="Autopista">AUTOPISTA</option>
@@ -265,8 +265,8 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
           <input 
           type="file" 
           name="img-license-front" 
-          // value={formData.license_front}
-          onChange={(e) => setFormData({ ...formData, license_front: e.target.files[0]})}
+          // value={datosFormu.license_front}
+          onChange={(e) => setDatosFormu({ ...datosFormu, license_front: e.target.files[0]})}
           /> 
         </div>
         <div className="form-group-1 form-group-2" id="form-group-img-license-back">
@@ -274,8 +274,8 @@ function Location({ formData, setFormData, errors, setErrors, expressions }) {
           <input 
           type="file" 
           name="img-license-back" 
-          // value={formData.license}
-          onChange={(e) => setFormData({ ...formData, license_back: e.target.files[0]})}
+          // value={datosFormu.license}
+          onChange={(e) => setDatosFormu({ ...datosFormu, license_back: e.target.files[0]})}
           />
         </div>
       </div>

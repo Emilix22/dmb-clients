@@ -1,6 +1,6 @@
 import React from 'react'
 
-function FormQuestion4({formData, setFormData, errors, setErrors, expressions}) {
+function FormQuestion4({datosFormu, setDatosFormu, errors, setErrors, expressions}) {
     return (
         <div className='formQuestions4'>
 
@@ -12,9 +12,9 @@ function FormQuestion4({formData, setFormData, errors, setErrors, expressions}) 
                     type="text"
                     name="oc_patent"
                     id="oc_patent"
-                    value={formData.other_car.oc_patent}
-                    onChange={(e) => setFormData({ ...formData, other_car : {
-                        ...formData.other_car,
+                    value={datosFormu.other_car.oc_patent}
+                    onChange={(e) => setDatosFormu({ ...datosFormu, other_car : {
+                        ...datosFormu.other_car,
                         oc_patent: e.target.value
                         } })}
                     // onKeyUp={validations.oc_patent}
@@ -30,9 +30,9 @@ function FormQuestion4({formData, setFormData, errors, setErrors, expressions}) 
                 <select
                     name="oc_insurance"
                     id="oc_insurance"
-                    value={formData.other_car.oc_insurance}
-                    onChange={(e) => setFormData({ ...formData, other_car : {
-                        ...formData.other_car,
+                    value={datosFormu.other_car.oc_insurance}
+                    onChange={(e) => setDatosFormu({ ...datosFormu, other_car : {
+                        ...datosFormu.other_car,
                         oc_insurance: e.target.value
                         } })}
                 > 

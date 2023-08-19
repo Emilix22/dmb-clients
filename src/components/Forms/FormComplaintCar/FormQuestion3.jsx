@@ -1,6 +1,6 @@
 import React from 'react'
 
-function FormQuestion3({formData, setFormData, errors, title, setErrors, expressions}) {
+function FormQuestion3({datosFormu, setDatosFormu, errors, title, setErrors, expressions}) {
 
     return (
         <div className='formQuestions3'>
@@ -15,46 +15,46 @@ function FormQuestion3({formData, setFormData, errors, title, setErrors, express
                     id="ioc_name"
                     value={
                         title === 1 
-                        ? formData.injured_out_car.ioc_name1 
+                        ? datosFormu.injured_out_car.ioc_name1 
                         : title === 2  
-                        ? formData.injured_out_car.ioc_name2
+                        ? datosFormu.injured_out_car.ioc_name2
                         : title === 3  
-                        ? formData.injured_out_car.ioc_name3
+                        ? datosFormu.injured_out_car.ioc_name3
                         : title === 4  
-                        ? formData.injured_out_car.ioc_name4
+                        ? datosFormu.injured_out_car.ioc_name4
                         : title === 5  
-                        ? formData.injured_out_car.ioc_name5
+                        ? datosFormu.injured_out_car.ioc_name5
                         : ""
                     }
                     onChange={(e) => {
 
                         title === 1 
-                        ? setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        ? setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_name1: e.target.value
                         } })
 
                         : title === 2 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_name2: e.target.value
                         } })
 
                         : title === 3 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_name3: e.target.value
                         } })
 
                         : title === 4 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_name4: e.target.value
                         } })
 
                         : title === 5 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_name5: e.target.value
                         } }) 
                         : ""}
@@ -70,46 +70,46 @@ function FormQuestion3({formData, setFormData, errors, title, setErrors, express
                     id="ioc_surname"
                     value={
                         title === 1 
-                        ? formData.injured_out_car.ioc_surname1 
+                        ? datosFormu.injured_out_car.ioc_surname1 
                         : title === 2  
-                        ? formData.injured_out_car.ioc_surname2
+                        ? datosFormu.injured_out_car.ioc_surname2
                         : title === 3  
-                        ? formData.injured_out_car.ioc_surname3
+                        ? datosFormu.injured_out_car.ioc_surname3
                         : title === 4  
-                        ? formData.injured_out_car.ioc_surname4
+                        ? datosFormu.injured_out_car.ioc_surname4
                         : title === 5  
-                        ? formData.injured_out_car.ioc_surname5
+                        ? datosFormu.injured_out_car.ioc_surname5
                         : ""
                     }
                     onChange={(e) => {
 
                        title === 1 
-                        ? setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        ? setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_surname1: e.target.value
                         } })
 
                         : title === 2 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_surname2: e.target.value
                         } })
 
                         : title === 3 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_surname3: e.target.value
                         } })
 
                         : title === 4 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_surname4: e.target.value
                         } })
 
                         : title === 5 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_surname5: e.target.value
                         } }) 
                         : ""}
@@ -125,46 +125,46 @@ function FormQuestion3({formData, setFormData, errors, title, setErrors, express
                     id="ioc_dni"
                     value={
                         title === 1 
-                        ? formData.injured_out_car.ioc_dni1 
+                        ? datosFormu.injured_out_car.ioc_dni1 
                         : title === 2  
-                        ? formData.injured_out_car.ioc_dni2
+                        ? datosFormu.injured_out_car.ioc_dni2
                         : title === 3  
-                        ? formData.injured_out_car.ioc_dni3
+                        ? datosFormu.injured_out_car.ioc_dni3
                         : title === 4  
-                        ? formData.injured_out_car.ioc_dni4
+                        ? datosFormu.injured_out_car.ioc_dni4
                         : title === 5  
-                        ? formData.injured_out_car.ioc_dni5
+                        ? datosFormu.injured_out_car.ioc_dni5
                         : ""
                     }
                     onChange={(e) => {
 
                         title === 1 
-                        ? setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        ? setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_dni1: e.target.value
                         } })
 
                         : title === 2 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_dni2: e.target.value
                         } })
 
                         : title === 3 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_dni3: e.target.value
                         } })
 
                         : title === 4 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_dni4: e.target.value
                         } })
 
                         : title === 5 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_dni5: e.target.value
                         } }) 
                         : ""} 
@@ -180,46 +180,46 @@ function FormQuestion3({formData, setFormData, errors, title, setErrors, express
                     id="ioc_phone"
                     value={
                         title === 1 
-                        ? formData.injured_out_car.ioc_phone1 
+                        ? datosFormu.injured_out_car.ioc_phone1 
                         : title === 2  
-                        ? formData.injured_out_car.ioc_phone2
+                        ? datosFormu.injured_out_car.ioc_phone2
                         : title === 3  
-                        ? formData.injured_out_car.ioc_phone3
+                        ? datosFormu.injured_out_car.ioc_phone3
                         : title === 4  
-                        ? formData.injured_out_car.ioc_phone4
+                        ? datosFormu.injured_out_car.ioc_phone4
                         : title === 5  
-                        ? formData.injured_out_car.ioc_phone5
+                        ? datosFormu.injured_out_car.ioc_phone5
                         : ""
                     }
                     onChange={(e) => {
 
                         title === 1 
-                        ? setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        ? setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_phone1: e.target.value
                         } })
 
                         : title === 2 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_phone2: e.target.value
                         } })
 
                         : title === 3 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_phone3: e.target.value
                         } })
 
                         : title === 4 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_phone4: e.target.value
                         } })
 
                         : title === 5 ?
-                        setFormData({ ...formData, injured_out_car : {
-                        ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                        ...datosFormu.injured_out_car,
                         ioc_phone5: e.target.value
                         } }) 
                         : ""}
@@ -233,9 +233,9 @@ function FormQuestion3({formData, setFormData, errors, title, setErrors, express
                 <select
                     name="dnc_relationshipn"
                     id="dnc_relationship"
-                    value={formData.driver_not_client.dnc_relationship}
-                    onChange={(e) => setFormData({ ...formData, driver_not_client : {
-                        ...formData.driver_not_client,
+                    value={datosFormu.driver_not_client.dnc_relationship}
+                    onChange={(e) => setDatosFormu({ ...datosFormu, driver_not_client : {
+                        ...datosFormu.driver_not_client,
                         dnc_relationship: e.target.value
                         } })}
                 > 

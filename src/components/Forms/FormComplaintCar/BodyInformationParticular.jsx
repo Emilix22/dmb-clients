@@ -4,40 +4,40 @@ import FormQuestion2 from './FormQuestion2'
 import FormQuestion3 from './FormQuestion3'
 import FormQuestion4 from './FormQuestion4'
 
-function InformationParticular({ formData, setFormData, errors, setErrors, expressions }) {
+function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, expressions }) {
 
     const [multiQ2, setMultiQ2] = useState([])
     const [multiQ3, setMultiQ3] = useState([])
 
     useEffect(() => {
         
-        formData.injured_in_car.iic_quantity === "1" 
+        datosFormu.injured_in_car.iic_quantity === "1" 
         ? setMultiQ2([1]) 
-        : formData.injured_in_car.iic_quantity === "2" 
+        : datosFormu.injured_in_car.iic_quantity === "2" 
         ? setMultiQ2([1, 2]) 
-        : formData.injured_in_car.iic_quantity === "3" 
+        : datosFormu.injured_in_car.iic_quantity === "3" 
         ? setMultiQ2([1, 2, 3]) 
-        : formData.injured_in_car.iic_quantity === "4" 
+        : datosFormu.injured_in_car.iic_quantity === "4" 
         ? setMultiQ2([1, 2, 3, 4])
-        : Number(formData.injured_in_car.iic_quantity) >= 5 
+        : Number(datosFormu.injured_in_car.iic_quantity) >= 5 
         ? setMultiQ2([1, 2, 3, 4, 5])
         : setMultiQ2([])  
-    }, [formData.injured_in_car.iic_quantity]);
+    }, [datosFormu.injured_in_car.iic_quantity]);
 
     useEffect(() => {
         
-        formData.injured_out_car.ioc_quantity === "1" 
+        datosFormu.injured_out_car.ioc_quantity === "1" 
         ? setMultiQ3([1]) 
-        : formData.injured_out_car.ioc_quantity === "2" 
+        : datosFormu.injured_out_car.ioc_quantity === "2" 
         ? setMultiQ3([1, 2]) 
-        : formData.injured_out_car.ioc_quantity === "3" 
+        : datosFormu.injured_out_car.ioc_quantity === "3" 
         ? setMultiQ3([1, 2, 3]) 
-        : formData.injured_out_car.ioc_quantity === "4" 
+        : datosFormu.injured_out_car.ioc_quantity === "4" 
         ? setMultiQ3([1, 2, 3, 4])
-        : Number(formData.injured_out_car.ioc_quantity) >= 5 
+        : Number(datosFormu.injured_out_car.ioc_quantity) >= 5 
         ? setMultiQ3([1, 2, 3, 4, 5])
         : setMultiQ3([])  
-    }, [formData.injured_out_car.ioc_quantity]);
+    }, [datosFormu.injured_out_car.ioc_quantity]);
 
 
     return (
@@ -51,7 +51,7 @@ function InformationParticular({ formData, setFormData, errors, setErrors, expre
                         name="question1"
                         id="question1S"
                         value={"si"}
-                        onClick={(e) => setFormData({ ...formData, question1: e.target.value })}
+                        onClick={(e) => setDatosFormu({ ...datosFormu, question1: e.target.value })}
                     />
                     <label htmlFor="question1N">No</label>
                     <input
@@ -59,7 +59,7 @@ function InformationParticular({ formData, setFormData, errors, setErrors, expre
                         name="question1"
                         id="question1N"
                         value={"no"}
-                        onClick={(e) => setFormData({ ...formData, question1: e.target.value })}
+                        onClick={(e) => setDatosFormu({ ...datosFormu, question1: e.target.value })}
                     /> 
                 </div>
                 
@@ -67,7 +67,7 @@ function InformationParticular({ formData, setFormData, errors, setErrors, expre
             </div>
 
             {
-                formData.question1 === "no" ? <FormQuestion1 formData={formData} setFormData={setFormData} errors={errors} setErrors={setErrors} expressions={expressions} /> : ""
+                datosFormu.question1 === "no" ? <FormQuestion1 datosFormu={datosFormu} setDatosFormu={setDatosFormu} errors={errors} setErrors={setErrors} expressions={expressions} /> : ""
             }
 
             <div className="form-group-1 form-group-2">
@@ -79,7 +79,7 @@ function InformationParticular({ formData, setFormData, errors, setErrors, expre
                     name="question2"
                     id="question2S"
                     value={"si"}
-                    onClick={(e) => setFormData({ ...formData, question2: e.target.value })}
+                    onClick={(e) => setDatosFormu({ ...datosFormu, question2: e.target.value })}
                 />
                 <label htmlFor="question2N">No</label>
                 <input
@@ -87,23 +87,23 @@ function InformationParticular({ formData, setFormData, errors, setErrors, expre
                     name="question2"
                     id="question2N"
                     value={"no"}
-                    onClick={(e) => setFormData({ ...formData, question2: e.target.value })}
+                    onClick={(e) => setDatosFormu({ ...datosFormu, question2: e.target.value })}
                 />
                 </div>
                 {errors.question2 ? <span className="msg-error">{errors.question2}</span> : ""}
             </div>
             {
-                formData.question2 === "si" 
+                datosFormu.question2 === "si" 
                 ? <div className="form-group-1 form-group-3">
                 <label htmlFor="iic_quantity">Cantidad de Lesionados <strong>Dentro del Vehículo</strong></label>
                 <input
                     type="text"
                     name="iic_quantity"
                     id="iic_quantity"
-                    value={formData.injured_in_car.iic_quantity}
+                    value={datosFormu.injured_in_car.iic_quantity}
                     onChange={(e) => {
-                        setFormData({ ...formData, injured_in_car : {
-                            ...formData.injured_in_car,
+                        setDatosFormu({ ...datosFormu, injured_in_car : {
+                            ...datosFormu.injured_in_car,
                             iic_quantity: e.target.value
                         }})
                     }}
@@ -116,7 +116,7 @@ function InformationParticular({ formData, setFormData, errors, setErrors, expre
 
             {     
                 multiQ2.map((num, index) => {
-                    return <FormQuestion2 title={index +1} formData={formData} setFormData={setFormData} errors={errors} setErrors={setErrors} expressions={expressions} key={num +index} />
+                    return <FormQuestion2 title={index +1} datosFormu={datosFormu} setDatosFormu={setDatosFormu} errors={errors} setErrors={setErrors} expressions={expressions} key={num +index} />
                 })
                 
             }
@@ -130,7 +130,7 @@ function InformationParticular({ formData, setFormData, errors, setErrors, expre
                     name="question3"
                     id="question3S"
                     value={"si"}
-                    onClick={(e) => setFormData({ ...formData, question3: e.target.value })}
+                    onClick={(e) => setDatosFormu({ ...datosFormu, question3: e.target.value })}
                 />
                 <label htmlFor="question3N">No</label>
                 <input
@@ -138,24 +138,24 @@ function InformationParticular({ formData, setFormData, errors, setErrors, expre
                     name="question3"
                     id="question3N"
                     value={"no"}
-                    onClick={(e) => setFormData({ ...formData, question3: e.target.value })}
+                    onClick={(e) => setDatosFormu({ ...datosFormu, question3: e.target.value })}
                 />
                 </div>
                 {errors.question3 ? <span className="msg-error">{errors.question3}</span> : ""}
             </div>
 
             {
-                formData.question3 === "si" 
+                datosFormu.question3 === "si" 
                 ? <div className="form-group-1 form-group-3">
                 <label htmlFor="ioc_quantity">Cantidad de Lesionados <strong>Fuera del Vehículo</strong></label>
                 <input
                     type="text"
                     name="ioc_quantity"
                     id="ioc_quantity"
-                    value={formData.injured_out_car.ioc_quantity}
+                    value={datosFormu.injured_out_car.ioc_quantity}
                     onChange={(e) => {
-                        setFormData({ ...formData, injured_out_car : {
-                            ...formData.injured_out_car,
+                        setDatosFormu({ ...datosFormu, injured_out_car : {
+                            ...datosFormu.injured_out_car,
                             ioc_quantity: e.target.value
                         }})
                     }}
@@ -168,7 +168,7 @@ function InformationParticular({ formData, setFormData, errors, setErrors, expre
 
             {     
                 multiQ3.map((num, index) => {
-                    return <FormQuestion3 title={index +1} formData={formData} setFormData={setFormData} errors={errors} setErrors={setErrors} expressions={expressions} key={num +index} />
+                    return <FormQuestion3 title={index +1} datosFormu={datosFormu} setDatosFormu={setDatosFormu} errors={errors} setErrors={setErrors} expressions={expressions} key={num +index} />
                 })
                 
             }
@@ -182,7 +182,7 @@ function InformationParticular({ formData, setFormData, errors, setErrors, expre
                     name="question4"
                     id="question4S"
                     value={"si"}
-                    onClick={(e) => setFormData({ ...formData, question4: e.target.value })}
+                    onClick={(e) => setDatosFormu({ ...datosFormu, question4: e.target.value })}
                 />
                 <label htmlFor="question4N">No</label>
                 <input
@@ -190,14 +190,14 @@ function InformationParticular({ formData, setFormData, errors, setErrors, expre
                     name="question4"
                     id="question4N"
                     value={"no"}
-                    onClick={(e) => setFormData({ ...formData, question4: e.target.value })}
+                    onClick={(e) => setDatosFormu({ ...datosFormu, question4: e.target.value })}
                 />
                 </div>
                 {errors.question4 ? <span className="msg-error">{errors.question4}</span> : ""}
             </div>
 
             {
-                formData.question4 === "si" ? <FormQuestion4 formData={formData} setFormData={setFormData} errors={errors} setErrors={setErrors} expressions={expressions} /> : ""
+                datosFormu.question4 === "si" ? <FormQuestion4 datosFormu={datosFormu} setDatosFormu={setDatosFormu} errors={errors} setErrors={setErrors} expressions={expressions} /> : ""
             }
 
         </div>

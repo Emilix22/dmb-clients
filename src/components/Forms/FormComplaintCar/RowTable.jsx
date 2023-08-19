@@ -3,7 +3,7 @@ import "./Form.css";
 
 function RowTable(props) {
   const selectedButton = (e) => {
-    props.setFormData({ ...props.formData, policy: e.target.value });
+    props.setDatosFormu({ ...props.datosFormu, policy: e.target.value });
   };
 
   return (

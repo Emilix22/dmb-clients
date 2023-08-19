@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) {
+function FormQuestion1({datosFormu, setDatosFormu, errors, setErrors, expressions}) {
 
     const [states, setStates] = useState([]);
     const [cities, setCities] = useState([]);
@@ -14,21 +14,21 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
           setStates(info.provincias);
         };
         loadStates();
-    }, [formData.driver_not_client.dnc_state.name]);
+    }, [datosFormu.driver_not_client.dnc_state.name]);
 
     
     useEffect(() => {
         const loadCities = async () => {
           const response = await fetch(
             `https://apis.datos.gob.ar/georef/api/municipios?provincia=${Number(
-                formData.driver_not_client.dnc_state.id
+                datosFormu.driver_not_client.dnc_state.id
             )}&campos=id,nombre&max=1000`
           );
           const info = await response.json();
           setCities(info.municipios);
         };
         loadCities();
-    }, [formData.driver_not_client.dnc_state]); // hacer lo del máximo **!!!!**************************************************
+    }, [datosFormu.driver_not_client.dnc_state]); // hacer lo del máximo **!!!!**************************************************
 
     return (
         <div className='formQuestions1'>
@@ -40,9 +40,9 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
                     type="text"
                     name="dnc_name"
                     id="dnc_name"
-                    value={formData.driver_not_client.dnc_name}
-                    onChange={(e) => setFormData({ ...formData, driver_not_client : {
-                        ...formData.driver_not_client,
+                    value={datosFormu.driver_not_client.dnc_name}
+                    onChange={(e) => setDatosFormu({ ...datosFormu, driver_not_client : {
+                        ...datosFormu.driver_not_client,
                         dnc_name: e.target.value
                         } })}
                     // onKeyUp={validations.dnc_name}
@@ -57,9 +57,9 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
                     type="text"
                     name="dnc_surname"
                     id="dnc_surname"
-                    value={formData.driver_not_client.dnc_surname}
-                    onChange={(e) => setFormData({ ...formData, driver_not_client : {
-                        ...formData.driver_not_client,
+                    value={datosFormu.driver_not_client.dnc_surname}
+                    onChange={(e) => setDatosFormu({ ...datosFormu, driver_not_client : {
+                        ...datosFormu.driver_not_client,
                         dnc_surname: e.target.value
                         } })}
                     // onKeyUp={validations.dnc_surname}
@@ -74,9 +74,9 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
                     type="text"
                     name="dnc_DNI"
                     id="dnc_DNI"
-                    value={formData.driver_not_client.dnc_DNI}
-                    onChange={(e) => setFormData({ ...formData, driver_not_client : {
-                        ...formData.driver_not_client,
+                    value={datosFormu.driver_not_client.dnc_DNI}
+                    onChange={(e) => setDatosFormu({ ...datosFormu, driver_not_client : {
+                        ...datosFormu.driver_not_client,
                         dnc_DNI: e.target.value
                         } })}
                     // onKeyUp={validations.dnc_DNI}
@@ -91,9 +91,9 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
                     type="text"
                     name="dnc_phone"
                     id="dnc_phone"
-                    value={formData.driver_not_client.dnc_phone}
-                    onChange={(e) => setFormData({ ...formData, driver_not_client : {
-                        ...formData.driver_not_client,
+                    value={datosFormu.driver_not_client.dnc_phone}
+                    onChange={(e) => setDatosFormu({ ...datosFormu, driver_not_client : {
+                        ...datosFormu.driver_not_client,
                         dnc_phone: e.target.value
                         } })}
                     // onKeyUp={validations.dnc_phone}
@@ -108,9 +108,9 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
                     type="date"
                     name="dnc_birthday"
                     id="dnc_birthday"
-                    value={formData.driver_not_client.dnc_birthday}
-                    onChange={(e) => setFormData({ ...formData, driver_not_client : {
-                        ...formData.driver_not_client,
+                    value={datosFormu.driver_not_client.dnc_birthday}
+                    onChange={(e) => setDatosFormu({ ...datosFormu, driver_not_client : {
+                        ...datosFormu.driver_not_client,
                         dnc_birthday: e.target.value
                         } })}
                     // onKeyUp={validations.dnc_birthday}
@@ -125,9 +125,9 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
                     type="text"
                     name="dnc_nacionality"
                     id="dnc_nacionality"
-                    value={formData.driver_not_client.dnc_nacionality}
-                    onChange={(e) => setFormData({ ...formData, driver_not_client : {
-                        ...formData.driver_not_client,
+                    value={datosFormu.driver_not_client.dnc_nacionality}
+                    onChange={(e) => setDatosFormu({ ...datosFormu, driver_not_client : {
+                        ...datosFormu.driver_not_client,
                         dnc_nacionality: e.target.value
                         } })}
                     // onKeyUp={validations.dnc_nacionality}
@@ -141,11 +141,11 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
                 <select
                     name="dnc_state"
                     id="dnc_state"
-                    value={formData.driver_not_client.dnc_state[1]}
+                    value={datosFormu.driver_not_client.dnc_state[1]}
                     onChange={(e) =>
-                    setFormData({
-                        ...formData, driver_not_client : {
-                            ...formData.driver_not_client,
+                    setDatosFormu({
+                        ...datosFormu, driver_not_client : {
+                            ...datosFormu.driver_not_client,
                             dnc_state: {
                                 id: e.target.value.slice(0, 2),
                                 name: e.target.value.slice(3),
@@ -176,21 +176,21 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
                 <select
                     name="city"
                     id="city"
-                    value={formData.driver_not_client.dnc_city}
-                    onChange={(e) => setFormData({
-                        ...formData, driver_not_client : {
-                            ...formData.driver_not_client,
+                    value={datosFormu.driver_not_client.dnc_city}
+                    onChange={(e) => setDatosFormu({
+                        ...datosFormu, driver_not_client : {
+                            ...datosFormu.driver_not_client,
                             dnc_city: e.target.value
                             }
                     })}
                 >
-                    {formData.driver_not_client.dnc_state.id === "02" ? (
+                    {datosFormu.driver_not_client.dnc_state.id === "02" ? (
                     <option value="CABA">CABA</option>
                     ) : (
                     ""
                     )}
                     {
-                    formData.driver_not_client.dnc_state.name ? <option value="">Seleccione una Localidad...</option> : <option value=""></option>
+                    datosFormu.driver_not_client.dnc_state.name ? <option value="">Seleccione una Localidad...</option> : <option value=""></option>
                     }
                     
                     {cities
@@ -207,9 +207,9 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
                     type="text"
                     name="dnc_street"
                     id="dnc_street"
-                    value={formData.driver_not_client.dnc_street}
-                    onChange={(e) => setFormData({ ...formData, driver_not_client : {
-                        ...formData.driver_not_client,
+                    value={datosFormu.driver_not_client.dnc_street}
+                    onChange={(e) => setDatosFormu({ ...datosFormu, driver_not_client : {
+                        ...datosFormu.driver_not_client,
                         dnc_street: e.target.value
                         } })}
                     // onKeyUp={validations.dnc_street}
@@ -224,9 +224,9 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
                     type="text"
                     name="dnc_door"
                     id="dnc_door"
-                    value={formData.driver_not_client.dnc_door}
-                    onChange={(e) => setFormData({ ...formData, driver_not_client : {
-                        ...formData.driver_not_client,
+                    value={datosFormu.driver_not_client.dnc_door}
+                    onChange={(e) => setDatosFormu({ ...datosFormu, driver_not_client : {
+                        ...datosFormu.driver_not_client,
                         dnc_door: e.target.value
                         } })}
                     // onKeyUp={validations.dnc_door}
@@ -241,9 +241,9 @@ function FormQuestion1({formData, setFormData, errors, setErrors, expressions}) 
                     type="text"
                     name="dnc_postalCode"
                     id="dnc_postalCode"
-                    value={formData.driver_not_client.dnc_postalCode}
-                    onChange={(e) => setFormData({ ...formData, driver_not_client : {
-                        ...formData.driver_not_client,
+                    value={datosFormu.driver_not_client.dnc_postalCode}
+                    onChange={(e) => setDatosFormu({ ...datosFormu, driver_not_client : {
+                        ...datosFormu.driver_not_client,
                         dnc_postalCode: e.target.value
                         } })}
                     // onKeyUp={validations.dnc_postalCode}
