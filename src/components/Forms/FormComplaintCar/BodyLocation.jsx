@@ -56,12 +56,11 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
   useEffect(() => {
     const loadCities = async () => {
       const response = await fetch(
-        `https://apis.datos.gob.ar/georef/api/municipios?provincia=${Number(
-          datosFormu.state.id
-        )}&campos=id,nombre&max=1000`
+        `https://apis.datos.gob.ar/georef/api/departamentos?provincia=${Number(datosFormu.state.id)}&campos=id,nombre&max=1000`
       );
+     
       const info = await response.json();
-      setCities(info.municipios);
+      setCities(info.departamentos);
     };
     loadCities();
   }, [datosFormu.state]); // hacer lo del máximo **!!!!**************************************************

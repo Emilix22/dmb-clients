@@ -113,8 +113,6 @@ function Form() {
 
     })
 
-    const [imgRegisterFront, setImgRegisterFront] = useState()
-
     const formData = new FormData();
 
     formData.append('dni', datosFormu.dni)
@@ -247,8 +245,7 @@ function Form() {
 
     const handleSend = (event) => {
         event.preventDefault();
-        toast.success('Formulario Enviado!')
-        console.log(datosFormu)
+        //console.log(datosFormu)
 
         fetch("http://localhost:3000/api/siniestros_auto/crear", {
             method: "POST",
@@ -257,7 +254,9 @@ function Form() {
         .then(res => res.json())
         .then(info => {
            console.log(info)
+           toast.success('Formulario Enviado!')
         })
+        .catch(error => {console.log(error)})
     }
 
     const formDisplay = () => {

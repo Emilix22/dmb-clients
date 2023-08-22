@@ -86,8 +86,8 @@
 
   td {
     border: solid 1px #e3e3e3;
-    padding: 7px;
-    font-size: 14px;
+    padding: 3px;
+    font-size: 12px;
   }
 
   #selectPolicy {
@@ -184,5 +184,10 @@
 
     .form-group-4 {
       width: 22%;
+    }
+
+    td {
+      padding: 7px;
+      font-size: 14px;
     }
   }
