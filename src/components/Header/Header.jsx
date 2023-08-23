@@ -47,8 +47,8 @@ function Header() {
             </li>
             <div className="subMenu">
               <Link to="/complaint-car">AUTO</Link>
-              <Link to="#">HOGAR</Link>
-              <Link to="#">OTRO</Link>
+              <Link to="/complaint-home">HOGAR</Link>
+              <Link to="/complaint-other">OTRO</Link>
             </div>
           </div>
           <li><Link>CONTACTO</Link></li>
