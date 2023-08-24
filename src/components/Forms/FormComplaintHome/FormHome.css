@@ -150,6 +150,83 @@
     flex-direction: column;
   }
 
+  /* .article-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .checkbox-group1, .checkbox-group2 {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+  }
+
+  @keyframes muestraSubmenu {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .checkbox-group1.mostrar, .checkbox-group2.mostrar {
+    display: flex;
+    animation: muestraSubmenu 600ms ease both;
+  }
+
+  .check {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .checkbox-group input {
+    width: 15px;
+  }
+
+  .articles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: flex-start;
+  } */
+
+  .raison-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #00216d;
+    border: solid 1px #00216d;
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px;
+  }
+
+  .checkbox-options {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .checkbox-options input {
+    width: 15px;
+  }
+
+  .checkbox-group {
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+  }
+
   
   /*********************************************Desktop***************************************************/
 

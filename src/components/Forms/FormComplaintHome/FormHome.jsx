@@ -2,7 +2,7 @@ import './FormHome.css'
 import React, {useState} from 'react'
 // import Location from './BodyLocation';
 import DateTime from './BodyDateTimeHome';
-// import Raison from './BodyRaison';
+import Raison from './BodyRaison';
 // import InformationParticular from './BodyInformationParticular';
 // import ConfirmSend from './ConfirmSend';
 import { Toaster, toast } from 'sonner'
@@ -11,7 +11,7 @@ function FormHome() {
 
     const [page, setPage] = useState(0);
 
-    const formTitles = ['Ingrese el DNI del Asegurado y la Fecha y Hora del Siniestro', 'Seleccione Motivo y Consecuencia', 'Indique Lugar del Siniestro', 'Información Particular', 'Resumen del Siniestro a Denunciar'];
+    const formTitles = ['Ingrese el DNI del Asegurado y la Fecha y Hora del Siniestro', 'Seleccione Tipo y Motivo', 'Indique Lugar del Siniestro', 'Información Particular', 'Resumen del Siniestro a Denunciar'];
 
 
     const [datosFormu, setDatosFormu] = useState({
@@ -24,9 +24,43 @@ function FormHome() {
         id_client: "",
         policy: "",
         //****************************paso2************/
-        raison: "",
-        consequence: "",
-        //****************************paso3************/
+        raison: "seleccione",
+        consequence: {
+            incendio_contenido_total: false,
+            incendio_contenido_parcial: false,
+            incendio_edificio_total: false,
+            incendio_edificio_parcial: false,
+            granizo: false,
+            vientos_fuertes: false,
+            impacto_en_vehículos_terrestres: false,
+            rayo_directo: false,
+            linderos: false,
+            cristales_rotura_accidental: false,
+            cristales_rajadura_accidental: false,
+            mobiliario_daño_parcial: false,
+            mobiliario_robo_parcial: false,
+            mobiliario_robo_total: false,
+            objetos_daño_parcial: false,
+            objetos_daño_total: false,
+            objetos_robo_total: false,
+            notebook_daño_parcial: false,
+            notebook_daño_total: false,
+            notebook_robo_parcial: false,
+            notebook_robo_total: false,
+            electrónicos_robo: false,
+            electrónicos_daño_parcial_accidente: false,
+            electrónicos_daño_parcial_alta_baja_tensión: false,
+            electrónicos_daño_total_accidente: false,
+            electrónicos_daño_total_alta_baja_tensión: false,
+            bicicletas_robo: false,
+            bicicletas_incendio: false,
+            por_agua_daños_al_mobiliario: false,
+            daños_a_objetos: false,
+            lesiones_a_personas: false,
+            muerte_a_personas: false,
+            otro_tipo_de_bienes: false
+        },
+        //****************************paso3******************/
         street: "",
         door: "",
         postalCode: "",
