@@ -247,11 +247,11 @@ function BodyDateTime({
                     setDatosFormu={setDatosFormu}
                     datosFormu={datosFormu}
                     numero_poliza={policy.numero_poliza}
-                    calle={policy.hogares.calle}
-                    altura={policy.hogares.altura}
-                    piso={policy.hogares.piso}
-                    departamento={policy.hogares.departamento}
-                    localidad={policy.hogares.localidad}
+                    calle={policy.ubicaciones_riesgos.calle}
+                    altura={policy.ubicaciones_riesgos.altura}
+                    piso={policy.ubicaciones_riesgos.piso}
+                    departamento={policy.ubicaciones_riesgos.departamento}
+                    localidad={policy.ubicaciones_riesgos.localidad}
                     key={policy + index}
                   />
                 );
