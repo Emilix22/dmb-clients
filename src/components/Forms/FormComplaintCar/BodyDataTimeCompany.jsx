@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import RowTable from "./RowTable";
 
-function BodyDateTime({
+function BodyDataTimeCompany({
   datosFormu,
   setDatosFormu,
   errors,
@@ -11,11 +11,11 @@ function BodyDateTime({
   setValidClient,
 }) {
   const validations = {
-    dni: () => {
-      if (expressions.dni.test(datosFormu.dni)) {
-        setErrors({ ...errors, dni: "" });
+    cuit: () => {
+      if (expressions.cuit.test(datosFormu.cuit)) {
+        setErrors({ ...errors, cuit: "" });
       } else {
-        setErrors({ ...errors, dni: "Requerido - sólo números - 8 cracteres" });
+        setErrors({ ...errors, cuit: "Requerido - sólo números - 11 cracteres" });
       }
     },
 
@@ -52,10 +52,10 @@ function BodyDateTime({
 
   useEffect(() => {
     const loadClient = async () => {
-      const response = await fetch("http://localhost:3000/api/clientes/dni", {
+      const response = await fetch("http://localhost:3000/api/clientes/cuit", {
         method: "POST",
         body: JSON.stringify({
-          dni: datosFormu.dni,
+          cuit: datosFormu.cuit,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -65,15 +65,15 @@ function BodyDateTime({
       setClient(info);
     };
     {
-      datosFormu.dni.length === 8 ? loadClient() : ""
+      datosFormu.cuit.length === 11 ? loadClient() : ""
     }
     
-  }, [datosFormu.dni]);
+  }, [datosFormu.cuit]);
 
   useEffect(() => {
     const loadPolicy = async () => {
       const response = await fetch(
-        "http://localhost:3000/api/polizas/auto/porCliente",
+        "http://localhost:3000/api/polizas/auto/porEmpresa",
         {
           method: "POST",
           body: JSON.stringify({
@@ -94,17 +94,14 @@ function BodyDateTime({
     event.preventDefault();
     if (!client.error) {
       setValidClient(
-        client.data.nombre +
-          " " +
-          client.data.apellido +
-          " por favor ingrese fecha y hora del siniestro"
+        client.data.nombre_empresa + " por favor ingrese fecha y hora del siniestro"
       );
       
-      setDatosFormu({ ...datosFormu, client_name: client.data.nombre + " " + client.data.apellido, id_client: client.data.id_cliente_persona });
+      setDatosFormu({ ...datosFormu, client_name: client.data.nombre_empresa, id_company: client.data.id_cliente_empresa });
 
       setErrors({ ...errors, client: "" });
       // console.log(client.data.nombre);
-      setClientId(client.data.id_cliente_persona);
+      setClientId(client.data.id_cliente_empresa);
     } else {
       setErrors({ ...errors, client: client.error });
       //console.log(client.error);
@@ -114,20 +111,20 @@ function BodyDateTime({
   return (
     <div className="form-DataTime">
       <div className="form-group-1 form-group-2">
-        <label htmlFor="dni">DNI del Asegurado</label>
+        <label htmlFor="cuit">CUIT de la Empresa Asegurada</label>
         <input
           type="text"
-          name="dni"
-          id="dni"
+          name="cuit"
+          id="cuit"
           placeholder="Ej: 26365256"
-          value={datosFormu.dni}
-          onChange={(e) => setDatosFormu({ ...datosFormu, dni: e.target.value })}
-          onKeyUp={validations.dni}
-          onBlur={validations.dni}
+          value={datosFormu.cuit}
+          onChange={(e) => setDatosFormu({ ...datosFormu, cuit: e.target.value })}
+          onKeyUp={validations.cuit}
+          onBlur={validations.cuit}
         />
-        {errors.dni ? <span className="msg-error">{errors.dni}</span> : ""}
+        {errors.cuit ? <span className="msg-error">{errors.cuit}</span> : ""}
         <button className="btn-validation" onClick={handleValidar}>
-          Validar DNI
+          Validar CUIT
         </button>
         {errors.client ? (
           <span className="msg-error">{errors.client}</span>
@@ -270,4 +267,4 @@ function BodyDateTime({
   );
 }
 
-export default BodyDateTime;
+export default BodyDataTimeCompany;

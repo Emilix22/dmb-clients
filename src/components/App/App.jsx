@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom'
 import ClientSelect from '../ClientSelect/ClientSelect'
 import FormHome from '../Forms/FormComplaintHome/FormHome'
 import FormOther from '../Forms/FormComplaintOther/FormOther'
+import FormCarCompany from '../Forms/FormComplaintCar/FormCarCompany'
 
 function App() {
   
@@ -14,10 +15,11 @@ function App() {
       <Header />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/complaint-car" element={<ClientSelect ruta={'/complaint-car-person'} />} />
-      <Route path="/complaint-home" element={<ClientSelect ruta={'/complaint-home-person'} />} />
-      <Route path="/complaint-other" element={<ClientSelect ruta={'/complaint-other-person'} />} />
+      <Route path="/complaint-car" element={<ClientSelect rutaPerson={'/complaint-car-person'} rutaCompany={'/complaint-car-company'} />} />
+      <Route path="/complaint-home" element={<ClientSelect rutaPerson={'/complaint-home-person'} />} />
+      <Route path="/complaint-other" element={<ClientSelect rutaPerson={'/complaint-other-person'} />} />
       <Route path="/complaint-car-person" element={<Form />} />
+      <Route path="/complaint-car-company" element={<FormCarCompany />} />
       <Route path="/complaint-home-person" element={<FormHome />} />
       <Route path="/complaint-other-person" element={<FormOther />} />
     </Routes>

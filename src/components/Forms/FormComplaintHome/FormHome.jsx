@@ -5,10 +5,14 @@ import DateTime from './BodyDateTimeHome';
 import Raison from './BodyRaison';
 import ConfirmSend from './ConfirmSend';
 import { Toaster, toast } from 'sonner'
+import {useNavigate} from 'react-router-dom'
+
 
 function FormHome() {
 
     const [page, setPage] = useState(0);
+    const history = useNavigate() 
+
 
     const formTitles = ['Ingrese el DNI del Asegurado y la Fecha y Hora del Siniestro', 'Seleccione Tipo y Motivo', 'Descripción de los hechos', 'Resumen del Siniestro a Denunciar'];
 
@@ -21,6 +25,7 @@ function FormHome() {
         hour: "",
         minutes: "",
         id_client: "",
+        // id_company: null,
         policy: "",
         //****************************paso2************/
         raison: "seleccione",
@@ -72,7 +77,8 @@ function FormHome() {
     formData.append('date', datosFormu.date)
     formData.append('hour', datosFormu.hour)
     formData.append('minutes', datosFormu.minutes)
-    formData.append('id_client', datosFormu.id_client)
+    formData.append('id_peapol', datosFormu.id_client)
+    // formData.append('id_company', datosFormu.id_company)
     formData.append('policy', datosFormu.policy)
     //****************************paso2**********************************/
     formData.append('raison', datosFormu.raison)
@@ -165,6 +171,7 @@ function FormHome() {
         .then(info => {
            console.log(info)
            toast.success('Formulario Enviado!')
+           setTimeout(() => {history("/")}, 2000)
         })
         .catch(error => {console.log(error)})
     }

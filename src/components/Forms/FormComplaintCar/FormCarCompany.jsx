@@ -1,30 +1,31 @@
 import './Form.css'
 import React, {useState} from 'react'
 import Location from './BodyLocation';
-import DateTime from './BodyDateTime';
+import DateTime from './BodyDataTimeCompany';
 import Raison from './BodyRaison';
 import InformationParticular from './BodyInformationParticular';
 import ConfirmSend from './ConfirmSend';
 import { Toaster, toast } from 'sonner'
 import {useNavigate} from 'react-router-dom'
 
-function Form() {
+
+function FormCarCompany() {
 
     const [page, setPage] = useState(0);
     const history = useNavigate() 
 
-    const formTitles = ['Ingrese el DNI del Asegurado y la Fecha y Hora del Siniestro', 'Seleccione Motivo y Consecuencia', 'Indique Lugar del Siniestro', 'Información Particular', 'Resumen del Siniestro a Denunciar'];
+    const formTitles = ['Ingrese el CUIT de la Empresa Asegurada y la Fecha y Hora del Siniestro', 'Seleccione Motivo y Consecuencia', 'Indique Lugar del Siniestro', 'Información Particular', 'Resumen del Siniestro a Denunciar'];
 
 
     const [datosFormu, setDatosFormu] = useState({
         //***************************paso1*********** */
-        dni: "",
+        cuit: "",
         client_name: "",
         date: "",
         hour: "",
         minutes: "",
-        id_client: "",
-        // id_company: null,
+        // id_client: null,
+        id_company: "",
         policy: "",
         //****************************paso2************/
         raison: "",
@@ -120,8 +121,8 @@ function Form() {
 
     formData.append('date', datosFormu.date)
     formData.append('hour', datosFormu.hour + ":" + datosFormu.minutes)
-    formData.append('id_peapol', datosFormu.id_client)
-    // formData.append('id_company', datosFormu.id_company)
+    // formData.append('id_peapol', datosFormu.id_client)
+    formData.append('id_company', datosFormu.id_company)
     formData.append('policy', datosFormu.policy)
     //****************************paso2************/
     formData.append('raison', datosFormu.raison)
@@ -203,7 +204,7 @@ function Form() {
 
     const expressions = {
         date: /^\d{4}-\d{2}-\d{2}$/,
-        dni: /^\d{8,8}$/,
+        cuit: /^\d{11,11}$/,
         hour: /^\d{2}/,
         minutes: /^\d{2}/,
         street: /^[a-zA-ZÀ-ÿ0-9\s]{3,40}$/, // ver si agrego el punto a parte de letras y numeros
@@ -225,7 +226,7 @@ function Form() {
     const handleNext = (event) => {
         event.preventDefault();
 
-        if((!errors.length > 0 && datosFormu.dni && datosFormu.date && datosFormu.hour && datosFormu.minutes && validClient && datosFormu.policy) && page === 0) {
+        if((!errors.length > 0 && datosFormu.cuit && datosFormu.date && datosFormu.hour && datosFormu.minutes && validClient && datosFormu.policy) && page === 0) {
             return setPage((prevState) => prevState + 1)
         } if (!errors.length > 0 && datosFormu.raison && datosFormu.consequence && page === 1) {
            return setPage((prevState) => prevState + 1)
@@ -247,6 +248,7 @@ function Form() {
     const handleSend = (event) => {
         event.preventDefault();
         //console.log(datosFormu)
+
         fetch("http://localhost:3000/api/siniestros_auto/crear", {
             method: "POST",
             body: formData
@@ -256,7 +258,6 @@ function Form() {
            console.log(info)
            toast.success('Formulario Enviado!')
            setTimeout(() => {history("/")}, 2000)
-           
         })
         .catch(error => {console.log(error)})
     }
@@ -341,7 +342,7 @@ function Form() {
                         disabled={page === formTitles.length - 1} 
                         style= {{backgroundColor: page === formTitles.length - 1 
                            ? "#777777" 
-                           : errors.dni 
+                           : errors.cuit 
                            ? "#777777" 
                            : errors.date 
                            ? "#777777" 
@@ -349,7 +350,7 @@ function Form() {
                            ? "#777777" 
                            : errors.minutes 
                            ? "#777777" 
-                           : !datosFormu.dni 
+                           : !datosFormu.cuit 
                            ? "#777777" 
                            : !datosFormu.date 
                            ? "#777777" 
@@ -430,4 +431,5 @@ function Form() {
     )
 }
 
-export default Form
+export default FormCarCompany
+
