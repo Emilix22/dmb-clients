@@ -14,7 +14,7 @@ function RowTable(props) {
           type="radio"
           name="selectPolicy"
           id="selectPolicy"
-          value={props.numero_poliza}
+          value={props.id_poliza}
           onChange={selectedButton}
         />
       </td>

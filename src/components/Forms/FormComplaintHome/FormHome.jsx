@@ -156,18 +156,17 @@ function FormHome() {
 
     const handleSend = (event) => {
         event.preventDefault();
-        console.log(datosFormu)
 
-        // fetch("http://localhost:3000/api/siniestros_auto/crear", {
-        //     method: "POST",
-        //     body: formData
-        // })
-        // .then(res => res.json())
-        // .then(info => {
-        //    console.log(info)
-        //    toast.success('Formulario Enviado!')
-        // })
-        // .catch(error => {console.log(error)})
+        fetch("http://localhost:3000/api/siniestros_hogar/crear", {
+            method: "POST",
+            body: formData
+        })
+        .then(res => res.json())
+        .then(info => {
+           console.log(info)
+           toast.success('Formulario Enviado!')
+        })
+        .catch(error => {console.log(error)})
     }
 
     const formDisplay = () => {

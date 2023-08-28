@@ -253,6 +253,7 @@ function BodyDateTime({
                     setDatosFormu={setDatosFormu}
                     datosFormu={datosFormu}
                     numero_poliza={policy.numero_poliza}
+                    id_poliza={policy.id_poliza}
                     marca_auto={policy.autos.marca}
                     modelo_auto={policy.autos.modelo}
                     patente_auto={policy.autos.patente}

@@ -247,6 +247,7 @@ function BodyDateTime({
                     setDatosFormu={setDatosFormu}
                     datosFormu={datosFormu}
                     numero_poliza={policy.numero_poliza}
+                    id_poliza={policy.id_poliza}
                     calle={policy.ubicaciones_riesgos.calle}
                     altura={policy.ubicaciones_riesgos.altura}
                     piso={policy.ubicaciones_riesgos.piso}

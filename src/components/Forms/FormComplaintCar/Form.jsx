@@ -115,11 +115,8 @@ function Form() {
 
     const formData = new FormData();
 
-    formData.append('dni', datosFormu.dni)
-    formData.append('client_name', datosFormu.client_name)
     formData.append('date', datosFormu.date)
-    formData.append('hour', datosFormu.hour)
-    formData.append('minutes', datosFormu.minutes)
+    formData.append('hour', datosFormu.hour + ":" + datosFormu.minutes)
     formData.append('id_client', datosFormu.id_client)
     formData.append('policy', datosFormu.policy)
     //****************************paso2************/
