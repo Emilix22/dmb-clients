@@ -70,55 +70,48 @@ function FormHome() {
 
     })
 
-    const formData = new FormData();
+    // const formData = new FormData();
 
-    formData.append('dni', datosFormu.dni)
-    formData.append('client_name', datosFormu.client_name)
-    formData.append('date', datosFormu.date)
-    formData.append('hour', datosFormu.hour)
-    formData.append('minutes', datosFormu.minutes)
-    formData.append('id_peapol', datosFormu.id_client)
-    // formData.append('id_company', datosFormu.id_company)
-    formData.append('policy', datosFormu.policy)
-    //****************************paso2**********************************/
-    formData.append('raison', datosFormu.raison)
-    formData.append('incendio_contenido_total', datosFormu.consequence.incendio_contenido_total)
-    formData.append('incendio_contenido_parcial',datosFormu.consequence.incendio_contenido_parcial)
-    formData.append('incendio_edificio_total', datosFormu.consequence.incendio_edificio_total)
-    formData.append('incendio_edificio_parcial', datosFormu.consequence.incendio_edificio_parcial)
-    formData.append('granizo', datosFormu.consequence.granizo)
-    formData.append('vientos_fuertes', datosFormu.consequence.vientos_fuertes)
-    formData.append('impacto_en_vehículos_terrestres', datosFormu.consequence.impacto_en_vehículos_terrestres)
-    formData.append('rayo_directo', datosFormu.consequence.rayo_directo)
-    formData.append('linderos', datosFormu.consequence.linderos)
-    formData.append('cristales_rotura_accidental', datosFormu.consequence.cristales_rotura_accidental)
-    formData.append('cristales_rajadura_accidental', datosFormu.consequence.cristales_rajadura_accidental)
-    formData.append('mobiliario_daño_parcial', datosFormu.consequence.mobiliario_daño_parcial)
-    formData.append('mobiliario_robo_parcial', datosFormu.consequence.mobiliario_robo_parcial)
-    formData.append('mobiliario_robo_total', datosFormu.consequence.mobiliario_robo_total)
-    formData.append('objetos_daño_parcial', datosFormu.consequence.objetos_daño_parcial)
-    formData.append('objetos_daño_total', datosFormu.consequence.objetos_daño_total)
-    formData.append('objetos_robo_total', datosFormu.consequence.objetos_robo_total)
-    formData.append('notebook_daño_parcial', datosFormu.consequence.notebook_daño_parcial)
-    formData.append('notebook_daño_total', datosFormu.consequence.notebook_daño_total)
-    formData.append('notebook_robo_parcial', datosFormu.consequence.notebook_robo_parcial)
-    formData.append('notebook_robo_total', datosFormu.consequence.notebook_robo_total)
-    formData.append('electrónicos_robo', datosFormu.consequence.electrónicos_robo)
-    formData.append('electrónicos_daño_parcial_accidente', datosFormu.consequence.electrónicos_daño_parcial_accidente)
-    formData.append('electrónicos_daño_parcial_alta_baja_tensión', datosFormu.consequence.electrónicos_daño_parcial_alta_baja_tensión)
-    formData.append('electrónicos_daño_total_accidente', datosFormu.consequence.electrónicos_daño_total_accidente)
-    formData.append('electrónicos_daño_total_alta_baja_tensión', datosFormu.consequence.electrónicos_daño_total_alta_baja_tensión)
-    formData.append('bicicletas_robo', datosFormu.consequence.bicicletas_robo)
-    formData.append('bicicletas_incendio', datosFormu.consequence.bicicletas_incendio)
-    formData.append('por_agua_daños_al_mobiliario', datosFormu.consequence.por_agua_daños_al_mobiliario)
-    formData.append('daños_a_objetos', datosFormu.consequence.daños_a_objetos)
-    formData.append('lesiones_a_personas', datosFormu.consequence.lesiones_a_personas)
-    formData.append('muerte_a_personas', datosFormu.consequence.muerte_a_personas)
-    formData.append('otro_tipo_de_bienes', datosFormu.consequence.otro_tipo_de_bienes)
-    
-    //****************************paso3**********************************/
-    formData.append('description', datosFormu.description)
-    formData.append('affected_objects', datosFormu.affected_objects)
+    // formData.append('dateHome', datosFormu.date)
+    // formData.append('hourHome', datosFormu.hour + ":" + datosFormu.minutes)
+    // formData.append('id_peapolHome', datosFormu.id_client)
+    // // formData.append('id_companyHome', datosFormu.id_company)
+    // formData.append('policyHome', datosFormu.policy)
+    // formData.append('incendio_contenido_total', datosFormu.consequence.incendio_contenido_total)
+    // formData.append('incendio_contenido_parcial',datosFormu.consequence.incendio_contenido_parcial)
+    // formData.append('incendio_edificio_total', datosFormu.consequence.incendio_edificio_total)
+    // formData.append('incendio_edificio_parcial', datosFormu.consequence.incendio_edificio_parcial)
+    // formData.append('granizo', datosFormu.consequence.granizo)
+    // formData.append('vientos_fuertes', datosFormu.consequence.vientos_fuertes)
+    // formData.append('impacto_en_vehículos_terrestres', datosFormu.consequence.impacto_en_vehículos_terrestres)
+    // formData.append('rayo_directo', datosFormu.consequence.rayo_directo)
+    // formData.append('linderos', datosFormu.consequence.linderos)
+    // formData.append('cristales_rotura_accidental', datosFormu.consequence.cristales_rotura_accidental)
+    // formData.append('cristales_rajadura_accidental', datosFormu.consequence.cristales_rajadura_accidental)
+    // formData.append('mobiliario_daño_parcial', datosFormu.consequence.mobiliario_daño_parcial)
+    // formData.append('mobiliario_robo_parcial', datosFormu.consequence.mobiliario_robo_parcial)
+    // formData.append('mobiliario_robo_total', datosFormu.consequence.mobiliario_robo_total)
+    // formData.append('objetos_daño_parcial', datosFormu.consequence.objetos_daño_parcial)
+    // formData.append('objetos_daño_total', datosFormu.consequence.objetos_daño_total)
+    // formData.append('objetos_robo_total', datosFormu.consequence.objetos_robo_total)
+    // formData.append('notebook_daño_parcial', datosFormu.consequence.notebook_daño_parcial)
+    // formData.append('notebook_daño_total', datosFormu.consequence.notebook_daño_total)
+    // formData.append('notebook_robo_parcial', datosFormu.consequence.notebook_robo_parcial)
+    // formData.append('notebook_robo_total', datosFormu.consequence.notebook_robo_total)
+    // formData.append('electrónicos_robo', datosFormu.consequence.electrónicos_robo)
+    // formData.append('electrónicos_daño_parcial_accidente', datosFormu.consequence.electrónicos_daño_parcial_accidente)
+    // formData.append('electrónicos_daño_parcial_alta_baja_tensión', datosFormu.consequence.electrónicos_daño_parcial_alta_baja_tensión)
+    // formData.append('electrónicos_daño_total_accidente', datosFormu.consequence.electrónicos_daño_total_accidente)
+    // formData.append('electrónicos_daño_total_alta_baja_tensión', datosFormu.consequence.electrónicos_daño_total_alta_baja_tensión)
+    // formData.append('bicicletas_robo', datosFormu.consequence.bicicletas_robo)
+    // formData.append('bicicletas_incendio', datosFormu.consequence.bicicletas_incendio)
+    // formData.append('por_agua_daños_al_mobiliario', datosFormu.consequence.por_agua_daños_al_mobiliario)
+    // formData.append('daños_a_objetos', datosFormu.consequence.daños_a_objetos)
+    // formData.append('lesiones_a_personas', datosFormu.consequence.lesiones_a_personas)
+    // formData.append('muerte_a_personas', datosFormu.consequence.muerte_a_personas)
+    // formData.append('otro_tipo_de_bienes', datosFormu.consequence.otro_tipo_de_bienes)
+    // formData.append('descriptionHome', datosFormu.description)
+    // formData.append('affected_objects', datosFormu.affected_objects)
 
 
     const expressions = {
@@ -162,10 +155,13 @@ function FormHome() {
 
     const handleSend = (event) => {
         event.preventDefault();
-
+        console.log(datosFormu)
         fetch("http://localhost:3000/api/siniestros_hogar/crear", {
             method: "POST",
-            body: formData
+            body: JSON.stringify(datosFormu),
+            headers: {
+                "Content-Type": "application/json"
+            }
         })
         .then(res => res.json())
         .then(info => {
@@ -216,7 +212,7 @@ function FormHome() {
     }
 
     return (
-        <form className='form'>
+        <form className='form' id='firmHome'>
             
             <Toaster richColors />
 
