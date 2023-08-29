@@ -55,7 +55,7 @@ function ConfirmSend({datosFormu}) {
                     type="text"
                     name="complaint_policy"
                     id="complaint_policy"
-                    value={datosFormu.policy}
+                    value={datosFormu.policyNumber}
                     disabled
                 />
             </div>

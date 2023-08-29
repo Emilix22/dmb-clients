@@ -27,6 +27,7 @@ function FormHome() {
         id_client: "",
         // id_company: null,
         policy: "",
+        policyNumber: "",
         //****************************paso2************/
         raison: "seleccione",
         consequence: {

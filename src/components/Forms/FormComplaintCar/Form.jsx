@@ -26,6 +26,7 @@ function Form() {
         id_client: "",
         // id_company: null,
         policy: "",
+        policyNumber: "",
         //****************************paso2************/
         raison: "",
         consequence: "",
