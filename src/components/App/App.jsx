@@ -16,7 +16,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/complaint-car" element={<ClientSelect rutaPerson={'/complaint-car-person'} rutaCompany={'/complaint-home-company'} />} />
+        <Route path="/complaint-car" element={<ClientSelect rutaPerson={'/complaint-car-person'} rutaCompany={'/complaint-car-company'} />} />
         <Route path="/complaint-home" element={<ClientSelect rutaPerson={'/complaint-home-person'} rutaCompany={'/complaint-home-company'} />} />
         <Route path="/complaint-other" element={<ClientSelect rutaPerson={'/complaint-other-person'} />} />
 

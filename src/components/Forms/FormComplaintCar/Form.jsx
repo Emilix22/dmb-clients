@@ -210,7 +210,7 @@ function Form() {
         street: /^[a-zA-ZÀ-ÿ0-9\s]{3,40}$/, // ver si agrego el punto a parte de letras y numeros
         door: /^\d{1,5}/,
         postalCode: /^[a-zA-Z0-9\s]{4,8}$/,
-        description: /^[a-zA-ZÀ-ÿ0-9\s]{20,100}$/,
+        description: /^[a-zA-ZÀ-ÿ0-9\s]{20,500}$/,
         // name: /^[a-zA-ZÀ-ÿ\s]{3,40}$/,
         // surname: /^[a-zA-ZÀ-ÿ\s]{2,40}$/,
         // password: /^.{4,12}$/,
