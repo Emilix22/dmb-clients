@@ -1,31 +1,31 @@
 import './FormHome.css'
 import React, {useState} from 'react'
 import Description from './BodyDescription';
-import DateTime from './BodyDateTimeHome';
+import DateTime from './BodyDateTimeHomeCompany';
 import Raison from './BodyRaison';
 import ConfirmSend from './ConfirmSend';
 import { Toaster, toast } from 'sonner'
 import {useNavigate} from 'react-router-dom'
 
 
-function FormHome() {
+function FormHomeCompany() {
 
     const [page, setPage] = useState(0);
     const history = useNavigate() 
 
 
-    const formTitles = ['Ingrese el DNI del Asegurado y la Fecha y Hora del Siniestro', 'Seleccione Tipo y Motivo', 'Descripción de los hechos', 'Resumen del Siniestro a Denunciar'];
+    const formTitles = ['Ingrese el CUIT de la Empresa Asegurada y la Fecha y Hora del Siniestro', 'Seleccione Tipo y Motivo', 'Descripción de los hechos', 'Resumen del Siniestro a Denunciar'];
 
 
     const [datosFormu, setDatosFormu] = useState({
         //***************************paso1*********** */
-        dni: "",
+        cuit: "",
         client_name: "",
         date: "",
         hour: "",
         minutes: "",
-        id_client: "",
-        // id_company: null,
+        // id_client: null,
+        id_company: "",
         policy: "",
         policyNumber: "",
         //****************************paso2************/
@@ -65,7 +65,7 @@ function FormHome() {
             muerte_a_personas: false,
             otro_tipo_de_bienes: false
         },
-        //****************************paso3**********************************/
+    //****************************paso3**********************************/
         description: "",
         affected_objects: ""
 
@@ -75,8 +75,8 @@ function FormHome() {
 
     // formData.append('dateHome', datosFormu.date)
     // formData.append('hourHome', datosFormu.hour + ":" + datosFormu.minutes)
-    // formData.append('id_peapolHome', datosFormu.id_client)
-    // // formData.append('id_companyHome', datosFormu.id_company)
+    // // formData.append('id_peapolHome', datosFormu.id_client)
+    // formData.append('id_companyHome', datosFormu.id_company)
     // formData.append('policyHome', datosFormu.policy)
     // formData.append('incendio_contenido_total', datosFormu.consequence.incendio_contenido_total)
     // formData.append('incendio_contenido_parcial',datosFormu.consequence.incendio_contenido_parcial)
@@ -117,7 +117,7 @@ function FormHome() {
 
     const expressions = {
         date: /^\d{4}-\d{2}-\d{2}$/,
-        dni: /^\d{8,8}$/,
+        cuit: /^\d{11,11}$/,
         hour: /^\d{2}/,
         minutes: /^\d{2}/,
         street: /^[a-zA-ZÀ-ÿ0-9\s]{3,40}$/, // ver si agrego el punto a parte de letras y numeros
@@ -139,7 +139,7 @@ function FormHome() {
     const handleNext = (event) => {
         event.preventDefault();
 
-        if((!errors.length > 0 && datosFormu.dni && datosFormu.date && datosFormu.hour && datosFormu.minutes && validClient && datosFormu.policy) && page === 0) {
+        if((!errors.length > 0 && datosFormu.cuit && datosFormu.date && datosFormu.hour && datosFormu.minutes && validClient && datosFormu.policy) && page === 0) {
             return setPage((prevState) => prevState + 1)
         } if (!errors.length > 0 && datosFormu.raison !== "seleccione" && page === 1) {
            return setPage((prevState) => prevState + 1)
@@ -241,7 +241,7 @@ function FormHome() {
                         disabled={page === formTitles.length - 1} 
                         style= {{backgroundColor: page === formTitles.length - 1 
                            ? "#777777" 
-                           : errors.dni 
+                           : errors.cuit 
                            ? "#777777" 
                            : errors.date 
                            ? "#777777" 
@@ -249,7 +249,7 @@ function FormHome() {
                            ? "#777777" 
                            : errors.minutes 
                            ? "#777777" 
-                           : !datosFormu.dni 
+                           : !datosFormu.cuit 
                            ? "#777777" 
                            : !datosFormu.date 
                            ? "#777777" 
@@ -299,4 +299,4 @@ function FormHome() {
     )
 }
 
-export default FormHome
+export default FormHomeCompany
