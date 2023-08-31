@@ -16,6 +16,10 @@
   /* text-align: center; */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @media (min-width: 769px) {
   /* .main {
   margin-top: 150px;

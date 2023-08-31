@@ -1,0 +1,37 @@
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #dddddd;
+    color: #002a7c;
+    font-size: 12px;
+}
+
+.footer-left, .footer-center, .footer-right {
+    padding: 10px;
+    text-align: left;
+    width: 90%;
+}
+
+.footer ul {
+    list-style-type: none;
+}
+
+.footer-title {
+    font-weight: bold;
+}
+
+.footer-subtitle {
+    margin-top: 10px;
+    font-weight: bolder;
+}
+
+.footer .list-left img {
+    width: 40%;
+}
+
+@media (min-width: 769px) {
+    .footer-left, .footer-center, .footer-right {
+        width: 30%;
+    }
+}

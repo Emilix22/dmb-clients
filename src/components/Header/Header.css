@@ -17,6 +17,7 @@
   padding: 0px 15px 10px 15px;
   box-shadow: 0px 15px 10px -15px #798280;
   gap: 10px;
+  z-index: 100;
 }
 
 .top-header {

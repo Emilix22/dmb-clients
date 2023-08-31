@@ -1,0 +1,71 @@
+.banner {
+    background-image: url('./s-1.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.text-banner {
+    width: 60%;
+    padding: 8% 5%;
+    margin-left: 10%;
+    color: #002a7c;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.section-home {
+    padding: 10px 0px;
+}
+
+hr {
+    width: 90%;
+}
+.section-home h2 {
+    color: #002a7c;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.cards-home {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 5px;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+
+.cards-home article {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    box-shadow: 10px 15px 10px -15px #798280;
+    border: none;
+    width: 90%;
+    transition: all 0.5s;
+}
+
+.cards-home article:hover {
+    transform: scale(1.1);
+}
+
+.cards-home article img {
+    width: 40%;
+}
+
+@media (min-width: 769px) {
+    .cards-home article {
+        width: 30%;
+    }
+
+    .text-banner {
+        width: 30%;
+    }
+}

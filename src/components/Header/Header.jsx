@@ -2,6 +2,7 @@ import logo from "../../assets/dmbLogo.svg";
 import wpLogo from "../../assets/logo-green-small.png";
 import "./Header.css";
 import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 
 function Header() {
   let animaHam = () => {
@@ -51,7 +52,8 @@ function Header() {
               <Link to="/complaint-other">OTRO</Link>
             </div>
           </div>
-          <li><Link>CONTACTO</Link></li>
+          <li><HashLink to="/#footer">CONTACTO</HashLink></li>
+          
         </ul>
       </div>
 
