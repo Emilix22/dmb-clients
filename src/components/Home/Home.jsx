@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Home.css'
 import Footer from '../Footer/Footer'
 import img1 from '../../assets/dmb_cuadrado_card1.svg'
@@ -18,12 +18,14 @@ import img14 from '../../assets/dmb_cuadrado_card14.svg'
 import img15 from '../../assets/dmb_cuadrado_card15.svg'
 
 function Home() {
+     
     return (
         <div className='main'>
             <div className='banner'>
                 <div className='text-banner'>
-                    <p><strong>Analizamos</strong> los riesgos asociados a tu actividad personal o comercial y te <strong>ayudamos</strong> a tomar la <strong>decisión correcta</strong>.
-                    </p><br />
+                    <p className='maquina-escribir'><strong>Analizamos</strong> los riesgos asociados a tu actividad  personal o comercial y te <strong>ayudamos</strong> a 
+                    tomar la <strong>decisión correcta</strong>.</p>
+                    <br />
 
                     <p>Encontrarás en nosotros un <strong>aliado estratégico</strong> para tus proyectos, un referente en el mercado asegurador argentino pero por sobre todo, un <strong>grupo humano dispuesto a acompañarte</strong>.
                     </p>    

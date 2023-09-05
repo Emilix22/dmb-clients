@@ -7,6 +7,57 @@ function FormQuestion4({datosFormu, setDatosFormu, errors, setErrors, expression
             <h4>Datos del Vehículo Involucrado</h4>
 
             <div className="form-group-1 form-group-2">
+                <label htmlFor="oc_name">Nombre Conductor del otro Vehículo</label>
+                <input
+                    type="text"
+                    name="oc_name"
+                    id="oc_name"
+                    value={datosFormu.other_car.oc_name}
+                    onChange={(e) => setDatosFormu({ ...datosFormu, other_car : {
+                        ...datosFormu.other_car,
+                        oc_name: e.target.value
+                        } })}
+                    // onKeyUp={validations.oc_name}
+                    // onBlur={validations.oc_name}
+                />
+                {errors.oc_name ? <span className="msg-error">{errors.oc_name}</span> : ""}
+            </div>
+
+            <div className="form-group-1 form-group-2">
+                <label htmlFor="oc_surname">Apellido Conductor del otro Vehículo</label>
+                <input
+                    type="text"
+                    name="oc_surname"
+                    id="oc_surname"
+                    value={datosFormu.other_car.oc_surname}
+                    onChange={(e) => setDatosFormu({ ...datosFormu, other_car : {
+                        ...datosFormu.other_car,
+                        oc_surname: e.target.value
+                        } })}
+                    // onKeyUp={validations.oc_surname}
+                    // onBlur={validations.oc_surname}
+                />
+                {errors.oc_surname ? <span className="msg-error">{errors.oc_surname}</span> : ""}
+            </div>
+
+            <div className="form-group-1 form-group-3">
+                <label htmlFor="oc_dni">DNI Conductor del otro Vehículo</label>
+                <input
+                    type="text"
+                    name="oc_dni"
+                    id="oc_dni"
+                    value={datosFormu.other_car.oc_dni}
+                    onChange={(e) => setDatosFormu({ ...datosFormu, other_car : {
+                        ...datosFormu.other_car,
+                        oc_dni: e.target.value
+                        } })}
+                    // onKeyUp={validations.oc_dni}
+                    // onBlur={validations.oc_dni}
+                />
+                {errors.oc_dni ? <span className="msg-error">{errors.oc_dni}</span> : ""}
+            </div>
+
+            <div className="form-group-1 form-group-3">
                 <label htmlFor="oc_patent">Patente</label>
                 <input
                     type="text"
@@ -23,9 +74,8 @@ function FormQuestion4({datosFormu, setDatosFormu, errors, setErrors, expression
                 {errors.oc_patent ? <span className="msg-error">{errors.oc_patent}</span> : ""}
             </div>
            
-
-{/************************ Poner las opciones desde la base de datos*********************************************** */}
-            <div className="form-group-1 form-group-2">
+{/************************ Poner las opciones desde API Seguros*********************************************** */}
+            <div className="form-group-1 form-group-3">
                 <label htmlFor="oc_insurance">Aseguradora</label>
                 <select
                     name="oc_insurance"
@@ -42,7 +92,8 @@ function FormQuestion4({datosFormu, setDatosFormu, errors, setErrors, expression
                     <option value="3">SM SEGUROS</option>
                 </select>
                 {errors.oc_insurance ? <span className="msg-error">{errors.oc_insurance}</span> : ""}
-            </div>                             
+            </div>
+                                         
         </div>
     )
 }

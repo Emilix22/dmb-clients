@@ -113,6 +113,10 @@ function Form() {
         other_car: {
             oc_patent: "",
             oc_insurance: "",
+            oc_name: "",
+            oc_surname: "",
+            oc_dni: "",
+
         }
 
     })

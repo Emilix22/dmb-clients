@@ -1,6 +1,5 @@
 import React from 'react'
 import './Footer.css'
-import { Link } from "react-router-dom";
 import logoFooter from '../../assets/dmb_lineas.svg'
 
 function Footer() {
