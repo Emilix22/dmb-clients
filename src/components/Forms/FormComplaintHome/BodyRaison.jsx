@@ -87,6 +87,56 @@ function Raison({ datosFormu, setDatosFormu, errors, setErrors, expressions }) {
           } 
           </div>  
         </div> : ""
+      }
+
+      {
+        datosFormu.consequence.robo_mobiliario
+        ? <div className="form-group-1 form-group-2" id="form-group-img-complaint">
+        <label htmlFor="img-complaint"><span>📄</span> Denuncia Policial del robo de <strong>mobiliario:</strong></label>          
+        <input 
+        type="file" 
+        name="img-complaint" 
+        onChange={(e) => setDatosFormu({ ...datosFormu, police_complaint_mobiliario: e.target.files[0]})}
+        /> 
+      </div> 
+      : null
+      }
+      {
+        datosFormu.consequence.pc_notebook_celular_robo
+        ? <div className="form-group-1 form-group-2" id="form-group-img-complaint">
+        <label htmlFor="img-complaint"><span>📄</span> Denuncia Policial del robo de <strong>pc/notebook/celular:</strong></label>          
+        <input 
+        type="file" 
+        name="img-complaint" 
+        onChange={(e) => setDatosFormu({ ...datosFormu, police_complaint_notebook: e.target.files[0]})}
+        /> 
+      </div> 
+      : null
+      }
+      {
+        datosFormu.consequence.electrodomesticos_robo
+        ? <div className="form-group-1 form-group-2" id="form-group-img-complaint">
+        <label htmlFor="img-complaint"><span>📄</span> Denuncia Policial del robo de <strong>electrodomesticos:</strong></label>          
+        <input 
+        type="file" 
+        name="img-complaint" 
+        onChange={(e) => setDatosFormu({ ...datosFormu, police_complaint_electro: e.target.files[0]})}
+        /> 
+      </div> 
+      : null
+      }
+      
+      {
+        datosFormu.consequence.bicicletas_robo
+        ? <div className="form-group-1 form-group-2" id="form-group-img-complaint">
+        <label htmlFor="img-complaint"><span>📄</span> Denuncia Policial del robo de <strong>bicicleta:</strong></label>          
+        <input 
+        type="file" 
+        name="img-complaint" 
+        onChange={(e) => setDatosFormu({ ...datosFormu, police_complaint_bicicleta: e.target.files[0]})}
+        /> 
+      </div> 
+      : null
       } 
     </div>    
   );

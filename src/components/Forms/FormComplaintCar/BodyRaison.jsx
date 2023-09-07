@@ -76,6 +76,21 @@ function Raison({ datosFormu, setDatosFormu, errors, setErrors, expressions }) {
           }
         </select>
       </div>
+      {
+        datosFormu.raison === "robo" 
+        ? <div className="form-group-1 form-group-2" id="form-group-img-complaint">
+        <label htmlFor="img-complaint"><span>📄</span> Denuncia Policial:</label>          
+        <input 
+        type="file" 
+        name="img-complaint" 
+        onChange={(e) => setDatosFormu({ ...datosFormu, police_complaint: e.target.files[0]})}
+        /> 
+      </div> 
+      : null
+      }    
+      
+
+
     </div>
   );
 }

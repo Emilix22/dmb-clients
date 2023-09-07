@@ -4,7 +4,9 @@ function ConfirmSend({datosFormu}) {
     return (
         <div className='formConfirmSend'>
 
-            <div className="form-group-1 form-group-3">
+{
+                datosFormu.dni 
+                ? <div className="form-group-1 form-group-3">
                 <label htmlFor="complaint_dni">DNI del Asegurado</label>
                 <input
                     type="text"
@@ -13,9 +15,21 @@ function ConfirmSend({datosFormu}) {
                     value={datosFormu.dni}
                     disabled
                 />
-            </div>
-
-            <div className="form-group-1 form-group-2">
+            </div> 
+            : <div className="form-group-1 form-group-3">
+            <label htmlFor="complaint_cuit">CUIT del Asegurado</label>
+            <input
+                type="text"
+                name="complaint_cuit"
+                id="complaint_cuit"
+                value={datosFormu.cuit}
+                disabled
+            />
+        </div>
+            }
+            {
+                datosFormu.dni 
+                ? <div className="form-group-1 form-group-2">
                 <label htmlFor="complaint_name">Nombre y Apellido del Asegurado</label>
                 <input
                     type="text"
@@ -24,7 +38,18 @@ function ConfirmSend({datosFormu}) {
                     value={datosFormu.client_name}
                     disabled
                 />
-            </div>
+            </div> 
+            : <div className="form-group-1 form-group-2">
+            <label htmlFor="complaint_name">Nombre del Asegurado</label>
+            <input
+                type="text"
+                name="complaint_name"
+                id="complaint_name"
+                value={datosFormu.client_name}
+                disabled
+            />
+        </div>
+            }
 
             <div className="form-group-1 form-group-3">
                 <label htmlFor="complaint_date">Fecha del Siniestro</label>

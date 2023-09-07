@@ -43,6 +43,7 @@ function Form() {
         characteristics: "",
         // license_front: undefined,
         // license_back: undefined,
+        // police_complaint: undefined,
         //***************************paso4*********** */
         question1: "",
         question2: "",
@@ -131,6 +132,8 @@ function Form() {
     //****************************paso2************/
     formData.append('raison', datosFormu.raison)
     formData.append('consequence', datosFormu.consequence)
+    formData.append('police_complaint', datosFormu.police_complaint)
+
     //****************************paso3************/
     formData.append('street', datosFormu.street)
     formData.append('door', datosFormu.door)
