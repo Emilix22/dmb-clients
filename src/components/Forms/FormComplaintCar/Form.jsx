@@ -204,6 +204,10 @@ function Form() {
 
     formData.append('oc_patent', datosFormu.other_car.oc_patent)
     formData.append('oc_insurance', datosFormu.other_car.oc_insurance)
+    formData.append('oc_name', datosFormu.other_car.oc_name)
+    formData.append('oc_surname', datosFormu.other_car.oc_surname)
+    formData.append('oc_dni', datosFormu.other_car.oc_dni)
+
 
 
     const expressions = {
