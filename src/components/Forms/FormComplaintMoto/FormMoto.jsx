@@ -1,11 +1,11 @@
 import React from 'react'
 
-function FormOther() {
+function FormMoto() {
     return (
         <div>
-            FormOther person
+            moto person
         </div>
     )
 }
 
-export default FormOther
+export default FormMoto

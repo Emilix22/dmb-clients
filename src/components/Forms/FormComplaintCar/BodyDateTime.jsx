@@ -110,6 +110,48 @@ function BodyDateTime({
       //console.log(client.error);
     }
   }
+  const fechaHoy = new Date();
+        const fechaHoyFormato = fechaHoy.toLocaleDateString()
+
+        const fechaParaMenosDiez = new Date()
+        let menosDiez = fechaParaMenosDiez.setDate(fechaParaMenosDiez.getDate()+10)
+        const menosDiezFormato = new Date(menosDiez).toLocaleDateString()
+
+
+        let año;
+        if (fechaHoyFormato.length === 10) {
+            año = fechaHoyFormato.slice(6)
+        } else if (fechaHoyFormato.length === 9) {
+            año = fechaHoyFormato.slice(5)
+        } else {
+            año = fechaHoyFormato.slice(4)
+        }
+        //console.log(año)
+
+        let mes;
+        if (fechaHoyFormato.length === 10) {
+            mes = fechaHoyFormato.slice(3, -5)
+        } else if (fechaHoyFormato.slice(1, -7) === "/") {
+            mes = fechaHoyFormato.slice(2, -5)
+        } else if (fechaHoyFormato.slice(1, -6) === "/") {
+            mes = fechaHoyFormato.slice(2, -5)
+        } else {
+            mes = fechaHoyFormato.slice(3, -5)
+        }
+
+        if (mes.length <= 1) {
+            mes = "0" + mes
+        }
+
+        //console.log(mes)
+
+        let dia = fechaHoyFormato.slice(0, -7)
+        if (dia.length <= 1) {
+            dia = "0" + dia
+        }
+
+        //console.log(dia)  
+
 
   return (
     <div className="form-DataTime">
@@ -142,6 +184,7 @@ function BodyDateTime({
             type="date"
             name="date"
             id="date"
+            max={año+'-'+mes+'-'+dia}
             value={datosFormu.date}
             onChange={(e) => setDatosFormu({ ...datosFormu, date: e.target.value })}
             onBlur={validations.date}
