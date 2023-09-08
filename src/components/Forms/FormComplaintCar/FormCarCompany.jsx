@@ -127,6 +127,7 @@ function FormCarCompany() {
     //****************************paso2************/
     formData.append('raison', datosFormu.raison)
     formData.append('consequence', datosFormu.consequence)
+    formData.append('police_complaint', datosFormu.police_complaint)
     //****************************paso3************/
     formData.append('street', datosFormu.street)
     formData.append('door', datosFormu.door)
