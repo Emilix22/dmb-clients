@@ -56,7 +56,7 @@ function FormHome() {
     formData.append('hour', datosFormu.hour)
     formData.append('minutes', datosFormu.minutes)
     formData.append('id_client', datosFormu.id_client)
-    // formData.append('id_companyHome', datosFormu.id_company)
+    // formData.append('id_company', datosFormu.id_company)
     formData.append('policy', datosFormu.policy)
     formData.append('incendio_contenido', datosFormu.consequence.incendio_contenido)
     formData.append('incendio_edificio', datosFormu.consequence.incendio_edificio)
