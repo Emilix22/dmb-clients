@@ -259,7 +259,7 @@ function Form() {
     const handleSend = (event) => {
         event.preventDefault();
         //console.log(datosFormu)
-        fetch("http://localhost:3000/api/siniestros_auto/crear", {
+        const prom1 = fetch("http://localhost:3000/api/siniestros_auto/crear", {
             method: "POST",
             body: formData
         })
@@ -267,8 +267,7 @@ function Form() {
         .then(info => {
            console.log(info)
            toast.success('Formulario Enviado!')
-           setTimeout(() => {history("/")}, 2000)
-           
+           setTimeout(() => {history(`/confirm-complaint/${datosFormu.dni}`)}, 2000)    
         })
         .catch(error => {console.log(error)})
     }

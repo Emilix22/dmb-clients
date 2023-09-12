@@ -1,0 +1,40 @@
+.body-confirmEmail {
+    border-radius: 5px;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 2px 3px rgba(0,0,0,.1);
+}
+
+.body-confirmEmail strong {
+    color: #00216d;
+}
+
+.body-confirmEmail a {
+    text-decoration: none;
+}
+
+.body-confirmEmail .buttonEmail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0,97,167);
+    width: 100px;
+    height: 30px;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 20px 10px;
+    cursor: pointer;
+    margin: auto;
+}
+
+.body-confirmEmail .graph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00216d;
+    margin: auto;
+    padding: 10px;
+    width: 100px;
+}

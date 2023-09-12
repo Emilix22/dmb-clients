@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Home.css'
 import Footer from '../Footer/Footer'
 import img1 from '../../assets/dmb_cuadrado_card1.svg'
@@ -16,9 +16,21 @@ import img12 from '../../assets/dmb_cuadrado_card12.svg'
 import img13 from '../../assets/dmb_cuadrado_card13.svg'
 import img14 from '../../assets/dmb_cuadrado_card14.svg'
 import img15 from '../../assets/dmb_cuadrado_card15.svg'
+import useInterval from '../Useinterval'
 
 function Home() {
-     
+
+    let texto = 'Encontrarás en nosotros un aliado estratégico para tus proyectos, un referente en el mercado asegurador argentino pero por sobre todo, un grupo humano dispuesto a acompañarte.'
+
+    const [index, setIndex] = useState(0)
+    useInterval(() => {
+        if (index < texto.length) {
+            setIndex(prev => prev + 1)
+        }else {
+            setIndex(0)
+        }
+    }, 100)
+
     return (
         <div className='main'>
             <div className='banner'>
@@ -27,8 +39,9 @@ function Home() {
                     tomar la <strong>decisión correcta</strong>.</p>
                     <br />
 
-                    <p>Encontrarás en nosotros un <strong>aliado estratégico</strong> para tus proyectos, un referente en el mercado asegurador argentino pero por sobre todo, un <strong>grupo humano dispuesto a acompañarte</strong>.
-                    </p>    
+                    {/* <p>Encontrarás en nosotros un <strong>aliado estratégico</strong> para tus proyectos, un referente en el mercado asegurador argentino pero por sobre todo, un <strong>grupo humano dispuesto a acompañarte</strong>.
+                    </p> */}
+                    <p className='maquina-escribir'>{texto.slice(0, index)}</p>
                 </div>  
             </div>
             <section className='section-home'>

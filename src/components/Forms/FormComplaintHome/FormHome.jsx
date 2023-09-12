@@ -128,7 +128,7 @@ function FormHome() {
         .then(info => {
            console.log(info)
            toast.success('Formulario Enviado!')
-           setTimeout(() => {history("/")}, 2000)
+           setTimeout(() => {history(`/confirm-complaint/${datosFormu.dni}`)}, 2000)
         })
         .catch(error => {console.log(error)})
     }

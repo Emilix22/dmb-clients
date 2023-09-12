@@ -13,6 +13,7 @@ import FormConsortium from '../Forms/FormComplaintConsortium/FormConsortium'
 import FormConsortiumCompany from '../Forms/FormComplaintConsortium/FormConsortiumCompany'
 import FormOther from '../Forms/FormComplaintOther/FormOther'
 import FormOtherCompany from '../Forms/FormComplaintOther/FormOtherCompany'
+import ConfirmEmail from '../Forms/ConfirmEmail'
 
 function App() {
   
@@ -46,6 +47,8 @@ function App() {
         
         <Route path="/complaint-other-person" element={<FormOther />} />
         <Route path="/complaint-other-company" element={<FormOtherCompany />} />
+
+        <Route path="/confirm-complaint/:dni" element={<ConfirmEmail />} />
       </Routes>
     </>
     
