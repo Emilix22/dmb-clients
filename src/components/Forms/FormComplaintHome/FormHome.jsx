@@ -87,6 +87,7 @@ function FormHome() {
         door: /^\d{1,5}/,
         postalCode: /^[a-zA-Z0-9\s]{4,8}$/,
         description: /^[a-zA-ZÀ-ÿ0-9\s]{20,100}$/,
+        affected_objects: /^[a-zA-ZÀ-ÿ0-9\s]{4,255}$/,
         // name: /^[a-zA-ZÀ-ÿ\s]{3,40}$/,
         // surname: /^[a-zA-ZÀ-ÿ\s]{2,40}$/,
         // password: /^.{4,12}$/,

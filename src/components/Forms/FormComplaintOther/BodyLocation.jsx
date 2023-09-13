@@ -29,7 +29,14 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
       if (expressions.description.test(datosFormu.description)) {
         setErrors({ ...errors, description: "" });
       } else {
-        setErrors({ ...errors, description: "Requerido - entre 20 y 500 caracteres" });
+        setErrors({ ...errors, description: "Requerido - entre 20 y 255 caracteres" });
+      }
+    },
+    equipos_objetos_siniestrados: () => {
+      if (expressions.equipos_objetos_siniestrados.test(datosFormu.equipos_objetos_siniestrados)) {
+        setErrors({ ...errors, equipos_objetos_siniestrados: "" });
+      } else {
+        setErrors({ ...errors, equipos_objetos_siniestrados: "Requerido - entre 4 y 255 caracteres" });
       }
     }
   };
@@ -232,8 +239,8 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
                     //placeholder=""
                     value={datosFormu.description}
                     onChange={(e) => setDatosFormu({ ...datosFormu, description: e.target.value })}
-                    //onKeyUp={validations.description}
-                    //onBlur={validations.description}
+                    onKeyUp={validations.description}
+                    onBlur={validations.description}
                 />
                 {errors.description ? <span className="msg-error">{errors.description}</span> : ""}
             </div>
@@ -247,8 +254,8 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
                     //placeholder=""
                     value={datosFormu.equipos_objetos_siniestrados}
                     onChange={(e) => setDatosFormu({ ...datosFormu, equipos_objetos_siniestrados: e.target.value })}
-                    //onKeyUp={validations.description}
-                    //onBlur={validations.description}
+                    onKeyUp={validations.equipos_objetos_siniestrados}
+                    onBlur={validations.equipos_objetos_siniestrados}
                 />
                 {errors.equipos_objetos_siniestrados ? <span className="msg-error">{errors.equipos_objetos_siniestrados}</span> : ""}
             </div>

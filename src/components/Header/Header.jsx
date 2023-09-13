@@ -59,7 +59,7 @@ function Header() {
         </ul>
       </div>
 
-      <Link to={"https://wa.me/5491150459606?text=Hola%20como%20estas?"}><img className="wp-logo" src={wpLogo} alt="wp-logo" onClick={activeBot} /></Link>
+      <Link to={"https://wa.me/5491168978983?text=Hola"}><img className="wp-logo" src={wpLogo} alt="wp-logo"/></Link>
     </header>
   );
 }

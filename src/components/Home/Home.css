@@ -17,7 +17,22 @@
     margin-left: 10%;
     color: #002a7c;
     background-color: rgba(255, 255, 255, 0.6);
+    height: 430px;
 }
+
+@keyframes latidos {
+    from { transform: none; }
+    50% { transform: scale(1.2); }
+    to { transform: none; }
+}
+
+.text-banner img {
+    width: 80px;
+    margin-left: 70%;
+    animation: latidos 1s infinite;
+}
+
+
 
 .section-home {
     padding: 10px 0px;
@@ -67,5 +82,6 @@ hr {
 
     .text-banner {
         width: 30%;
+        height: 430px;
     }
 }

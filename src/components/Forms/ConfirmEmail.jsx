@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import './ConfirmEmail.css'
 import imgEmail from "../../assets/email.png";
+import Footer from '../Footer/Footer'
 
 function ConfirmEmail() {
 
@@ -50,6 +51,7 @@ function ConfirmEmail() {
             <p>Fué envíada una copia del resumen de su denuncia al siguiente Email: <strong>{client.data.email}</strong>. Si este no es su email, por favor comuníquese con nosotros para actualizar su información de contacto.</p>
             <img className="graph" src={imgEmail} alt="fotomail" />
             <Link to="/"><button className="buttonEmail">Volver al inicio</button></Link>
+            <Footer />
         </div>
     )
 }

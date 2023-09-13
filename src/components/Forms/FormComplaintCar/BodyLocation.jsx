@@ -29,7 +29,7 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
       if (expressions.description.test(datosFormu.description)) {
         setErrors({ ...errors, description: "" });
       } else {
-        setErrors({ ...errors, description: "Requerido - entre 20 y 500 caracteres" });
+        setErrors({ ...errors, description: "Requerido - entre 20 y 255 caracteres" });
       }
     }
   };

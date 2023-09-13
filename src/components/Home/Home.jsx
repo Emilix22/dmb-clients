@@ -17,17 +17,17 @@ import img13 from '../../assets/dmb_cuadrado_card13.svg'
 import img14 from '../../assets/dmb_cuadrado_card14.svg'
 import img15 from '../../assets/dmb_cuadrado_card15.svg'
 import useInterval from '../Useinterval'
+import imgLogo from '../../assets/dmb_cuadrado.svg'
 
 function Home() {
 
     let texto = 'Encontrarás en nosotros un aliado estratégico para tus proyectos, un referente en el mercado asegurador argentino pero por sobre todo, un grupo humano dispuesto a acompañarte.'
 
     const [index, setIndex] = useState(0)
+    
     useInterval(() => {
         if (index < texto.length) {
             setIndex(prev => prev + 1)
-        }else {
-            setIndex(0)
         }
     }, 100)
 
@@ -38,10 +38,8 @@ function Home() {
                     <p className='maquina-escribir'><strong>Analizamos</strong> los riesgos asociados a tu actividad  personal o comercial y te <strong>ayudamos</strong> a 
                     tomar la <strong>decisión correcta</strong>.</p>
                     <br />
-
-                    {/* <p>Encontrarás en nosotros un <strong>aliado estratégico</strong> para tus proyectos, un referente en el mercado asegurador argentino pero por sobre todo, un <strong>grupo humano dispuesto a acompañarte</strong>.
-                    </p> */}
                     <p className='maquina-escribir'>{texto.slice(0, index)}</p>
+                    {index === 175 ? <img src={imgLogo} alt="logo" /> : null}
                 </div>  
             </div>
             <section className='section-home'>

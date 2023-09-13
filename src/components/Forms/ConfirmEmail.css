@@ -26,7 +26,7 @@
     border-radius: 3px;
     padding: 20px 10px;
     cursor: pointer;
-    margin: auto;
+    margin: 0px auto 40px auto;
 }
 
 .body-confirmEmail .graph {
