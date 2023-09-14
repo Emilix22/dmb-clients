@@ -77,6 +77,8 @@ function FormOtherCompany() {
     }
 
     const [errors, setErrors] = useState({});
+    const [errorsBack, setErrorsBack] = useState();
+
 
     const [validClient, setValidClient] = useState("");
     
@@ -107,8 +109,15 @@ function FormOtherCompany() {
         .then(res => res.json())
         .then(info => {
            console.log(info)
-           toast.success('Formulario Enviado!')
-           setTimeout(() => {history(`/confirm-complaint/${datosFormu.cuit}`)}, 2000)
+           {
+                if (info.error) {
+                    setErrorsBack(info.error)
+                }else{
+                    toast.success('Formulario Enviado!')
+                    setTimeout(() => {history(`/confirm-complaint/${datosFormu.cuit}`)}, 2000)
+                }
+            }
+           
         })
         .catch(error => {console.log(error)})
     }
@@ -164,6 +173,17 @@ function FormOtherCompany() {
                     {formDisplay()}
                 </div>
                 <div className='form-footer'>
+                    <div>
+                        { errorsBack && errorsBack.date ? <p className='msg-error'>{errorsBack.date.msg}</p> : null}
+                        { errorsBack && errorsBack.hour ? <p className='msg-error'>{errorsBack.hour.msg}</p> : null}
+                        { errorsBack && errorsBack.minutes ? <p className='msg-error'>{errorsBack.minutes.msg}</p> : null}
+                        { errorsBack && errorsBack.street ? <p className='msg-error'>{errorsBack.street.msg}</p> : null}
+                        { errorsBack && errorsBack.door ? <p className='msg-error'>{errorsBack.door.msg}</p> : null}
+                        { errorsBack && errorsBack.postalCode ? <p className='msg-error'>{errorsBack.postalCode.msg}</p> : null}
+                        { errorsBack && errorsBack.state ? <p className='msg-error'>{errorsBack.state.msg}</p> : null}
+                        { errorsBack && errorsBack.city ? <p className='msg-error'>{errorsBack.city.msg}</p> : null}
+                        { errorsBack && errorsBack.description ? <p className='msg-error'>{errorsBack.description.msg}</p> : null}
+                    </div>
                     <button disabled={page === 0} style= {{backgroundColor: page === 0 ? "#777777" : ""}} onClick={handlePrev}>Volver</button>
                     {
                         page === 0 ? <button
