@@ -107,7 +107,11 @@ function FormConsortium() {
 
     const handleSend = (event) => {
         event.preventDefault();
-        console.log(datosFormu)
+        //console.log(datosFormu)
+        toast('Enviando Formulario...', {
+            icon: "⌛"
+        })
+        
         fetch("https://dmb-back.onrender.com/api/siniestros_consorcio/crear", {
             method: "POST",
             body: formData

@@ -230,6 +230,9 @@ function FormMoto() {
 
     const handleSend = (event) => {
         event.preventDefault();
+        toast('Enviando Formulario...', {
+            icon: "⌛"
+        })
 
         fetch("https://dmb-back.onrender.com/api/siniestros_moto/crear", {
             method: "POST",

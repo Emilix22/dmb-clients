@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer'
 
 function ConfirmEmail() {
 
-    const [client, setClient] = useState({data: {email: "ningun email registrado..."}})
+    const [client, setClient] = useState({data: {email: "Cargando..."}})
     const {dni} = useParams();
 
     dni.length === 8 ?

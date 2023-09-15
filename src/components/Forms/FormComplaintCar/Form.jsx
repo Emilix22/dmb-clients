@@ -260,7 +260,11 @@ function Form() {
     const handleSend = (event) => {
         event.preventDefault();
         //console.log(datosFormu)
-        const prom1 = fetch("https://dmb-back.onrender.com/api/siniestros_auto/crear", {
+        toast('Enviando Formulario...', {
+            icon: "⌛"
+        })
+
+        fetch("https://dmb-back.onrender.com/api/siniestros_auto/crear", {
             method: "POST",
             body: formData
         })

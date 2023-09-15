@@ -251,6 +251,9 @@ function FormCarCompany() {
     const handleSend = (event) => {
         event.preventDefault();
         //console.log(datosFormu)
+        toast('Enviando Formulario...', {
+            icon: "⌛"
+        })
 
         fetch("https://dmb-back.onrender.com/api/siniestros_auto/crear", {
             method: "POST",
