@@ -102,7 +102,7 @@ function FormOtherCompany() {
     const handleSend = (event) => {
         event.preventDefault();
         console.log(datosFormu)
-        fetch("http://localhost:3000/api/siniestros_otro/crear", {
+        fetch("https://dmb-back.onrender.com/api/siniestros_otro/crear", {
             method: "POST",
             body: formData
         })

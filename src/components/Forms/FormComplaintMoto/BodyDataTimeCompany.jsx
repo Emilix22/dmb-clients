@@ -51,29 +51,27 @@ function BodyDataTimeCompany({
   const [policysClient, setPolicysClient] = useState();
 
   useEffect(() => {
-    const loadClient = async () => {
-      const response = await fetch("http://localhost:3000/api/clientes/cuit", {
+    fetch("https://dmb-back.onrender.com/api/clientes/cuit", {
         method: "POST",
         body: JSON.stringify({
           cuit: datosFormu.cuit,
         }),
         headers: {
           "Content-Type": "application/json",
-        },
-      });
-      const info = await response.json();
-      setClient(info);
-    };
-    {
-      datosFormu.cuit.length === 11 ? loadClient() : ""
-    }
+        }    
+    })
+    .then(res => res.json())
+    .then(info => {
+        console.log(info)
+        setClient(info);
+    })
     
   }, [datosFormu.cuit]);
 
   useEffect(() => {
     const loadPolicy = async () => {
       const response = await fetch(
-        "http://localhost:3000/api/polizas/moto/porEmpresa",
+        "https://dmb-back.onrender.com/api/polizas/moto/porEmpresa",
         {
           method: "POST",
           body: JSON.stringify({

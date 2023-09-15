@@ -54,7 +54,7 @@ function Form() {
             dnc_surname: "",
             dnc_DNI: "",
             dnc_phone: "",
-            dnc_birthday: "",
+            dnc_birthday: "0000-00-00",
             dnc_nacionality: "",
             dnc_street: "",
             dnc_door: "",
@@ -260,7 +260,7 @@ function Form() {
     const handleSend = (event) => {
         event.preventDefault();
         //console.log(datosFormu)
-        const prom1 = fetch("http://localhost:3000/api/siniestros_auto/crear", {
+        const prom1 = fetch("https://dmb-back.onrender.com/api/siniestros_auto/crear", {
             method: "POST",
             body: formData
         })

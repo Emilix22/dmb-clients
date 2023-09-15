@@ -232,7 +232,7 @@ function FormMotoCompany() {
     const handleSend = (event) => {
         event.preventDefault();
 
-        fetch("http://localhost:3000/api/siniestros_moto/crear", {
+        fetch("https://dmb-back.onrender.com/api/siniestros_moto/crear", {
             method: "POST",
             body: formData
         })

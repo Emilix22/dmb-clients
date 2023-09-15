@@ -52,7 +52,7 @@ function BodyDateTimeHomeCompany({
 
   useEffect(() => {
     const loadClient = async () => {
-      const response = await fetch("http://localhost:3000/api/clientes/cuit", {
+      const response = await fetch("https://dmb-back.onrender.com/api/clientes/cuit", {
         method: "POST",
         body: JSON.stringify({
           cuit: datosFormu.cuit,
@@ -73,7 +73,7 @@ function BodyDateTimeHomeCompany({
   useEffect(() => {
     const loadPolicy = async () => {
       const response = await fetch(
-        "http://localhost:3000/api/polizas/hogar/porEmpresa",
+        "https://dmb-back.onrender.com/api/polizas/hogar/porEmpresa",
         {
           method: "POST",
           body: JSON.stringify({

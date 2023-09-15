@@ -123,7 +123,7 @@ function FormHomeCompany() {
     const handleSend = (event) => {
         event.preventDefault();
         console.log(datosFormu)
-        fetch("http://localhost:3000/api/siniestros_hogar/crear", {
+        fetch("https://dmb-back.onrender.com/api/siniestros_hogar/crear", {
             method: "POST",
             body: JSON.stringify(datosFormu),
             headers: {
