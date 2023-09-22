@@ -19,6 +19,7 @@ function RowTable(props) {
         />
       </td>
       <td>{props.numero_poliza}</td>
+      <td>{props.compania}</td>
       <td>{props.tipo}</td>
     </tr>
   );

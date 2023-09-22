@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
 import RowTableConsortium from "./RowTableConsortium";
+import imgAllianz from '../../../assets/imgAllianz.png'
+import imgATM from '../../../assets/imgATM.png'
+import imgFederación_Patronal from '../../../assets/imgFederación_Patronal.png'
+import imgHolando_Seguros from '../../../assets/imgHolando_Seguros.png'
+import imgMercantil_Andina from '../../../assets/imgMercantil_Andina.png'
+import imgVictoria_Seguros from '../../../assets/imgVictoria_Seguros.png'
+import imgEXPERTA from '../../../assets/imgEXPERTA.svg'
+import imgMapfre from '../../../assets/imgMapfre.webp'
 
 function BodyDateTime({
   datosFormu,
@@ -94,7 +102,7 @@ function BodyDateTime({
     event.preventDefault();
     if (!client.error) {
       setValidClient(
-        client.data.nombre_empresa + " por favor ingrese fecha y hora del siniestro"
+        "Hola! "+client.data.nombre_empresa + ". Por favor ingresá la fecha y hora de cuando ocurrió el siniestro."
       );
       
       setDatosFormu({ ...datosFormu, client_name: client.data.nombre_empresa, id_company: client.data.id_cliente_empresa });
@@ -259,7 +267,7 @@ function BodyDateTime({
       </div>
       {clientId ? (
         <div className="form-group-1">
-          <h3>Seleccione Póliza</h3>
+          <h3>Seleccioná la póliza en la que ocurrió</h3>
           <table
             className="table table-bordered"
             id="dataTable"
@@ -275,6 +283,9 @@ function BodyDateTime({
                   <strong>N° Póliza</strong>
                 </td>
                 <td>
+                  <strong>Companía</strong>
+                </td>
+                <td>
                   <strong>Dirección</strong>
                 </td>
               </tr>
@@ -286,6 +297,25 @@ function BodyDateTime({
                     setDatosFormu={setDatosFormu}
                     datosFormu={datosFormu}
                     numero_poliza={policy.numero_poliza}
+                    compania={
+                      policy.aseguradoras.nombre === 'Allianz' 
+                      ? <img style={{width: '80px'}} src={imgAllianz} alt="imgCompania" /> 
+                      : policy.aseguradoras.nombre === 'ATM' 
+                      ? <img style={{width: '80px'}} src={imgATM} alt="imgCompania" /> 
+                      : policy.aseguradoras.nombre === 'Federación Patronal' 
+                      ? <img style={{width: '80px'}} src={imgFederación_Patronal} alt="imgCompania" /> 
+                      : policy.aseguradoras.nombre === 'Holando Seguros' 
+                      ? <img style={{width: '80px'}} src={imgHolando_Seguros} alt="imgCompania" /> 
+                      : policy.aseguradoras.nombre === 'Mapfre' 
+                      ? <img style={{width: '80px'}} src={imgMapfre} alt="imgCompania" /> 
+                      : policy.aseguradoras.nombre === 'Mercantil Andina' 
+                      ? <img style={{width: '80px'}} src={imgMercantil_Andina} alt="imgCompania" /> 
+                      : policy.aseguradoras.nombre === 'Victoria Seguros' 
+                      ? <img style={{width: '80px'}} src={imgVictoria_Seguros} alt="imgCompania" /> 
+                      : policy.aseguradoras.nombre === 'EXPERTA' 
+                      ? <img style={{width: '80px'}} src={imgEXPERTA} alt="imgCompania" /> 
+                      : " "
+                    }
                     id_poliza={policy.id_poliza}
                     calle={policy.ubicaciones_riesgos.calle}
                     altura={policy.ubicaciones_riesgos.altura}
