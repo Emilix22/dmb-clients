@@ -5,7 +5,7 @@ function FormQuestion2({datosFormu, setDatosFormu, errors, title, setErrors, exp
     return (
         <div className='formQuestions2'>
 
-            <h4>Datos del Lesionado Dentro del Vehículo N° {title}</h4>
+            <h4>Datos de la persona lesionada N° {title}</h4>
 
             <div className="form-group-1 form-group-2">
                 <label htmlFor="iic_name">Nombre</label>

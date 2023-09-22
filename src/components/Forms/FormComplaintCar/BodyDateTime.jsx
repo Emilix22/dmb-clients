@@ -8,6 +8,7 @@ import imgMercantil_Andina from '../../../assets/imgMercantil_Andina.png'
 import imgVictoria_Seguros from '../../../assets/imgVictoria_Seguros.png'
 import imgEXPERTA from '../../../assets/imgEXPERTA.svg'
 import imgMapfre from '../../../assets/imgMapfre.webp'
+import isotipo from '../../../assets/dmb_isotipo_lineas.svg'
 
 function BodyDateTime({
   datosFormu,
@@ -58,6 +59,10 @@ function BodyDateTime({
 
   const [policysClient, setPolicysClient] = useState();
 
+  const [conectando, setConectando] = useState(false)
+
+
+
   useEffect(() => {
     const loadClient = async () => {
       const response = await fetch("https://dmb-back.onrender.com/api/clientes/dni", {
@@ -100,6 +105,7 @@ function BodyDateTime({
 
   function handleValidar(event) {
     event.preventDefault();
+    !client ? setConectando(true) : setConectando(false)
     if (!client.error) {
       setValidClient(
         "Hola! "+client.data.nombre +
@@ -178,6 +184,9 @@ function BodyDateTime({
         <button className="btn-validation" onClick={handleValidar}>
           Validar DNI
         </button>
+        {
+          conectando ? <div className='conectando'><span>Validando...</span> <img src={isotipo} alt="logo-girando" /></div> : null
+        }
         {errors.client ? (
           <span className="msg-error">{errors.client}</span>
         ) : (
