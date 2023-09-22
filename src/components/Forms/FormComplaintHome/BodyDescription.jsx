@@ -22,7 +22,7 @@ function BodyDescription({ datosFormu, setDatosFormu, errors, setErrors, express
     return (
         <div className='form-Description'>
             <div className="form-group-1 form-group-2" id="form-group-description">
-                <label htmlFor="description">Descripción de los hechos</label>
+                <label htmlFor="description">Contános cómo fue el siniestro lo más detallado posible</label>
                 <textarea
                     name="description"
                     id="description"

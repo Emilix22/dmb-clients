@@ -4,14 +4,14 @@ function Raison({ datosFormu, setDatosFormu, errors, setErrors, expressions }) {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    if (datosFormu.raison === "colisión") {
+    if (datosFormu.raison === "accidente") {
       setOptions([
         {value:"", text: "Seleccione una Consecuencia"},
-        {value:"colisión con cosas (no vehículos)", text: "COLISIÓN CON COSAS (NO VEHÍCULOS)"},
-        {value:"siniestro con bicicletas", text: "SINIESTRO CON BICICLETAS"},
-        {value:"siniestro con motos", text: "SINIESTRO CON MOTOS"},
-        {value:"siniestro con peatones", text: "SINIESTRO CON PEATONES"},
-        {value:"siniestro con vehículos de 4 o más ruedas", text: "SINIESTRO CON VEHÍCULOS DE 4 O MÁS RUEDAS"},
+        {value:"accidente con vehículos de 4 o más ruedas", text: "ACCIDENTE CON VEHÍCULOS DE 4 O MÁS RUEDAS"},
+        {value:"accidente con motos", text: "ACCIDENTE CON MOTOS"},
+        {value:"accidente con bicicletas", text: "ACCIDENTE CON BICICLETAS"},
+        {value:"accidente con cosas (no vehículos)", text: "ACCIDENTE CON COSAS (NO VEHÍCULOS)"},
+        {value:"accidente con peatones", text: "ACCIDENTE CON PEATONES"},
         {value:"vuelco", text: "VUELCO"},
       ]);
     } else if (datosFormu.raison === "cristales y cerraduras") {
@@ -22,19 +22,14 @@ function Raison({ datosFormu, setDatosFormu, errors, setErrors, expressions }) {
     } else if (datosFormu.raison === "granizo") {
       setOptions([
         {value:"", text: "Seleccione una Consecuencia"},
-        {value:"daño por granizo a parabrisas, luneta y/o cristales laterales", text: "DAÑO POR GRANIZO A PARABRISAS, LUNETA Y/O CRISTALES LATERALES"},
+        {value:"daño por granizo", text: "DAÑO POR GRANIZO"},
       ]);
     } else if (datosFormu.raison === "robo") {
       setOptions([
         {value:"", text: "Seleccione una Consecuencia"},
-        {value:"robo del vehículo", text: "ROBO DEL VEHÍCULO"},
-        {value:"robo del vehículo a mano armada", text: "ROBO DEL VEHÍCULO A MANO ARMADA"},
-        {value:"robo parcial - robo rueda - cristales y/o cerradura", text: "ROBO PARCIAL - ROBO RUEDA - CRISTALES Y/O CERRADURAS"},
-      ]);
-    } else if (datosFormu.raison === "destrucción total") {
-      setOptions([
-        {value:"", text: "Seleccione una Consecuencia"},
-        {value:"destrucción total", text: "DESTRUCCIÓN TOTAL"},
+        {value:"robo de ruedas", text: "ROBO DE RUEDAS"},
+        {value:"robo total del vehículo", text: "ROBO TOTAL DEL VEHÍCULO"},
+        {value:"robo parcial", text: "ROBO PARCIAL"},
       ]);
     } else {
       setOptions([{value:"", text: "Seleccione un Motivo primero..."}]);
@@ -52,11 +47,10 @@ function Raison({ datosFormu, setDatosFormu, errors, setErrors, expressions }) {
           onChange={(e) => setDatosFormu({ ...datosFormu, raison: e.target.value })}
         >
           <option value="seleccione">Seleccione...</option>
-          <option value="colisión">COLISIÓN</option>
+          <option value="accidente">ACCIDENTE</option>
           <option value="cristales y cerraduras">CRISTALES Y CERRADURAS</option>
           <option value="granizo">GRANIZO</option>
           <option value="robo">ROBO</option>
-          <option value="destrucción total">DESTRUCCIÓN TOTAL</option>
         </select>
       </div>
       <div className="form-group-1 form-group-2">

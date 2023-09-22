@@ -150,7 +150,16 @@
     flex-direction: column;
   }
 
-  
+  .fotos-registro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fotos-registro img {
+    width: 50px;
+  }
   /*********************************************Desktop***************************************************/
 
   @media (min-width: 769px) {
@@ -189,5 +198,13 @@
     td {
       padding: 7px;
       font-size: 14px;
+    }
+
+    .fotos-registro {
+      flex-direction: row;
+    }
+  
+    .fotos-registro img {
+      width: 70px;
     }
   }

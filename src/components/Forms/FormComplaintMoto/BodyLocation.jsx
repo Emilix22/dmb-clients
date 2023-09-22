@@ -205,7 +205,7 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
           {errors.door ? <span className="msg-error">{errors.door}</span> : ""}
         </div>
 
-        <div className="form-group-1 form-group-4" id="form-group-postalCode">
+        {/* <div className="form-group-1 form-group-4" id="form-group-postalCode">
           <label htmlFor="postalCode">Código Postal</label>
           <input
             type="text"
@@ -221,9 +221,9 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
           {
                         errors.postalCode ? <span className='msg-error'>{errors.postalCode}</span> : ""
                     }
-        </div>
+        </div> */}
         <div className="form-group-1 form-group-2" id="form-group-description">
-          <label htmlFor="description">Descripción de los hechos</label>
+          <label htmlFor="description">Contános cómo fue el siniestro lo más detallado posible</label>
           <textarea
             name="description"
             id="description"
@@ -250,16 +250,11 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
             <option value="Avenida">AVENIDA</option>
             <option value="Bocacalle">BOCACALLE</option>
             <option value="Calle">CALLE</option>
-            <option value="En curva">EN CURVA</option>
-            <option value="En pendiente">EN PENDIENTE</option>
-            <option value="En túnel">EN TÚNEL</option>
             <option value="Ruta">RUTA</option>
-            <option value="Sobre puente">SOBRE PUENTE</option>
-            <option value="Otra">OTRO</option>
           </select>
           {errors.characteristics ? <span className="msg-error">{errors.characteristics}</span> : ""}
         </div>
-        <div className="form-group-1 form-group-2" id="form-group-img-license-front">
+        {/* <div className="form-group-1 form-group-2" id="form-group-img-license-front">
           <label htmlFor="img-license-front"><span>📷</span> Foto del Registro de Conducir <strong>FRENTE</strong>:</label>          
           <input 
           type="file" 
@@ -276,7 +271,7 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
           // value={datosFormu.license}
           onChange={(e) => setDatosFormu({ ...datosFormu, license_back: e.target.files[0]})}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

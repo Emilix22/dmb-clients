@@ -140,17 +140,6 @@ function ConfirmSend({datosFormu}) {
             </div>
 
             <div className="form-group-1 form-group-4">
-                <label htmlFor="complaint_question3">Lesionados Fuera del Vehículo</label>
-                <input
-                    type="text"
-                    name="complaint_question3"
-                    id="complaint_question3"
-                    value={datosFormu.question3}
-                    disabled
-                />
-            </div>
-
-            <div className="form-group-1 form-group-4">
                 <label htmlFor="complaint_question4">Vehículos Terceros Involucrados</label>
                 <input
                     type="text"

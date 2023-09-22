@@ -14,7 +14,7 @@ function FormCarCompany() {
     const [page, setPage] = useState(0);
     const history = useNavigate() 
 
-    const formTitles = ['Ingrese el CUIT de la Empresa Asegurada y la Fecha y Hora del Siniestro', 'Seleccione Motivo y Consecuencia', 'Indique Lugar del Siniestro', 'Información Particular', 'Resumen del Siniestro a Denunciar'];
+    const formTitles = ['Ingrese el CUIT de la Empresa Asegurada y la Fecha y Hora del Siniestro', 'Contanos que te ocurrió', 'Indicanos dónde ocurrió', 'Información Particular', 'Resumen del Siniestro a Denunciar'];
 
 
     const [datosFormu, setDatosFormu] = useState({

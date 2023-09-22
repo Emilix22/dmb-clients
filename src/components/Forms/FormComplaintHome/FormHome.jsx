@@ -14,7 +14,7 @@ function FormHome() {
     const history = useNavigate() 
 
 
-    const formTitles = ['Ingrese el DNI del Asegurado y la Fecha y Hora del Siniestro', 'Seleccione Tipo y Motivo', 'Descripción de los hechos', 'Resumen del Siniestro a Denunciar'];
+    const formTitles = ['Ingrese el DNI del Asegurado y la Fecha y Hora del Siniestro', 'Contanos que te ocurrió', 'Descripción de los hechos', 'Resumen del Siniestro a Denunciar'];
 
 
     const [datosFormu, setDatosFormu] = useState({

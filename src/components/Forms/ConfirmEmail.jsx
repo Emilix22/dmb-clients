@@ -48,7 +48,7 @@ function ConfirmEmail() {
 
     return (
         <div className="body-confirmEmail">
-            <p>Fué envíada una copia del resumen de su denuncia al siguiente Email: <strong>{client.data.email}</strong>. Si este no es su email, por favor comuníquese con nosotros para actualizar su información de contacto.</p>
+            <p>Recibimos tu denuncia! Te enviamos una copia del formulario al siguiente mail: <strong>{client.data.email}</strong>. Si este no es su mail, contáctanos <Link to={"https://wa.me/5491168978983?text=Hola"}>aqui</Link> para que actualicemos tu información.</p>
             <img className="graph" src={imgEmail} alt="fotomail" />
             <Link to="/"><button className="buttonEmail">Volver al inicio</button></Link>
             <Footer />

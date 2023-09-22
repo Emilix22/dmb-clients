@@ -212,7 +212,7 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
           {errors.door ? <span className="msg-error">{errors.door}</span> : ""}
         </div>
 
-        <div className="form-group-1 form-group-4" id="form-group-postalCode">
+        {/* <div className="form-group-1 form-group-4" id="form-group-postalCode">
           <label htmlFor="postalCode">Código Postal</label>
           <input
             type="text"
@@ -228,9 +228,9 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
           {
                         errors.postalCode ? <span className='msg-error'>{errors.postalCode}</span> : ""
                     }
-        </div>
+        </div> */}
         <div className="form-group-1 form-group-2" id="form-group-description">
-                <label htmlFor="description">Descripción de los hechos</label>
+                <label htmlFor="description">Contános cómo fue el siniestro lo más detallado posible</label>
                 <textarea
                     name="description"
                     id="description"
