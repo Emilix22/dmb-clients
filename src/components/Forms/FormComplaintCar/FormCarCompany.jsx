@@ -233,9 +233,9 @@ function FormCarCompany() {
             return setPage((prevState) => prevState + 1)
         } if (!errors.length > 0 && datosFormu.raison && datosFormu.consequence && page === 1) {
            return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && datosFormu.state && datosFormu.city && datosFormu.street && datosFormu.door && datosFormu.postalCode && datosFormu.description && datosFormu.characteristics && datosFormu.license_front && datosFormu.license_back && page === 2) {
+        } if (!errors.length > 0 && datosFormu.state && datosFormu.city && datosFormu.street && datosFormu.door && datosFormu.postalCode && datosFormu.description && datosFormu.characteristics && page === 2) {
            return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && datosFormu.question1 && datosFormu.question2 && datosFormu.question3 && datosFormu.question4 && page === 3) {
+        } if (!errors.length > 0 && datosFormu.question1 && datosFormu.question2 && datosFormu.question4 && datosFormu.license_front && datosFormu.license_back && page === 3) {
             return setPage((prevState) => prevState + 1)
         } if (!errors.length > 0 && page === 4) {
             return setPage((prevState) => prevState + 1)
@@ -428,10 +428,6 @@ function FormCarCompany() {
                            : !datosFormu.description 
                            ? "#777777"
                            : !datosFormu.characteristics 
-                           ? "#777777"
-                           : !datosFormu.license_front 
-                           ? "#777777"
-                           : !datosFormu.license_back 
                            ? "#777777" 
                            : ""}} 
                         onClick={handleNext}>Siguiente</button>
@@ -444,7 +440,9 @@ function FormCarCompany() {
                            ? "#777777"
                            : !datosFormu.question2 
                            ? "#777777"
-                           : !datosFormu.question3 
+                           : !datosFormu.license_front 
+                           ? "#777777"
+                           : !datosFormu.license_back 
                            ? "#777777"
                            : !datosFormu.question4 
                            ? "#777777"  

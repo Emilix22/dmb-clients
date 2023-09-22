@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import FormQuestion1 from './FormQuestion1'
 import FormQuestion2 from './FormQuestion2'
-import FormQuestion3 from './FormQuestion3'
+//import FormQuestion3 from './FormQuestion3'
 import FormQuestion4 from './FormQuestion4'
 
 function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, expressions }) {
 
     const [multiQ2, setMultiQ2] = useState([])
-    const [multiQ3, setMultiQ3] = useState([])
+    //const [multiQ3, setMultiQ3] = useState([])
 
     useEffect(() => {
         
@@ -18,20 +18,20 @@ function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, e
         : setMultiQ2([])  
     }, [datosFormu.injured_in_car.iic_quantity]);
 
-    useEffect(() => {
+    // useEffect(() => {
         
-        datosFormu.injured_out_car.ioc_quantity === "1" 
-        ? setMultiQ3([1]) 
-        : datosFormu.injured_out_car.ioc_quantity === "2" 
-        ? setMultiQ3([1, 2]) 
-        : datosFormu.injured_out_car.ioc_quantity === "3" 
-        ? setMultiQ3([1, 2, 3]) 
-        : datosFormu.injured_out_car.ioc_quantity === "4" 
-        ? setMultiQ3([1, 2, 3, 4])
-        : Number(datosFormu.injured_out_car.ioc_quantity) >= 5 
-        ? setMultiQ3([1, 2, 3, 4, 5])
-        : setMultiQ3([])  
-    }, [datosFormu.injured_out_car.ioc_quantity]);
+    //     datosFormu.injured_out_car.ioc_quantity === "1" 
+    //     ? setMultiQ3([1]) 
+    //     : datosFormu.injured_out_car.ioc_quantity === "2" 
+    //     ? setMultiQ3([1, 2]) 
+    //     : datosFormu.injured_out_car.ioc_quantity === "3" 
+    //     ? setMultiQ3([1, 2, 3]) 
+    //     : datosFormu.injured_out_car.ioc_quantity === "4" 
+    //     ? setMultiQ3([1, 2, 3, 4])
+    //     : Number(datosFormu.injured_out_car.ioc_quantity) >= 5 
+    //     ? setMultiQ3([1, 2, 3, 4, 5])
+    //     : setMultiQ3([])  
+    // }, [datosFormu.injured_out_car.ioc_quantity]);
 
 
     return (
@@ -58,6 +58,27 @@ function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, e
                 </div>
                 
                 {errors.question1 ? <span className="msg-error">{errors.question1}</span> : ""}
+            </div>
+
+            <div className='fotos-registro'>
+            <div className="form-group-1 form-group-2" id="form-group-img-license-front">
+                <label htmlFor="img-license-front"><img src={imgRegistroFrente} alt="imgRegistroFront" /> Foto del Registro de Conducir <strong>FRENTE</strong>:</label>          
+                <input 
+                type="file" 
+                name="img-license-front" 
+                // value={datosFormu.license_front}
+                onChange={(e) => setDatosFormu({ ...datosFormu, license_front: e.target.files[0]})}
+                /> 
+            </div>
+            <div className="form-group-1 form-group-2" id="form-group-img-license-back">
+                <label htmlFor="img-license-back"><img src={imgRegistroDorso} alt="imgRegistroBack" /> Foto del Registro de Conducir <strong>DORSO</strong>:</label>          
+                <input 
+                type="file" 
+                name="img-license-back" 
+                // value={datosFormu.license}
+                onChange={(e) => setDatosFormu({ ...datosFormu, license_back: e.target.files[0]})}
+                />
+            </div>
             </div>
 
             {
@@ -115,7 +136,7 @@ function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, e
                 
             }
 
-            <div className="form-group-1 form-group-2">
+            {/* <div className="form-group-1 form-group-2">
                 <span htmlFor="question3">¿Hubo lesionados fuera del vehículo?</span>
                 <div className='select-yes-no'>
                 <label htmlFor="question3S">Si</label>
@@ -165,7 +186,7 @@ function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, e
                     return <FormQuestion3 title={index +1} datosFormu={datosFormu} setDatosFormu={setDatosFormu} errors={errors} setErrors={setErrors} expressions={expressions} key={num +index} />
                 })
                 
-            }
+            } */}
 
             <div className="form-group-1 form-group-2">
                 <span htmlFor="question4">¿Hubo vehículos de terceros involucrados?</span>
