@@ -53,7 +53,7 @@ function BodyDateTime({
     },
   };
 
-  const [client, setClient] = useState();
+  const [client, setClient] = useState({error: ""});
 
   const [clientId, setClientId] = useState("");
 
@@ -319,7 +319,7 @@ function BodyDateTime({
                       : policy.aseguradoras.nombre === 'ATM' 
                       ? <img style={{width: '80px'}} src={imgATM} alt="imgCompania" /> 
                       : policy.aseguradoras.nombre === 'Federación Patronal' 
-                      ? <img style={{width: '80px'}} src={imgFederación_Patronal} alt="imgCompania" /> 
+                      ? <img style={{width: '150px'}} src={imgFederación_Patronal} alt="imgCompania" /> 
                       : policy.aseguradoras.nombre === 'Holando Seguros' 
                       ? <img style={{width: '80px'}} src={imgHolando_Seguros} alt="imgCompania" /> 
                       : policy.aseguradoras.nombre === 'Mapfre' 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import RowQuestion4 from './RowQuestion4';
 let otroAuto = [];
 

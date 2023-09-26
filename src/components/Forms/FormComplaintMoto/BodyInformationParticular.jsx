@@ -3,8 +3,10 @@ import FormQuestion1 from './FormQuestion1'
 import FormQuestion2 from './FormQuestion2'
 //import FormQuestion3 from './FormQuestion3'
 import FormQuestion4 from './FormQuestion4'
+import imgRegistroFrente from '../../../assets/licenseFront.jpg'
+import imgRegistroDorso from '../../../assets/licenseBack.jpg'
 
-function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, expressions }) {
+function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, expressions, formData }) {
 
     const [multiQ2, setMultiQ2] = useState([])
     //const [multiQ3, setMultiQ3] = useState([])
@@ -85,7 +87,8 @@ function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, e
                 datosFormu.question1 === "no" ? <FormQuestion1 datosFormu={datosFormu} setDatosFormu={setDatosFormu} errors={errors} setErrors={setErrors} expressions={expressions} /> : ""
             }
 
-            <div className="form-group-1 form-group-2">
+            {
+                datosFormu.raison === 'accidente' ? <div className="form-group-1 form-group-2">
                 <span htmlFor="2">¿Hubo lesionados sobre el vehículo?</span>
                 <div className='select-yes-no'>
                 <label htmlFor="question2S">Si</label>
@@ -106,7 +109,9 @@ function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, e
                 />
                 </div>
                 {errors.question2 ? <span className="msg-error">{errors.question2}</span> : ""}
-            </div>
+            </div> : null
+            }
+            
             {
                 datosFormu.question2 === "si" 
                 ? <div className="form-group-1 form-group-3">
@@ -188,8 +193,9 @@ function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, e
                 
             } */}
 
-            <div className="form-group-1 form-group-2">
-                <span htmlFor="question4">¿Hubo vehículos de terceros involucrados?</span>
+{
+                datosFormu.raison === 'accidente' ? <div className="form-group-1 form-group-2">
+                <span className='question' htmlFor="question4">¿Hubo vehículos de terceros involucrados?</span>
                 <div className='select-yes-no'>
                 <label htmlFor="question4S">Si</label>
                 <input
@@ -209,10 +215,11 @@ function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, e
                 />
                 </div>
                 {errors.question4 ? <span className="msg-error">{errors.question4}</span> : ""}
-            </div>
+            </div> : null
+            }
 
             {
-                datosFormu.question4 === "si" ? <FormQuestion4 datosFormu={datosFormu} setDatosFormu={setDatosFormu} errors={errors} setErrors={setErrors} expressions={expressions} /> : ""
+                datosFormu.question4 === "si" ? <FormQuestion4 datosFormu={datosFormu} setDatosFormu={setDatosFormu} errors={errors} setErrors={setErrors} expressions={expressions} formData={formData} /> : ""
             }
 
         </div>

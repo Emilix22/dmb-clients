@@ -48,7 +48,7 @@ function Form() {
         //***************************paso4*********** */
         question1: "",
         question2: "",
-        question3: "",
+        //question3: "",
         question4: "",
         driver_not_client: {
             dnc_name: "",
@@ -240,7 +240,13 @@ function Form() {
            return setPage((prevState) => prevState + 1)
         } if (!errors.length > 0 && datosFormu.state && datosFormu.city && datosFormu.street && datosFormu.door && datosFormu.description && datosFormu.characteristics && page === 2) {
            return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && datosFormu.question2 && datosFormu.question4 && page === 3) {
+        } if (!errors.length > 0 && datosFormu.raison === 'cristales y cerraduras' && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && datosFormu.repo_city && datosFormu.repo_state && page === 3) {
+            return setPage((prevState) => prevState + 1)
+        } if (!errors.length > 0 && datosFormu.raison === 'accidente' && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && datosFormu.question2 && datosFormu.question4 && page === 3) {
+            return setPage((prevState) => prevState + 1)
+        } if (!errors.length > 0 && (datosFormu.raison === 'granizo' || datosFormu.consequence === 'robo total del vehículo' || datosFormu.consequence === 'robo parcial') && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && page === 3) {
+            return setPage((prevState) => prevState + 1)
+        } if (!errors.length > 0 && datosFormu.consequence === 'robo de ruedas' && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && datosFormu.img_rueda && datosFormu.repo_city && datosFormu.repo_state && page === 3) {
             return setPage((prevState) => prevState + 1)
         } if (!errors.length > 0 && page === 4) {
             return setPage((prevState) => prevState + 1)
@@ -436,7 +442,24 @@ function Form() {
                            ? "#777777"
                            : ""}} 
                         onClick={handleNext}>Siguiente</button>
-                        : page === 3 ? <button
+                        : page === 3 && datosFormu.raison === 'cristales y cerraduras' ? <button
+                        className='button-next' 
+                        disabled={page === formTitles.length - 1} 
+                        style= {{backgroundColor: page === formTitles.length - 1 
+                           ? "#777777"  
+                           : !datosFormu.question1 
+                           ? "#777777"
+                           : !datosFormu.repo_city 
+                           ? "#777777"
+                           : !datosFormu.repo_state 
+                           ? "#777777"
+                           : !datosFormu.license_front 
+                           ? "#777777"
+                           : !datosFormu.license_back 
+                           ? "#777777"   
+                           : ""}} 
+                        onClick={handleNext}>Siguiente</button> 
+                        : page === 3 && datosFormu.raison === 'accidente' ? <button
                         className='button-next' 
                         disabled={page === formTitles.length - 1} 
                         style= {{backgroundColor: page === formTitles.length - 1 
@@ -452,7 +475,39 @@ function Form() {
                            : !datosFormu.license_back 
                            ? "#777777"   
                            : ""}} 
-                        onClick={handleNext}>Siguiente</button> 
+                        onClick={handleNext}>Siguiente</button>
+                        : page === 3 && (datosFormu.raison === 'granizo' || datosFormu.consequence === 'robo total del vehículo' || datosFormu.consequence === 'robo parcial') ? <button
+                        className='button-next' 
+                        disabled={page === formTitles.length - 1} 
+                        style= {{backgroundColor: page === formTitles.length - 1 
+                           ? "#777777"  
+                           : !datosFormu.question1 
+                           ? "#777777"
+                           : !datosFormu.license_front 
+                           ? "#777777"
+                           : !datosFormu.license_back 
+                           ? "#777777"   
+                           : ""}} 
+                        onClick={handleNext}>Siguiente</button>
+                        : page === 3 && datosFormu.consequence === 'robo de ruedas' ? <button
+                        className='button-next' 
+                        disabled={page === formTitles.length - 1} 
+                        style= {{backgroundColor: page === formTitles.length - 1 
+                           ? "#777777"  
+                           : !datosFormu.question1 
+                           ? "#777777"
+                           : !datosFormu.license_front 
+                           ? "#777777"
+                           : !datosFormu.license_back 
+                           ? "#777777"   
+                           : !datosFormu.img_rueda 
+                           ? "#777777"
+                           : !datosFormu.repo_city 
+                           ? "#777777"
+                           : !datosFormu.repo_state 
+                           ? "#777777"
+                           : ""}} 
+                        onClick={handleNext}>Siguiente</button>
                         : ""                
                     }
 
