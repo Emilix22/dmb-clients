@@ -77,9 +77,7 @@ function BodyDateTime({
       const info = await response.json();
       setClient(info);
     };
-    {
-      datosFormu.dni.length === 8 ? loadClient() : ""
-    }
+    loadClient()
     
   }, [datosFormu.dni]);
 
@@ -105,6 +103,7 @@ function BodyDateTime({
 
   function handleValidar(event) {
     event.preventDefault();
+    //console.log(client)
     !client ? setConectando(true) : setConectando(false)
     if (!client.error) {
       setValidClient(

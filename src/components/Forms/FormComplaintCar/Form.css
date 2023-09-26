@@ -46,6 +46,12 @@
     min-height: 50px;
     flex-direction: column;
     text-align: center;
+    margin: auto;
+  }
+
+  .selct-daños {
+    display: flex;
+    gap: 40px;
   }
 
   label {
@@ -122,6 +128,11 @@
     margin-top: 10px;
     cursor: pointer;
   }
+  
+  .icon-tabla {
+    color: #00216d;
+    cursor: pointer;
+  }
 
   .form-InformationParticular {
     display: flex;
@@ -136,6 +147,64 @@
     height: 16px;
   }
 
+  .estacionado {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .question {
+    color: #00216d;
+    font-weight: bold;
+  }
+
+  .check-lock {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #dfe9f5;
+    padding: 0px 10px;
+    margin-top: 10px;
+    width: 95%;
+  }
+  .check-crystals {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+    background-color: #dfe9f5;
+    padding: 0px 10px;
+    margin: 10px auto;
+    width: 95%;
+  }
+  .check-group {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .check-crystals .check-group {
+    gap: 30px;
+    width: 100%;
+    justify-content: flex-start;
+    
+  }
+  .check-crystals .check-group label {
+    width: 60%;
+  }
+
+  .check-crystals .check-group input {
+    width: 13px;
+    
+  }
+
+  .check-group input {
+    cursor: pointer;
+  }
   .msg-error {
     color: red;
     font-size: 12px;
@@ -159,6 +228,18 @@
 
   .fotos-registro img {
     width: 50px;
+  }
+
+  .label-registro, .label-rueda {
+    padding-bottom: 10px;
+  }
+
+  .label-rueda {
+    font-weight: bold;
+  }
+
+  .imgRueda {
+    width: 200px;
   }
 
   .conectando {
@@ -222,5 +303,17 @@
   
     .fotos-registro img {
       width: 70px;
+    }
+
+    .check-lock, .check-crystals {
+      width: 50%;
+    }
+
+    .imgRueda {
+      width: 300px;
+    }
+
+    #form-group-img-rueda {
+      flex-direction: row;
     }
   }
