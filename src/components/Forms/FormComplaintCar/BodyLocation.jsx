@@ -92,7 +92,7 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
   //     }
   //     loadStreets()
   // }, [datosFormu.state, datosFormu.city, totalStreet]);
-
+console.log(datosFormu.state)
   return (
     <div className="form-Location">
       <div className="info-location">
@@ -113,6 +113,8 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
             }                   
           >
             <option value="">Seleccione una Provincia...</option>
+            <option value={["06", "Buenos Aires"]}>Buenos Aires</option>
+            <option value={["02", "Ciudad Autónoma de Buenos Aires"]}>Ciudad Autónoma de Buenos Aires</option>
             {states
               ? states.map((state, index) => {
                   return (

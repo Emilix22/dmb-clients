@@ -214,10 +214,11 @@ function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, e
             </div> : ""
             }
 
-            {     
-                multiQ2.map((num, index) => {
+            {   
+                datosFormu.question2 === "si"  
+                ? multiQ2.map((num, index) => {
                     return <FormQuestion2 title={index +1} datosFormu={datosFormu} setDatosFormu={setDatosFormu} errors={errors} setErrors={setErrors} expressions={expressions} key={num +index} />
-                })
+                }) : ""
                 
             }
 

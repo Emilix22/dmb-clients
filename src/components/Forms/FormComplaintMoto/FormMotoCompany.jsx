@@ -46,7 +46,7 @@ function FormMotoCompany() {
         //***************************paso4*********** */
         question1: "",
         question2: "",
-        question3: "",
+        //question3: "",
         question4: "",
         driver_not_client: {
             dnc_name: "",
@@ -75,35 +75,12 @@ function FormMotoCompany() {
             iic_phone1: "",
             iic_phone2: ""
         },
-        injured_out_car: {
-            ioc_quantity: "",
-            ioc_name1: "",
-            ioc_name2: "",
-            ioc_name3: "",
-            ioc_name4: "",
-            ioc_name5: "",
-            ioc_surname1: "",
-            ioc_surname2: "",
-            ioc_surname3: "",
-            ioc_surname4: "",
-            ioc_surname5: "",
-            ioc_dni1: "",
-            ioc_dni2: "",
-            ioc_dni3: "",
-            ioc_dni4: "",
-            ioc_dni5: "",
-            ioc_phone1: "",
-            ioc_phone2: "",
-            ioc_phone3: "",
-            ioc_phone4: "",
-            ioc_phone5: ""
-        },
         other_car: {
             oc_patent: "",
             oc_insurance: "",
-            oc_name: "",
-            oc_surname: "",
-            oc_dni: "",
+            // oc_name: "",
+            // oc_surname: "",
+            // oc_dni: "",
 
         }
 
@@ -134,7 +111,7 @@ function FormMotoCompany() {
     //***************************paso4*********** */
     formData.append('question1', datosFormu.question1)
     formData.append('question2', datosFormu.question2)
-    formData.append('question3', datosFormu.question3)
+    //formData.append('question3', datosFormu.question3)
     formData.append('question4', datosFormu.question4)
     formData.append('dnc_name', datosFormu.driver_not_client.dnc_name)
     formData.append('dnc_surname', datosFormu.driver_not_client.dnc_surname)
@@ -156,32 +133,11 @@ function FormMotoCompany() {
     formData.append('iic_dni2', datosFormu.injured_in_car.iic_dni2)
     formData.append('iic_phone1', datosFormu.injured_in_car.iic_phone1)
     formData.append('iic_phone2', datosFormu.injured_in_car.iic_phone2)
-    formData.append('ioc_quantity', datosFormu.injured_out_car.ioc_quantity)
-    formData.append('ioc_name1', datosFormu.injured_out_car.ioc_name1)
-    formData.append('ioc_name2', datosFormu.injured_out_car.ioc_name2)
-    formData.append('ioc_name3', datosFormu.injured_out_car.ioc_name3)
-    formData.append('ioc_name4', datosFormu.injured_out_car.ioc_name4)
-    formData.append('ioc_name5', datosFormu.injured_out_car.ioc_name5)
-    formData.append('ioc_surname1', datosFormu.injured_out_car.ioc_surname1)
-    formData.append('ioc_surname2', datosFormu.injured_out_car.ioc_surname2)
-    formData.append('ioc_surname3', datosFormu.injured_out_car.ioc_surname3)
-    formData.append('ioc_surname4', datosFormu.injured_out_car.ioc_surname4)
-    formData.append('ioc_surname5', datosFormu.injured_out_car.ioc_surname5)
-    formData.append('ioc_dni1', datosFormu.injured_out_car.ioc_dni1)
-    formData.append('ioc_dni2', datosFormu.injured_out_car.ioc_dni2)
-    formData.append('ioc_dni3', datosFormu.injured_out_car.ioc_dni3)
-    formData.append('ioc_dni4', datosFormu.injured_out_car.ioc_dni4)
-    formData.append('ioc_dni5', datosFormu.injured_out_car.ioc_dni5)
-    formData.append('ioc_phone1', datosFormu.injured_out_car.ioc_phone1)
-    formData.append('ioc_phone2', datosFormu.injured_out_car.ioc_phone2)
-    formData.append('ioc_phone3', datosFormu.injured_out_car.ioc_phone3)
-    formData.append('ioc_phone4', datosFormu.injured_out_car.ioc_phone4)
-    formData.append('ioc_phone5', datosFormu.injured_out_car.ioc_phone5)
     formData.append('oc_patent', datosFormu.other_car.oc_patent)
     formData.append('oc_insurance', datosFormu.other_car.oc_insurance)
-    formData.append('oc_name', datosFormu.other_car.oc_name)
-    formData.append('oc_surname', datosFormu.other_car.oc_surname)
-    formData.append('oc_dni', datosFormu.other_car.oc_dni)
+    // formData.append('oc_name', datosFormu.other_car.oc_name)
+    // formData.append('oc_surname', datosFormu.other_car.oc_surname)
+    // formData.append('oc_dni', datosFormu.other_car.oc_dni)
 
 
     const expressions = {
@@ -216,7 +172,9 @@ function FormMotoCompany() {
            return setPage((prevState) => prevState + 1)
         } if (!errors.length > 0 && datosFormu.state && datosFormu.city && datosFormu.street && datosFormu.door && datosFormu.postalCode && datosFormu.description && datosFormu.characteristics && page === 2) {
            return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && datosFormu.question1 && datosFormu.question2 && datosFormu.license_front && datosFormu.license_back && datosFormu.question4 && page === 3) {
+        } if (!errors.length > 0 && datosFormu.raison === 'robo' && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && page === 3) {
+            return setPage((prevState) => prevState + 1)
+        } if (!errors.length > 0 && datosFormu.raison === 'accidente' && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && datosFormu.question2 && datosFormu.question4 && page === 3) {
             return setPage((prevState) => prevState + 1)
         } if (!errors.length > 0 && page === 4) {
             return setPage((prevState) => prevState + 1)
@@ -295,6 +253,7 @@ function FormMotoCompany() {
             errors={errors} 
             setErrors={setErrors}
             expressions={expressions}
+            formData={formData}
             />
         };
         if (page === 4) {
@@ -411,7 +370,20 @@ function FormMotoCompany() {
                            ? "#777777" 
                            : ""}} 
                         onClick={handleNext}>Siguiente</button>
-                        : page === 3 ? <button
+                        : page === 3 && datosFormu.raison === 'robo' ? <button
+                        className='button-next' 
+                        disabled={page === formTitles.length - 1} 
+                        style= {{backgroundColor: page === formTitles.length - 1 
+                           ? "#777777"  
+                           : !datosFormu.question1 
+                           ? "#777777"
+                           : !datosFormu.license_front 
+                           ? "#777777"
+                           : !datosFormu.license_back 
+                           ? "#777777"  
+                           : ""}} 
+                        onClick={handleNext}>Siguiente</button> 
+                        : page === 3 && datosFormu.raison === 'accidente' ? <button
                         className='button-next' 
                         disabled={page === formTitles.length - 1} 
                         style= {{backgroundColor: page === formTitles.length - 1 
@@ -420,11 +392,11 @@ function FormMotoCompany() {
                            ? "#777777"
                            : !datosFormu.question2 
                            ? "#777777"
+                           : !datosFormu.question4 
+                           ? "#777777"
                            : !datosFormu.license_front 
                            ? "#777777"
                            : !datosFormu.license_back 
-                           ? "#777777"
-                           : !datosFormu.question4 
                            ? "#777777"  
                            : ""}} 
                         onClick={handleNext}>Siguiente</button> 

@@ -113,7 +113,7 @@ function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, e
             }
             
             {
-                datosFormu.question2 === "si" 
+                    datosFormu.question2 === "si" 
                 ? <div className="form-group-1 form-group-3">
                 <label htmlFor="iic_quantity">Cantidad de Lesionados <strong>Sobre el Vehículo</strong></label>
                 <input
@@ -135,9 +135,10 @@ function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, e
             }
 
             {     
-                multiQ2.map((num, index) => {
+                datosFormu.question2 === "si" 
+                ? multiQ2.map((num, index) => {
                     return <FormQuestion2 title={index +1} datosFormu={datosFormu} setDatosFormu={setDatosFormu} errors={errors} setErrors={setErrors} expressions={expressions} key={num +index} />
-                })
+                }) : ""
                 
             }
 
