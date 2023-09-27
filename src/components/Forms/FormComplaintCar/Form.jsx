@@ -116,7 +116,8 @@ function Form() {
         rueda_del_derecha: false,
         rueda_del_izquierda: false,
         rueda_tras_derecha: false,
-        rueda_tras_izquierda: false
+        rueda_tras_izquierda: false,
+        otroAuto: []
 
     })
 
@@ -145,7 +146,7 @@ function Form() {
     //***************************paso4*********** */
     formData.append('question1', datosFormu.question1)
     formData.append('question2', datosFormu.question2)
-    formData.append('question3', datosFormu.question3)
+    //formData.append('question3', datosFormu.question3)
     formData.append('question4', datosFormu.question4)
     formData.append('dnc_name', datosFormu.driver_not_client.dnc_name)
     formData.append('dnc_surname', datosFormu.driver_not_client.dnc_surname)
@@ -200,14 +201,13 @@ function Form() {
     formData.append('rueda_tras_derecha', datosFormu.rueda_tras_derecha)
     formData.append('rueda_tras_izquierda', datosFormu.rueda_tras_izquierda)
 
+    formData.append('vehiculos_terceros_inv', datosFormu.otroAuto)
 
     // formData.append('oc_patent', datosFormu.other_car.oc_patent)// lo cargo desde el formQuestion4
     // formData.append('oc_insurance', datosFormu.other_car.oc_insurance)// lo cargo desde el formQuestion4
     // formData.append('oc_name', datosFormu.other_car.oc_name)
     // formData.append('oc_surname', datosFormu.other_car.oc_surname)
     // formData.append('oc_dni', datosFormu.other_car.oc_dni)
-
-
 
     const expressions = {
         date: /^\d{4}-\d{2}-\d{2}$/,
@@ -266,7 +266,8 @@ function Form() {
             icon: "⌛"
         })
 
-        fetch("https://dmb-back.onrender.com/api/siniestros_auto/crear", {
+        //https://dmb-back.onrender.com/api/siniestros_auto/crear 
+        fetch("http://localhost:3000/api/siniestros_auto/crear", {
             method: "POST",
             body: formData
         })

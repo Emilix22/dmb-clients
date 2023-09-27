@@ -81,8 +81,8 @@ function FormMoto() {
             // oc_name: "",
             // oc_surname: "",
             // oc_dni: "",
-        }
-
+        },
+        otroAuto: []
     })
 
     const formData = new FormData();
@@ -137,7 +137,7 @@ function FormMoto() {
     // formData.append('oc_name', datosFormu.other_car.oc_name)
     // formData.append('oc_surname', datosFormu.other_car.oc_surname)
     // formData.append('oc_dni', datosFormu.other_car.oc_dni)
-
+    formData.append('vehiculos_terceros_inv', datosFormu.otroAuto)
 
     const expressions = {
         date: /^\d{4}-\d{2}-\d{2}$/,

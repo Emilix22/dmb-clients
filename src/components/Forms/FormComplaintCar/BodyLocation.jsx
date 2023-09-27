@@ -92,7 +92,7 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
   //     }
   //     loadStreets()
   // }, [datosFormu.state, datosFormu.city, totalStreet]);
-console.log(datosFormu.state)
+
   return (
     <div className="form-Location">
       <div className="info-location">

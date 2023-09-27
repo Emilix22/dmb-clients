@@ -1,36 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import RowQuestion4 from './RowQuestion4';
-let otroAuto = [];
 
 
 function FormQuestion4({datosFormu, setDatosFormu, errors, setErrors, expressions, formData}) {
     
-    
+    const [otroAuto, setOtroAuto] =useState([])
 
     const ocGuardar = (event) => {
         event.preventDefault();
-        otroAuto.push({patente: datosFormu.other_car.oc_patent, aseguradora: datosFormu.other_car.oc_insurance})
-        // formData.append('oc_patent'+contador, datosFormu.other_car.oc_patent)
-        // setDatosFormu({ ...datosFormu, other_car : {
-        //     ...datosFormu.other_car,
-        //     oc_patent: ""
-        //     } })
+
+        setOtroAuto([...otroAuto, {patente: datosFormu.other_car.oc_patent, aseguradora: datosFormu.other_car.oc_insurance}])
         
         setDatosFormu({ ...datosFormu, other_car : {
             ...datosFormu.other_car, oc_patent: ""
-        }})
-        // setDatosFormu({ ...datosFormu, other_car : {
-        //     ...datosFormu.other_car,
-        //     oc_insurance: ""
-        // }})
-        otroAuto.map((auto, index) => {
-            formData.append('oc_patent'+index, auto.patente)
-            formData.append('oc_insurance'+index, auto.aseguradora)
-
-        })
-        
-
+        }})   
+       
     }
+
+    //console.log(datosFormu.otroAuto)
+
+    useEffect(() => {
+        setDatosFormu({ ...datosFormu, otroAuto: JSON.stringify(otroAuto)})
+    }, [otroAuto])
+
     return (
         <div className='formQuestions4'>
 

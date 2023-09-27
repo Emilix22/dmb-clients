@@ -111,7 +111,8 @@ function FormCarCompany() {
         rueda_del_derecha: false,
         rueda_del_izquierda: false,
         rueda_tras_derecha: false,
-        rueda_tras_izquierda: false
+        rueda_tras_izquierda: false,
+        otroAuto: []
 
     })
 
@@ -193,6 +194,8 @@ function FormCarCompany() {
     formData.append('rueda_del_izquierda', datosFormu.rueda_del_izquierda)
     formData.append('rueda_tras_derecha', datosFormu.rueda_tras_derecha)
     formData.append('rueda_tras_izquierda', datosFormu.rueda_tras_izquierda)
+
+    formData.append('vehiculos_terceros_inv', datosFormu.otroAuto)
 
     //formData.append('oc_patent', datosFormu.other_car.oc_patent)// lo cargo desde el formQuestion4
     //formData.append('oc_insurance', datosFormu.other_car.oc_insurance)// lo cargo desde el formQuestion4
