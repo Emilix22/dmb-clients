@@ -200,6 +200,7 @@ function Form() {
     formData.append('rueda_del_izquierda', datosFormu.rueda_del_izquierda)
     formData.append('rueda_tras_derecha', datosFormu.rueda_tras_derecha)
     formData.append('rueda_tras_izquierda', datosFormu.rueda_tras_izquierda)
+    formData.append('img_rueda', datosFormu.img_rueda)
 
     formData.append('vehiculos_terceros_inv', datosFormu.otroAuto)
 

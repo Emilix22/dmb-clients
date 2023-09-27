@@ -112,7 +112,7 @@ function ConfirmSend({datosFormu}) {
                     type="text"
                     name="complaint_street"
                     id="complaint_street"
-                    value={datosFormu.street + " " + datosFormu.door + ", " + datosFormu.city + " (CP: "+datosFormu.postalCode+")"}
+                    value={datosFormu.street + " " + datosFormu.door + ", " + datosFormu.city}
                     disabled
                 />
             </div>
@@ -129,7 +129,7 @@ function ConfirmSend({datosFormu}) {
             </div>
 
             <div className="form-group-1 form-group-4">
-                <label htmlFor="complaint_question2">Lesionados Sobre del Vehículo</label>
+                <label htmlFor="complaint_question2">Lesionados Sobre el Vehículo</label>
                 <input
                     type="text"
                     name="complaint_question2"

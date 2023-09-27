@@ -112,7 +112,7 @@ function ConfirmSend({datosFormu}) {
                     type="text"
                     name="complaint_street"
                     id="complaint_street"
-                    value={datosFormu.street + " " + datosFormu.door + ", " + datosFormu.city + " (CP: "+datosFormu.postalCode+")"}
+                    value={datosFormu.street + " " + datosFormu.door + ", " + datosFormu.city}
                     disabled
                 />
             </div>
