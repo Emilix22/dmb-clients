@@ -266,8 +266,8 @@ function Form() {
             icon: "⌛"
         })
 
-        //https://dmb-back.onrender.com/api/siniestros_auto/crear 
-        fetch("http://localhost:3000/api/siniestros_auto/crear", {
+    
+        fetch("https://dmb-back.onrender.com/api/siniestros_auto/crear", {
             method: "POST",
             body: formData
         })
