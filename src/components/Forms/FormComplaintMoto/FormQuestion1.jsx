@@ -156,6 +156,8 @@ function FormQuestion1({datosFormu, setDatosFormu, errors, setErrors, expression
                     }
                 >
                     <option value="">Seleccione una Provincia...</option>
+                    <option value={["06", "Buenos Aires"]}>Buenos Aires</option>
+                    <option value={["02", "Ciudad Autónoma de Buenos Aires"]}>Ciudad Autónoma de Buenos Aires</option>
                     {states
                     ? states.map((state, index) => {
                         return (

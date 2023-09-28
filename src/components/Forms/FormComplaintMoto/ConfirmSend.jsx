@@ -128,28 +128,34 @@ function ConfirmSend({datosFormu}) {
                 />
             </div>
 
-            <div className="form-group-1 form-group-4">
-                <label htmlFor="complaint_question2">Lesionados Sobre el Vehículo</label>
-                <input
-                    type="text"
-                    name="complaint_question2"
-                    id="complaint_question2"
-                    value={datosFormu.question2}
-                    disabled
-                />
-            </div>
-
-            <div className="form-group-1 form-group-4">
-                <label htmlFor="complaint_question4">Vehículos Terceros Involucrados</label>
-                <input
-                    type="text"
-                    name="complaint_question4"
-                    id="complaint_question4"
-                    value={datosFormu.question4}
-                    disabled
-                />
-            </div>
-                         
+            {
+                datosFormu.raison === 'accidente' 
+                ? <div className="form-group-1 form-group-4">
+                    <label htmlFor="complaint_question2">Lesionados Sobre el Vehículo</label>
+                    <input
+                        type="text"
+                        name="complaint_question2"
+                        id="complaint_question2"
+                        value={datosFormu.question2}
+                        disabled
+                    />
+                </div> : null
+            }
+            
+            {
+                datosFormu.raison === 'accidente' 
+                ? <div className="form-group-1 form-group-4">
+                    <label htmlFor="complaint_question4">Vehículos Terceros Involucrados</label>
+                    <input
+                        type="text"
+                        name="complaint_question4"
+                        id="complaint_question4"
+                        value={datosFormu.question4}
+                        disabled
+                    />
+                </div> : null
+            }
+               
         </div>
     )
 }

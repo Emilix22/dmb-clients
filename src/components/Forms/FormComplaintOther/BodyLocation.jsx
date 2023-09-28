@@ -154,7 +154,7 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
               datosFormu.state.name ? <option value="">Seleccione una Localidad...</option> : <option value=""></option>
             }
             
-            {cities
+            {cities && datosFormu.state.id != "02"
               ? cities.map((city, index) => {
                   return <option value={city.nombre} key={city + index}>{city.nombre}</option>;
                 })

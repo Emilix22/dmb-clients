@@ -156,6 +156,8 @@ function FormQuestion1({datosFormu, setDatosFormu, errors, setErrors, expression
                     }
                 >
                     <option value="">Seleccione una Provincia...</option>
+                    <option value={["06", "Buenos Aires"]}>Buenos Aires</option>
+                    <option value={["02", "Ciudad Autónoma de Buenos Aires"]}>Ciudad Autónoma de Buenos Aires</option>
                     {states
                     ? states.map((state, index) => {
                         return (
@@ -193,7 +195,7 @@ function FormQuestion1({datosFormu, setDatosFormu, errors, setErrors, expression
                     datosFormu.driver_not_client.dnc_state.name ? <option value="">Seleccione una Localidad...</option> : <option value=""></option>
                     }
                     
-                    {cities
+                    {cities && datosFormu.state.id != "02"
                     ? cities.map((city, index) => {
                         return <option value={city.nombre} key={city + index}>{city.nombre}</option>;
                         })
