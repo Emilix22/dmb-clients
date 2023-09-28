@@ -313,9 +313,6 @@ function FormQuestion4({datosFormu, setDatosFormu, errors, setErrors, expression
                             <strong>Aseguradora</strong>
                             </td>
                             <td>
-                            <strong>Editar</strong>
-                            </td>
-                            <td>
                             <strong>Quitar</strong>
                             </td>
                         </tr>
@@ -326,6 +323,9 @@ function FormQuestion4({datosFormu, setDatosFormu, errors, setErrors, expression
                                 return <RowQuestion4 
                                 patente={auto.patente}
                                 aseguradora={auto.aseguradora}
+                                otroAuto={otroAuto}
+                                setDatosFormu={setDatosFormu}
+                                datosFormu={datosFormu}
                                 key={auto + index} />
                             })
                         }

@@ -12,15 +12,18 @@ function FormQuestion4({datosFormu, setDatosFormu, errors, setErrors, expression
         setOtroAuto([...otroAuto, {patente: datosFormu.other_car.oc_patent, aseguradora: datosFormu.other_car.oc_insurance}])
         
         setDatosFormu({ ...datosFormu, other_car : {
-            ...datosFormu.other_car, oc_patent: ""
-        }})   
-       
+            ...datosFormu.other_car, oc_patent: "",  oc_insurance: ""
+        }})
     }
 
     //console.log(datosFormu.otroAuto)
 
     useEffect(() => {
         setDatosFormu({ ...datosFormu, otroAuto: JSON.stringify(otroAuto)})
+    }, [otroAuto])
+
+    useEffect(() => {
+        console.log(otroAuto)
     }, [otroAuto])
 
     return (
@@ -315,9 +318,6 @@ function FormQuestion4({datosFormu, setDatosFormu, errors, setErrors, expression
                             <strong>Aseguradora</strong>
                             </td>
                             <td>
-                            <strong>Editar</strong>
-                            </td>
-                            <td>
                             <strong>Quitar</strong>
                             </td>
                         </tr>
@@ -328,6 +328,9 @@ function FormQuestion4({datosFormu, setDatosFormu, errors, setErrors, expression
                                 return <RowQuestion4 
                                 patente={auto.patente}
                                 aseguradora={auto.aseguradora}
+                                otroAuto={otroAuto}
+                                setDatosFormu={setDatosFormu}
+                                datosFormu={datosFormu}
                                 key={auto + index} />
                             })
                         }

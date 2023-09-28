@@ -71,7 +71,6 @@ function BodyDataTimeCompany({
     })
     .then(res => res.json())
     .then(info => {
-        console.log(info)
         setClient(info);
     })
     

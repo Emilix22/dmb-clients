@@ -65,7 +65,9 @@ function BodyDateTime({
 
   useEffect(() => {
     const loadClient = async () => {
-      const response = await fetch("https://dmb-back.onrender.com/api/clientes/dni", {
+      const response = await fetch(
+        "https://dmb-back.onrender.com/api/clientes/dni", 
+        {
         method: "POST",
         body: JSON.stringify({
           dni: datosFormu.dni,
@@ -77,8 +79,8 @@ function BodyDateTime({
       const info = await response.json();
       setClient(info);
     };
-    loadClient()
-    
+    datosFormu.dni.length === 8 ?
+    loadClient() : null;
   }, [datosFormu.dni]);
 
   useEffect(() => {
