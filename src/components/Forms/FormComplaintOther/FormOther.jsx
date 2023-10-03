@@ -89,7 +89,7 @@ function FormOther() {
 
         if((!errors.length > 0 && datosFormu.dni && datosFormu.date && datosFormu.hour && datosFormu.minutes && validClient && datosFormu.policy) && page === 0) {
             return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && datosFormu.state && datosFormu.city && datosFormu.street && datosFormu.door && datosFormu.postalCode && datosFormu.description && page === 1) {
+        } if (!errors.length > 0 && datosFormu.state && datosFormu.city && datosFormu.street && datosFormu.door && datosFormu.description && page === 1) {
            return setPage((prevState) => prevState + 1)
         }
     }
@@ -227,16 +227,12 @@ function FormOther() {
                            ? "#777777" 
                            : errors.door 
                            ? "#777777" 
-                           : errors.postalCode 
-                           ? "#777777"
                            : !datosFormu.description 
                            ? "#777777"
                            : !datosFormu.street 
                            ? "#777777" 
                            : !datosFormu.door 
-                           ? "#777777" 
-                           : !datosFormu.postalCode 
-                           ? "#777777" 
+                           ? "#777777"  
                            : ""}} 
                         onClick={handleNext}>Siguiente</button> 
                         : ""                

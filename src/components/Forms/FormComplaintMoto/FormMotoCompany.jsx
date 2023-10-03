@@ -170,7 +170,7 @@ function FormMotoCompany() {
             return setPage((prevState) => prevState + 1)
         } if (!errors.length > 0 && datosFormu.raison && datosFormu.consequence && page === 1) {
            return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && datosFormu.state && datosFormu.city && datosFormu.street && datosFormu.door && datosFormu.postalCode && datosFormu.description && datosFormu.characteristics && page === 2) {
+        } if (!errors.length > 0 && datosFormu.state && datosFormu.city && datosFormu.street && datosFormu.door && datosFormu.description && datosFormu.characteristics && page === 2) {
            return setPage((prevState) => prevState + 1)
         } if (!errors.length > 0 && datosFormu.raison === 'robo' && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && page === 3) {
             return setPage((prevState) => prevState + 1)
@@ -354,16 +354,12 @@ function FormMotoCompany() {
                            ? "#777777" 
                            : errors.door 
                            ? "#777777" 
-                           : errors.postalCode 
-                           ? "#777777"
                            : errors.description 
                            ? "#777777"
                            : !datosFormu.street 
                            ? "#777777" 
                            : !datosFormu.door 
                            ? "#777777" 
-                           : !datosFormu.postalCode 
-                           ? "#777777"
                            : !datosFormu.description 
                            ? "#777777"
                            : !datosFormu.characteristics 
