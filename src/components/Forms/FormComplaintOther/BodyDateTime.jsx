@@ -100,7 +100,7 @@ function BodyDateTime({
 
   function handleValidar(event) {
     event.preventDefault();
-    if (!client.error) {
+    if (client && !client.error) {
       setValidClient(
         "Hola! "+client.data.nombre +
           " " +

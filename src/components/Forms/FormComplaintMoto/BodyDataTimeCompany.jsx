@@ -98,7 +98,7 @@ function BodyDataTimeCompany({
 
   function handleValidar(event) {
     event.preventDefault();
-    if (!client.error) {
+    if (client && !client.error) {
       setValidClient(
         "Hola! "+client.data.nombre_empresa + ". Por favor ingresá la fecha y hora de cuando ocurrió el siniestro."
       );

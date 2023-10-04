@@ -107,7 +107,7 @@ function BodyDateTime({
     event.preventDefault();
     //console.log(client)
     !client ? setConectando(true) : setConectando(false)
-    if (!client.error) {
+    if (client && !client.error) {
       setValidClient(
         "Hola! "+client.data.nombre +
           " " +
