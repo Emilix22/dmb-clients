@@ -61,8 +61,6 @@ function BodyDateTime({
 
   const [conectando, setConectando] = useState(false)
 
-
-
   useEffect(() => {
     const loadClient = async () => {
       const response = await fetch(
