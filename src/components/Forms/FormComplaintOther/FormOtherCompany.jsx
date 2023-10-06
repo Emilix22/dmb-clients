@@ -106,7 +106,7 @@ function FormOtherCompany() {
             icon: "⌛"
         })
         
-        fetch("https://dmb-back.onrender.com/api/siniestros_otro/crear", {
+        fetch("http://149.50.132.147:3000/api/siniestros_otro/crear", {
             method: "POST",
             body: formData
         })

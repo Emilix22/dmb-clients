@@ -12,7 +12,7 @@ function ConfirmEmail() {
     dni.length === 8 ?
     useEffect(() => {
     const loadClient = async () => {
-        const response = await fetch("https://dmb-back.onrender.com/api/clientes/dni", {
+        const response = await fetch("http://149.50.132.147:3000/api/clientes/dni", {
           method: "POST",
           body: JSON.stringify({
             dni: dni,
@@ -29,7 +29,7 @@ function ConfirmEmail() {
     }, []) 
     : useEffect(() => {
       const loadClient = async () => {
-        const response = await fetch("https://dmb-back.onrender.com/api/clientes/cuit", {
+        const response = await fetch("http://149.50.132.147:3000/api/clientes/cuit", {
           method: "POST",
           body: JSON.stringify({
             cuit: dni,

@@ -112,7 +112,7 @@ function FormConsortium() {
             icon: "⌛"
         })
         
-        fetch("https://dmb-back.onrender.com/api/siniestros_consorcio/crear", {
+        fetch("http://149.50.132.147:3000/api/siniestros_consorcio/crear", {
             method: "POST",
             body: formData
         })

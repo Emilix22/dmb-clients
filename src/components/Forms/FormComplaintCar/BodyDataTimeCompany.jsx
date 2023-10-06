@@ -60,7 +60,7 @@ function BodyDataTimeCompany({
   const [policysClient, setPolicysClient] = useState();
 
   useEffect(() => {
-    fetch("https://dmb-back.onrender.com/api/clientes/cuit", {
+    fetch("http://149.50.132.147:3000/api/clientes/cuit", {
         method: "POST",
         body: JSON.stringify({
           cuit: datosFormu.cuit,
@@ -79,7 +79,7 @@ function BodyDataTimeCompany({
   useEffect(() => {
     const loadPolicy = async () => {
       const response = await fetch(
-        "https://dmb-back.onrender.com/api/polizas/auto/porEmpresa",
+        "http://149.50.132.147:3000/api/polizas/auto/porEmpresa",
         {
           method: "POST",
           body: JSON.stringify({

@@ -127,7 +127,7 @@ function FormHome() {
             icon: "⌛"
         })
         
-        fetch("https://dmb-back.onrender.com/api/siniestros_hogar/crear", {
+        fetch("http://149.50.132.147:3000/api/siniestros_hogar/crear", {
             method: "POST",
             body: formData
         })
