@@ -259,7 +259,7 @@ function FormCarCompany() {
             icon: "⌛"
         })
 
-        fetch("http://149.50.132.147:3000/api/siniestros_auto/crear", {
+        fetch("https://dmb-back.online:3000/api/siniestros_auto/crear", {
             method: "POST",
             body: formData
         })

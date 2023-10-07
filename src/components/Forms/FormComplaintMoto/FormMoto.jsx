@@ -191,7 +191,7 @@ function FormMoto() {
             icon: "⌛"
         })
 
-        fetch("http://149.50.132.147:3000/api/siniestros_moto/crear", {
+        fetch("https://dmb-back.online:3000/api/siniestros_moto/crear", {
             method: "POST",
             body: formData
         })

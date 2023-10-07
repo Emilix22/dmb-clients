@@ -64,7 +64,7 @@ function BodyDateTime({
   useEffect(() => {
     const loadClient = async () => {
       const response = await fetch(
-        "http://149.50.132.147:3000/api/clientes/dni", 
+        "https://dmb-back.online:3000/api/clientes/dni", 
         {
         method: "POST",
         body: JSON.stringify({
@@ -84,7 +84,7 @@ function BodyDateTime({
   useEffect(() => {
     const loadPolicy = async () => {
       const response = await fetch(
-        "http://149.50.132.147:3000/api/polizas/auto/porCliente",
+        "https://dmb-back.online:3000/api/polizas/auto/porCliente",
         {
           method: "POST",
           body: JSON.stringify({

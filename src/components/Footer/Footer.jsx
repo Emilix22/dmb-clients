@@ -33,6 +33,7 @@ function Footer() {
                         <li className='footer-subtitle'>Whatsapp</li>
                         <li>(011) 15-6897-8983</li>
                     </ul>
+                    <div className='EmilixWeb'>Made with love for EmilixWeb</div>
                 </div>
             </footer>
     )
