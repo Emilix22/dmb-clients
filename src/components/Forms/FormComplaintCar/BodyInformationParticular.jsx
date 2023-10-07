@@ -5,7 +5,7 @@ import FormQuestion2 from './FormQuestion2'
 import FormQuestion4 from './FormQuestion4'
 import imgRegistroFrente from '../../../assets/licenseFront.jpg'
 import imgRegistroDorso from '../../../assets/licenseBack.jpg'
-import imgRueda from '../../../assets/imgRueda.png'
+import imgRueda from '../../../assets/ImgRueda.png'
 
 function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, expressions, formData }) {
 
