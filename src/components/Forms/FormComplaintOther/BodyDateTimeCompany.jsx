@@ -150,7 +150,7 @@ function BodyDateTimeCompany({
 
         //console.log(mes)
 
-        let dia = fechaHoyFormato.slice(0, -7)
+        let dia = fechaHoyFormato.slice(0, -8)
         if (dia.length <= 1) {
             dia = "0" + dia
         }
