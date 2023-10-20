@@ -89,7 +89,7 @@ function FormOtherCompany() {
 
         if((!errors.length > 0 && datosFormu.cuit && datosFormu.date && datosFormu.hour && datosFormu.minutes && validClient && datosFormu.policy) && page === 0) {
             return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && datosFormu.state && datosFormu.city && datosFormu.street && datosFormu.door && datosFormu.postalCode && datosFormu.description && page === 1) {
+        } if (!errors.length > 0 && datosFormu.state && datosFormu.city && datosFormu.street && datosFormu.door && datosFormu.description && page === 1) {
            return setPage((prevState) => prevState + 1)
         }
     }
@@ -234,8 +234,6 @@ function FormOtherCompany() {
                            : !datosFormu.street 
                            ? "#777777" 
                            : !datosFormu.door 
-                           ? "#777777" 
-                           : !datosFormu.postalCode 
                            ? "#777777" 
                            : ""}} 
                         onClick={handleNext}>Siguiente</button> 
