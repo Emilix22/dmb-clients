@@ -219,7 +219,7 @@ function Form() {
         door: /^\d{1,5}/,
         postalCode: /^[a-zA-Z0-9\s]{4,8}$/,
         description: /^[a-zA-ZÀ-ÿ0-9\s]{20,500}$/,
-        // name: /^[a-zA-ZÀ-ÿ\s]{3,40}$/,
+        // raison: /^[a-zA-ZÀ-ÿ\s]$/,
         // surname: /^[a-zA-ZÀ-ÿ\s]{2,40}$/,
         // password: /^.{4,12}$/,
         // email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
@@ -231,25 +231,102 @@ function Form() {
     const [validClient, setValidClient] = useState("");
     
     const [client, setClient] = useState();
+
+    const validar = () => {
+
+        if (datosFormu.dni === "") {
+            return setErrors({ ...errors, dni: "Ingrese un DNI" });
+        }
+        if (datosFormu.date === "") {
+            return setErrors({ ...errors, date: "Seleccione una fecha" });
+        }
+        if (datosFormu.minutes === "") {
+            return setErrors({ ...errors, minutes: "Seleccione los minutos" });
+        }
+        if (datosFormu.hour === "") {
+            return setErrors({...errors, hour: "Seleccione la hora"});
+        }
+        if (validClient === "") {
+            return setErrors({...errors, validClient: "Valide el DNI"});
+        }
+        if (datosFormu.policy === "") {
+            return setErrors({...errors, policy: "Seleccione una póliza"});
+        }
+        if (datosFormu.raison === "" && page === 1) {
+            return setErrors({...errors, raison: "Seleccione un motivo"});
+        }
+        if (datosFormu.consequence === "" && page === 1) {
+            return setErrors({...errors, consequence: "Seleccione una consecuencia"});
+        }
+        if (datosFormu.state.name === "" && page === 2) {
+            return setErrors({...errors, state: "Seleccione una provincia"});
+        }
+        if (datosFormu.city === "" && page === 2) {
+            return setErrors({...errors, city: "Seleccione una localidad"});
+        }
+        if (datosFormu.street === "" && page === 2) {
+            return setErrors({...errors, street: "Ingrese una calle"});
+        }
+        if (datosFormu.door === "" && page === 2) {
+            return setErrors({...errors, door: "Ingrese una altura"});
+        }
+        if (datosFormu.description === "" && page === 2) {
+            return setErrors({...errors, description: "Ingrese una descripción"});
+        }
+        if (datosFormu.characteristics === "" && page === 2) {
+            return setErrors({...errors, characteristics: "Seleccione una característica"});
+        }
+        if (datosFormu.question1 === "" && page === 3) {
+            return setErrors({...errors, question1: "Indique si conducía o no el asegurado"});
+        }
+        if (!datosFormu.license_front && page === 3) {
+            return setErrors({...errors, license_front: "Adjunte la foto del frente del registro"});
+        }
+        if (!datosFormu.license_back && page === 3) {
+            return setErrors({...errors, license_back: "Adjunte la foto del dorso del registro"});
+        }
+        if (datosFormu.question2 === "" && page === 3) {
+            return setErrors({...errors, question2: "Indique si hubo o no lesionados dentro del vehículo"});
+        }
+        if (datosFormu.question4 === "" && page === 3) {
+            return setErrors({...errors, question4: "Indique si hubo o no lesionados dentro del vehículo"});
+        }
+    }
     
     const handleNext = (event) => {
         event.preventDefault();
 
+        validar();
+
         if((!errors.length > 0 && datosFormu.dni && datosFormu.date && datosFormu.hour && datosFormu.minutes && validClient && datosFormu.policy) && page === 0) {
             return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && datosFormu.raison && datosFormu.consequence && page === 1) {
+        } 
+
+        if (!errors.length > 0 && datosFormu.raison && datosFormu.consequence && page === 1) {
            return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && datosFormu.state && datosFormu.city && datosFormu.street && datosFormu.door && datosFormu.description && datosFormu.characteristics && page === 2) {
+        } 
+        
+        if (!errors.length > 0 && datosFormu.state && datosFormu.city && datosFormu.street && datosFormu.door && datosFormu.description && datosFormu.characteristics && page === 2) {
            return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && datosFormu.raison === 'cristales y cerraduras' && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && datosFormu.repo_city && datosFormu.repo_state && page === 3) {
+        }
+
+        if (!errors.length > 0 && datosFormu.raison === 'cristales y cerraduras' && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && datosFormu.repo_city && datosFormu.repo_state && page === 3) {
             return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && datosFormu.raison === 'accidente' && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && datosFormu.question2 && datosFormu.question4 && page === 3) {
+        }
+
+        if (!errors.length > 0 && datosFormu.raison === 'accidente' && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && datosFormu.question2 && datosFormu.question4 && page === 3) {
             return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && (datosFormu.raison === 'granizo' || datosFormu.consequence === 'robo total del vehículo' || datosFormu.consequence === 'robo parcial') && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && page === 3) {
+        }
+
+        if (!errors.length > 0 && (datosFormu.raison === 'granizo' || datosFormu.consequence === 'robo total del vehículo' || datosFormu.consequence === 'robo parcial') && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && page === 3) {
             return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && datosFormu.consequence === 'robo de ruedas' && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && datosFormu.img_rueda && datosFormu.repo_city && datosFormu.repo_state && page === 3) {
+        }
+
+        if (!errors.length > 0 && datosFormu.consequence === 'robo de ruedas' && datosFormu.question1 && datosFormu.license_front && datosFormu.license_back && datosFormu.img_rueda && datosFormu.repo_city && datosFormu.repo_state && page === 3) {
             return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && page === 4) {
+        }
+         
+        if (!errors.length > 0 && page === 4) {
             return setPage((prevState) => prevState + 1)
         }
         
@@ -361,6 +438,7 @@ function Form() {
                 <div className='form-body'>
                     {formDisplay()}
                 </div>
+                
                 <div className='form-footer'>
 
                     <div>

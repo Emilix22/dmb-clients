@@ -223,6 +223,67 @@ function FormCarCompany() {
     const [validClient, setValidClient] = useState("");
     
     const [client, setClient] = useState();
+
+    const validar = () => {
+
+        if (datosFormu.cuit === "") {
+            return setErrors({ ...errors, cuit: "Ingrese un CUIT" });
+        }
+        if (datosFormu.date === "") {
+            return setErrors({ ...errors, date: "Seleccione una fecha" });
+        }
+        if (datosFormu.minutes === "") {
+            return setErrors({ ...errors, minutes: "Seleccione los minutos" });
+        }
+        if (datosFormu.hour === "") {
+            return setErrors({...errors, hour: "Seleccione la hora"});
+        }
+        if (validClient === "") {
+            return setErrors({...errors, validClient: "Valide el DNI"});
+        }
+        if (datosFormu.policy === "") {
+            return setErrors({...errors, policy: "Seleccione una póliza"});
+        }
+        if (datosFormu.raison === "" && page === 1) {
+            return setErrors({...errors, raison: "Seleccione un motivo"});
+        }
+        if (datosFormu.consequence === "" && page === 1) {
+            return setErrors({...errors, consequence: "Seleccione una consecuencia"});
+        }
+        if (datosFormu.state.name === "" && page === 2) {
+            return setErrors({...errors, state: "Seleccione una provincia"});
+        }
+        if (datosFormu.city === "" && page === 2) {
+            return setErrors({...errors, city: "Seleccione una localidad"});
+        }
+        if (datosFormu.street === "" && page === 2) {
+            return setErrors({...errors, street: "Ingrese una calle"});
+        }
+        if (datosFormu.door === "" && page === 2) {
+            return setErrors({...errors, door: "Ingrese una altura"});
+        }
+        if (datosFormu.description === "" && page === 2) {
+            return setErrors({...errors, description: "Ingrese una descripción"});
+        }
+        if (datosFormu.characteristics === "" && page === 2) {
+            return setErrors({...errors, characteristics: "Seleccione una característica"});
+        }
+        if (datosFormu.question1 === "" && page === 3) {
+            return setErrors({...errors, question1: "Indique si conducía o no el asegurado"});
+        }
+        if (!datosFormu.license_front && page === 3) {
+            return setErrors({...errors, license_front: "Adjunte la foto del frente del registro"});
+        }
+        if (!datosFormu.license_back && page === 3) {
+            return setErrors({...errors, license_back: "Adjunte la foto del dorso del registro"});
+        }
+        if (datosFormu.question2 === "" && page === 3) {
+            return setErrors({...errors, question2: "Indique si hubo o no lesionados dentro del vehículo"});
+        }
+        if (datosFormu.question4 === "" && page === 3) {
+            return setErrors({...errors, question4: "Indique si hubo o no lesionados dentro del vehículo"});
+        }
+    }
     
     const handleNext = (event) => {
         event.preventDefault();

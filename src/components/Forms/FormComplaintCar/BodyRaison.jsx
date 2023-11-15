@@ -52,6 +52,7 @@ function Raison({ datosFormu, setDatosFormu, errors, setErrors, expressions }) {
           <option value="granizo">GRANIZO</option>
           <option value="robo">ROBO</option>
         </select>
+        {errors.raison ? <span className="msg-error">{errors.raison}</span> : ""}
       </div>
       <div className="form-group-1 form-group-2">
         <label htmlFor="consequence">Consecuencia</label>
@@ -69,6 +70,7 @@ function Raison({ datosFormu, setDatosFormu, errors, setErrors, expressions }) {
             })
           }
         </select>
+        {errors.consequence ? <span className="msg-error">{errors.consequence}</span> : ""}
       </div>
       {
         datosFormu.raison === "robo" 

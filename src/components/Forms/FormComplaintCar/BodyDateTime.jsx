@@ -183,6 +183,7 @@ function BodyDateTime({
         <button className="btn-validation" onClick={handleValidar}>
           Validar DNI
         </button>
+        {errors.validClient ? <span className="msg-error">{errors.validClient}</span> : ""}
         {
           conectando ? <div className='conectando'><span>Validando...</span> <img src={isotipo} alt="logo-girando" /></div> : null
         }
@@ -342,6 +343,7 @@ function BodyDateTime({
               })}
             </tbody>  
           </table>
+          {errors.policy ? <span className="msg-error">{errors.policy}</span> : ""}
         </div>
       ) : (
         ""

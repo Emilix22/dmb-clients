@@ -20,12 +20,12 @@ function FormQuestion1({datosFormu, setDatosFormu, errors, setErrors, expression
     useEffect(() => {
         const loadCities = async () => {
           const response = await fetch(
-            `https://apis.datos.gob.ar/georef/api/municipios?provincia=${Number(
+            `https://apis.datos.gob.ar/georef/api/localidades?provincia=${Number(
                 datosFormu.driver_not_client.dnc_state.id
             )}&campos=id,nombre&max=1000`
           );
           const info = await response.json();
-          setCities(info.municipios);
+          setCities(info.localidades);
         };
         loadCities();
     }, [datosFormu.driver_not_client.dnc_state]); // hacer lo del máximo **!!!!**************************************************

@@ -107,9 +107,11 @@ function FormHome() {
 
         if((!errors.length > 0 && datosFormu.dni && datosFormu.date && datosFormu.hour && datosFormu.minutes && validClient && datosFormu.policy) && page === 0) {
             return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && datosFormu.raison !== "seleccione" && page === 1) {
+        }
+        if (!errors.length > 0 && datosFormu.raison !== "seleccione" && page === 1) {
            return setPage((prevState) => prevState + 1)
-        } if (!errors.length > 0 && datosFormu.description && datosFormu.affected_objects && page === 2) {
+        }
+        if (!errors.length > 0 && datosFormu.description && datosFormu.affected_objects && page === 2) {
            return setPage((prevState) => prevState + 1)
         } 
         

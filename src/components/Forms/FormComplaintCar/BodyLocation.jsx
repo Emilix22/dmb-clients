@@ -153,9 +153,9 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
                 })
               : ""}
           </select>
-          {/* {
-                        errors.city ? <span className='msg-error'>{errors.city}</span> : ""
-                    } */}
+          {
+            errors.city ? <span className='msg-error'>{errors.city}</span> : ""
+          }
         </div>
 
         {/* <div className='form-group'>
