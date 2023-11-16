@@ -237,7 +237,7 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
             onKeyUp={validations.description}
             onBlur={validations.description}
           />
-          {errors.description && datosFormu.description === "" ? <span className="msg-error">{errors.description}</span> : ""}
+          {errors.description ? <span className="msg-error">{errors.description}</span> : ""}
         </div>
         <div className="form-group-1 form-group-2" id="form-group-characteristics">
           <label htmlFor="characteristics">Características del Lugar</label>
