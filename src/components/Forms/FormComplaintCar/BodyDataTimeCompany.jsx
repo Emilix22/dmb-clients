@@ -174,6 +174,7 @@ function BodyDataTimeCompany({
         <button className="btn-validation" onClick={handleValidar}>
           Validar CUIT
         </button>
+        {errors.validClient && validClient === "" ? <span className="msg-error">{errors.validClient}</span> : ""}
         {errors.client ? (
           <span className="msg-error">{errors.client}</span>
         ) : (
@@ -192,7 +193,7 @@ function BodyDataTimeCompany({
             onChange={(e) => setDatosFormu({ ...datosFormu, date: e.target.value })}
             onBlur={validations.date}
           />
-          {errors.date ? <span className="msg-error">{errors.date}</span> : ""}
+          {errors.date && datosFormu.date === "" ? <span className="msg-error">{errors.date}</span> : ""}
         </div>
         <div className="form-group-1 form-group-3">
           <label htmlFor="hour">Hora</label>
@@ -229,7 +230,7 @@ function BodyDataTimeCompany({
             <option value="22">22</option>
             <option value="23">23</option>
           </select>
-          {errors.hour ? <span className="msg-error">{errors.hour}</span> : ""}
+          {errors.hour && datosFormu.hour === "" ? <span className="msg-error">{errors.hour}</span> : ""}
         </div>
         <div className="form-group-1 form-group-3">
           <label htmlFor="minutes">Minutos</label>
@@ -256,7 +257,7 @@ function BodyDataTimeCompany({
             <option value="50">50</option>
             <option value="55">55</option>
           </select>
-          {errors.minutes ? (
+          {errors.minutes && datosFormu.minutes === "" ? (
             <span className="msg-error">{errors.minutes}</span>
           ) : (
             ""
@@ -330,7 +331,7 @@ function BodyDataTimeCompany({
               })}
             </tbody>  
           </table>
-          {errors.policy ? <span className="msg-error">{errors.policy}</span> : ""}
+          {errors.policy && datosFormu.policy === "" ? <span className="msg-error">{errors.policy}</span> : ""}
         </div>
       ) : (
         ""

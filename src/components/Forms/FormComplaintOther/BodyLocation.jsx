@@ -133,7 +133,7 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
               : ""}
           </select>
           {
-            errors.state ? <span className='msg-error'>{errors.state}</span> : ""
+            errors.state && datosFormu.state.name === "" ? <span className='msg-error'>{errors.state}</span> : ""
           }
         </div>
 
@@ -161,7 +161,7 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
               : ""}
           </select>
           {
-            errors.city ? <span className='msg-error'>{errors.city}</span> : ""
+            errors.city && datosFormu.city === "" ? <span className='msg-error'>{errors.city}</span> : ""
           }
         </div>
 
@@ -244,7 +244,7 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
                     onKeyUp={validations.description}
                     onBlur={validations.description}
                 />
-                {errors.description ? <span className="msg-error">{errors.description}</span> : ""}
+                {errors.description && datosFormu.description === "" ? <span className="msg-error">{errors.description}</span> : ""}
             </div>
             {/* <div className="form-group-1 form-group-2" id="form-group-description">
                 <label htmlFor="equipos_objetos_siniestrados">Bienes afectados por los hechos</label>

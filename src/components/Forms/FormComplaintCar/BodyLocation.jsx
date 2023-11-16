@@ -126,7 +126,7 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
               : ""}
           </select>
           {
-            errors.state ? <span className='msg-error'>{errors.state}</span> : ""
+            errors.state && datosFormu.state.name === "" ? <span className='msg-error'>{errors.state}</span> : ""
           }
         </div>
 
@@ -154,7 +154,7 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
               : ""}
           </select>
           {
-            errors.city ? <span className='msg-error'>{errors.city}</span> : ""
+            errors.city && datosFormu.city === "" ? <span className='msg-error'>{errors.city}</span> : ""
           }
         </div>
 
@@ -254,7 +254,7 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
             <option value="Calle">CALLE</option>
             <option value="Ruta">RUTA</option>
           </select>
-          {errors.characteristics ? <span className="msg-error">{errors.characteristics}</span> : ""}
+          {errors.characteristics && datosFormu.characteristics === "" ? <span className="msg-error">{errors.characteristics}</span> : ""}
         </div>
         {/* <div className="form-group-1 form-group-2" id="form-group-img-license-front">
           <label htmlFor="img-license-front"><span>📷</span> Foto del Registro de Conducir <strong>FRENTE</strong>:</label>          
