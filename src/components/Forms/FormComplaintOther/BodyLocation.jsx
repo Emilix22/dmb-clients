@@ -160,9 +160,9 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
                 })
               : ""}
           </select>
-          {/* {
-                        errors.city ? <span className='msg-error'>{errors.city}</span> : ""
-                    } */}
+          {
+            errors.city ? <span className='msg-error'>{errors.city}</span> : ""
+          }
         </div>
 
         {/* <div className='form-group'>
@@ -246,7 +246,7 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
                 />
                 {errors.description ? <span className="msg-error">{errors.description}</span> : ""}
             </div>
-            <div className="form-group-1 form-group-2" id="form-group-description">
+            {/* <div className="form-group-1 form-group-2" id="form-group-description">
                 <label htmlFor="equipos_objetos_siniestrados">Bienes afectados por los hechos</label>
                 <textarea
                     name="equipos_objetos_siniestrados"
@@ -260,15 +260,15 @@ function Location({ datosFormu, setDatosFormu, errors, setErrors, expressions })
                     onBlur={validations.equipos_objetos_siniestrados}
                 />
                 {errors.equipos_objetos_siniestrados ? <span className="msg-error">{errors.equipos_objetos_siniestrados}</span> : ""}
-            </div>
-            <div className="form-group-1 form-group-2" id="form-group-img-complaint">
-        <label htmlFor="img-complaint"><span>📄</span> Denuncia Policial del siniestro <strong>mobiliario:</strong></label>          
+            </div> */}
+            {/* <div className="form-group-1 form-group-2" id="form-group-img-complaint">
+        <label htmlFor="img-complaint"><span>📄</span> Denuncia Policial del siniestro</label>          
         <input 
         type="file" 
         name="img-complaint" 
         onChange={(e) => setDatosFormu({ ...datosFormu, denuncia_policial: e.target.files[0]})}
         /> 
-      </div> 
+      </div>  */}
       </div>
     </div>
   );

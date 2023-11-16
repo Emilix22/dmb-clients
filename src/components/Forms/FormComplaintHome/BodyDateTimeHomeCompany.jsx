@@ -176,6 +176,7 @@ function BodyDateTimeHomeCompany({
         <button className="btn-validation" onClick={handleValidar}>
           Validar CUIT
         </button>
+        {errors.validClient ? <span className="msg-error">{errors.validClient}</span> : ""}
         {errors.client ? (
           <span className="msg-error">{errors.client}</span>
         ) : (
@@ -328,6 +329,7 @@ function BodyDateTimeHomeCompany({
               })}
             </tbody>  
           </table>
+          {errors.policy ? <span className="msg-error">{errors.policy}</span> : ""}
         </div>
       ) : (
         ""

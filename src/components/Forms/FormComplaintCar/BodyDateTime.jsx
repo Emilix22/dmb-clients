@@ -21,7 +21,7 @@ function BodyDateTime({
 }) {
   const validations = {
     dni: () => {
-      if (expressions.dni.test(datosFormu.dni)) {
+      if (expressions.dni.test(datosFormu.dni) && datosFormu.dni != "") {
         setErrors({ ...errors, dni: "" });
       } else {
         setErrors({ ...errors, dni: "Requerido - sólo números - 8 cracteres" });
@@ -29,7 +29,7 @@ function BodyDateTime({
     },
 
     date: () => {
-      if (expressions.date.test(datosFormu.date)) {
+      if (expressions.date.test(datosFormu.date) && datosFormu.date != "") {
         setErrors({ ...errors, date: "" });
       } else {
         setErrors({ ...errors, date: "Requerido" });
@@ -37,7 +37,7 @@ function BodyDateTime({
     },
 
     hour: () => {
-      if (expressions.hour.test(datosFormu.hour)) {
+      if (expressions.hour.test(datosFormu.hour) && datosFormu.hour != "") {
         setErrors({ ...errors, hour: "" });
       } else {
         setErrors({ ...errors, hour: "Requerido" });
@@ -45,7 +45,7 @@ function BodyDateTime({
     },
 
     minutes: () => {
-      if (expressions.minutes.test(datosFormu.minutes)) {
+      if (expressions.minutes.test(datosFormu.minutes) && datosFormu.minutes != "") {
         setErrors({ ...errors, minutes: "" });
       } else {
         setErrors({ ...errors, minutes: "Requerido" });

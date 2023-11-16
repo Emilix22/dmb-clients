@@ -83,9 +83,48 @@ function FormOtherCompany() {
     const [validClient, setValidClient] = useState("");
     
     const [client, setClient] = useState();
+
+    const validar = () => {
+
+        if (datosFormu.dni === "") {
+            return setErrors({ ...errors, dni: "Ingrese un DNI" });
+        }
+        if (datosFormu.date === "") {
+            return setErrors({ ...errors, date: "Seleccione una fecha" });
+        }
+        if (datosFormu.minutes === "") {
+            return setErrors({ ...errors, minutes: "Seleccione los minutos" });
+        }
+        if (datosFormu.hour === "") {
+            return setErrors({...errors, hour: "Seleccione la hora"});
+        }
+        if (validClient === "") {
+            return setErrors({...errors, validClient: "Valide el DNI"});
+        }
+        if (datosFormu.policy === "") {
+            return setErrors({...errors, policy: "Seleccione una póliza"});
+        }
+        if (datosFormu.state.name === "" && page === 1) {
+            return setErrors({...errors, state: "Seleccione una provincia"});
+        }
+        if (datosFormu.city === "" && page === 1) {
+            return setErrors({...errors, city: "Seleccione una localidad"});
+        }
+        if (datosFormu.street === "" && page === 1) {
+            return setErrors({...errors, street: "Ingrese una calle"});
+        }
+        if (datosFormu.door === "" && page === 1) {
+            return setErrors({...errors, door: "Ingrese una altura"});
+        }
+        if (datosFormu.description === "" && page === 1) {
+            return setErrors({...errors, description: "Ingrese una descripción"});
+        }
+    }
     
     const handleNext = (event) => {
         event.preventDefault();
+
+        validar();
 
         if((!errors.length > 0 && datosFormu.cuit && datosFormu.date && datosFormu.hour && datosFormu.minutes && validClient && datosFormu.policy) && page === 0) {
             return setPage((prevState) => prevState + 1)

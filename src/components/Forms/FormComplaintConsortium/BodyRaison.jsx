@@ -49,6 +49,7 @@ function Raison({ datosFormu, setDatosFormu, errors, setErrors, expressions }) {
           <option value="daños por agua">DAÑOS POR AGUA</option>
           <option value="otros">OTROS</option>
         </select>
+        {errors.raison ? <span className="msg-error">{errors.raison}</span> : ""}
       </div>
       {
         datosFormu.raison != 'seleccione' ? 

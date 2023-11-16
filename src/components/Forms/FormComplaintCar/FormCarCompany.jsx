@@ -281,12 +281,14 @@ function FormCarCompany() {
             return setErrors({...errors, question2: "Indique si hubo o no lesionados dentro del vehículo"});
         }
         if (datosFormu.question4 === "" && page === 3) {
-            return setErrors({...errors, question4: "Indique si hubo o no lesionados dentro del vehículo"});
+            return setErrors({...errors, question4: "Indique si hubo o no vehículos de terceros involucrados"});
         }
     }
     
     const handleNext = (event) => {
         event.preventDefault();
+
+        validar();
 
         if((!errors.length > 0 && datosFormu.cuit && datosFormu.date && datosFormu.hour && datosFormu.minutes && validClient && datosFormu.policy) && page === 0) {
             return setPage((prevState) => prevState + 1)

@@ -324,6 +324,7 @@ function BodyDateTimeCompany({
               })}
             </tbody>  
           </table>
+          {errors.policy ? <span className="msg-error">{errors.policy}</span> : ""}
         </div>
       ) : (
         ""

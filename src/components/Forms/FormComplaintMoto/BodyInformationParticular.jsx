@@ -70,7 +70,8 @@ function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, e
                 name="img-license-front" 
                 // value={datosFormu.license_front}
                 onChange={(e) => setDatosFormu({ ...datosFormu, license_front: e.target.files[0]})}
-                /> 
+                />
+                {errors.license_front ? <span className="msg-error">{errors.license_front}</span> : ""}  
             </div>
             <div className="form-group-1 form-group-2" id="form-group-img-license-back">
                 <label htmlFor="img-license-back"><img src={imgRegistroDorso} alt="imgRegistroBack" /> Foto del Registro de Conducir <strong>DORSO</strong>:</label>          
@@ -80,6 +81,7 @@ function InformationParticular({ datosFormu, setDatosFormu, errors, setErrors, e
                 // value={datosFormu.license}
                 onChange={(e) => setDatosFormu({ ...datosFormu, license_back: e.target.files[0]})}
                 />
+                {errors.license_back ? <span className="msg-error">{errors.license_back}</span> : ""}
             </div>
             </div>
 

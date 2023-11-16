@@ -86,9 +86,42 @@ function FormConsortium() {
     const [validClient, setValidClient] = useState("");
     
     const [client, setClient] = useState();
+
+    const validar = () => {
+
+        if (datosFormu.cuit === "") {
+            return setErrors({ ...errors, cuit: "Ingrese un CUIT" });
+        }
+        if (datosFormu.date === "") {
+            return setErrors({ ...errors, date: "Seleccione una fecha" });
+        }
+        if (datosFormu.minutes === "") {
+            return setErrors({ ...errors, minutes: "Seleccione los minutos" });
+        }
+        if (datosFormu.hour === "") {
+            return setErrors({...errors, hour: "Seleccione la hora"});
+        }
+        if (validClient === "") {
+            return setErrors({...errors, validClient: "Valide el DNI"});
+        }
+        if (datosFormu.policy === "") {
+            return setErrors({...errors, policy: "Seleccione una póliza"});
+        }
+        if (datosFormu.raison === "seleccione" && page === 1) {
+            return setErrors({...errors, raison: "Seleccione un tipo de siniestro"});
+        }
+        if (datosFormu.description === "" && page === 2) {
+            return setErrors({...errors, description: "Ingrese una descripción"});
+        }
+        if (datosFormu.affected_objects === "" && page === 2) {
+            return setErrors({...errors, affected_objects: "Indique los bienes afectados"});
+        }
+    }
     
     const handleNext = (event) => {
         event.preventDefault();
+
+        validar();
 
         if((!errors.length > 0 && datosFormu.cuit && datosFormu.date && datosFormu.hour && datosFormu.minutes && validClient && datosFormu.policy) && page === 0) {
             return setPage((prevState) => prevState + 1)

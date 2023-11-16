@@ -289,7 +289,7 @@ function Form() {
             return setErrors({...errors, question2: "Indique si hubo o no lesionados dentro del vehículo"});
         }
         if (datosFormu.question4 === "" && page === 3) {
-            return setErrors({...errors, question4: "Indique si hubo o no lesionados dentro del vehículo"});
+            return setErrors({...errors, question4: "Indique si hubo o no vehículos de terceros involucrados"});
         }
     }
     
