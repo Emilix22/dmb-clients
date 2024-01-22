@@ -12,7 +12,7 @@ function ConfirmEmail() {
     dni.length === 8 ?
     useEffect(() => {
     const loadClient = async () => {
-        const response = await fetch("https://dmb-back.online:3000/api/clientes/dni", {
+        const response = await fetch("https://dmb-back.onrender.com/api/clientes/dni", {
           method: "POST",
           body: JSON.stringify({
             dni: dni,
@@ -29,7 +29,7 @@ function ConfirmEmail() {
     }, []) 
     : useEffect(() => {
       const loadClient = async () => {
-        const response = await fetch("https://dmb-back.online:3000/api/clientes/cuit", {
+        const response = await fetch("https://dmb-back.onrender.com/api/clientes/cuit", {
           method: "POST",
           body: JSON.stringify({
             cuit: dni,
@@ -48,7 +48,7 @@ function ConfirmEmail() {
 
     return (
         <div className="body-confirmEmail">
-            <p>Recibimos tu denuncia! Te enviamos una copia del formulario al siguiente mail: <strong>{client.data.email}</strong>. Si este no es su mail, contáctanos <Link to={"https://wa.me/5491168978983?text=Hola"}>aqui</Link> para que actualicemos tu información.</p>
+            <p>Recibimos tu denuncia! Te enviamos una copia del formulario al siguiente mail: <strong>{client.data.email}</strong>. Si este no es su mail, contáctanos <Link to={"https://wa.me/5491136388857?text=Hola"}>aqui</Link> para que actualicemos tu información.</p>
             <img className="graph" src={imgEmail} alt="fotomail" />
             <Link to="/"><button className="buttonEmail">Volver al inicio</button></Link>
             <Footer />

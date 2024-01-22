@@ -145,7 +145,7 @@ function FormOther() {
             icon: "⌛"
         })
         
-        fetch("https://dmb-back.online:3000/api/siniestros_otro/crear", {
+        fetch("https://dmb-back.onrender.com/api/siniestros_otro/crear", {
             method: "POST",
             body: formData
         })

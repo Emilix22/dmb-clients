@@ -266,7 +266,7 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: flex-start;
-      gap: 15px;
+      gap: 5px;
     }
 
     .formQuestions1, .formQuestions2, .formQuestions3, .formQuestions4, .formConfirmSend {

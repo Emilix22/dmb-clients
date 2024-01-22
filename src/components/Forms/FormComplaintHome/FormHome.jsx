@@ -162,7 +162,7 @@ function FormHome() {
             icon: "⌛"
         })
         
-        fetch("https://dmb-back.online:3000/api/siniestros_hogar/crear", {
+        fetch("https://dmb-back.onrender.com/api/siniestros_hogar/crear", {
             method: "POST",
             body: formData
         })
