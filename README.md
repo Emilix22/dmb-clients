@@ -1,8 +1,17 @@
-# React + Vite
+# DMB Clients
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una aplicación web que permite a los usuarios informar y administrar los siniestros sufridos como clientes de una empresa de seguros. La aplicación utiliza la tecnología de React para crear una interfaz de usuario intuitiva y fácil de usar.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Ingresar la carga de datos y documentación de los clientes de la empresa.
+
+## Cómo usar
+
+- Visita la versión demo **https://dmb-clientes.onrender.com/**
+- Valídese como DNI: 11111111 / CUIT: 20111111118
+
+## Contacto
+
+Si tienes alguna pregunta o comentario sobre este proyecto, no dudes en contactarme a través de mi perfil de GitHub o en **www.emilixweb.com**.
+
