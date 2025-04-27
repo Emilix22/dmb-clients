@@ -8,6 +8,7 @@ import { Toaster, toast } from 'sonner'
 import {useNavigate} from 'react-router-dom'
 
 function FormConsortium() {
+    const BASE_URL = import.meta.env.VITE_REACT_BASE_URL
     const [page, setPage] = useState(0);
     const history = useNavigate() 
 
@@ -144,7 +145,7 @@ function FormConsortium() {
             icon: "⌛"
         })
         
-        fetch("https://dmb-back.onrender.com/api/siniestros_consorcio/crear", {
+        fetch(`${BASE_URL}/api/siniestros_consorcio/crear`, {
             method: "POST",
             body: formData
         })

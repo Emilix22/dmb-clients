@@ -19,6 +19,7 @@ function BodyDataTimeCompany({
   validClient,
   setValidClient,
 }) {
+  const BASE_URL = import.meta.env.VITE_REACT_BASE_URL;
   const validations = {
     cuit: () => {
       if (expressions.cuit.test(datosFormu.cuit)) {
@@ -60,7 +61,7 @@ function BodyDataTimeCompany({
   const [policysClient, setPolicysClient] = useState();
 
   useEffect(() => {
-    fetch("https://dmb-back.onrender.com/api/clientes/cuit", {
+    fetch(`${BASE_URL}/api/clientes/cuit`, {
         method: "POST",
         body: JSON.stringify({
           cuit: datosFormu.cuit,
@@ -79,7 +80,7 @@ function BodyDataTimeCompany({
   useEffect(() => {
     const loadPolicy = async () => {
       const response = await fetch(
-        "https://dmb-back.onrender.com/api/polizas/auto/porEmpresa",
+        `${BASE_URL}/api/polizas/auto/porEmpresa`,
         {
           method: "POST",
           body: JSON.stringify({

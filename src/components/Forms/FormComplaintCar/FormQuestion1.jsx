@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 
 function FormQuestion1({datosFormu, setDatosFormu, errors, setErrors, expressions}) {
 
+    const BASE_URL = import.meta.env.VITE_REACT_BASE_URL
+
     const [states, setStates] = useState([]);
     const [cities, setCities] = useState([]);
 

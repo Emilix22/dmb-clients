@@ -19,6 +19,7 @@ function BodyDateTime({
   validClient,
   setValidClient,
 }) {
+  const BASE_URL = import.meta.env.VITE_REACT_BASE_URL
   const validations = {
     dni: () => {
       if (expressions.dni.test(datosFormu.dni) && datosFormu.dni != "") {
@@ -64,7 +65,7 @@ function BodyDateTime({
   useEffect(() => {
     const loadClient = async () => {
       const response = await fetch(
-        "https://dmb-back.onrender.com/api/clientes/dni", 
+        `${BASE_URL}/api/clientes/dni`, 
         {
         method: "POST",
         body: JSON.stringify({
@@ -84,7 +85,7 @@ function BodyDateTime({
   useEffect(() => {
     const loadPolicy = async () => {
       const response = await fetch(
-        "https://dmb-back.onrender.com/api/polizas/auto/porCliente",
+        `${BASE_URL}/api/polizas/auto/porCliente`,
         {
           method: "POST",
           body: JSON.stringify({
